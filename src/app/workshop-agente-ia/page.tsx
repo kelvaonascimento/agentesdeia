@@ -19,8 +19,14 @@ export default function LP1MainPage() {
       <Header />
 
       {/* HERO - 2 Column Grid */}
-      <section className="bg-black pt-28 sm:pt-32 pb-16 sm:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/20 to-transparent" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left - Content */}
             <div>
@@ -70,7 +76,8 @@ export default function LP1MainPage() {
             {/* Right - Expert Image */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
-                <div className="w-[320px] h-[420px] sm:w-[380px] sm:h-[500px] rounded-2xl overflow-hidden border border-cb-orange/20">
+                <div className="absolute -inset-4 bg-cb-orange/10 rounded-3xl blur-2xl" />
+                <div className="relative w-[320px] h-[420px] sm:w-[380px] sm:h-[500px] rounded-2xl overflow-hidden border border-cb-orange/20 glow-orange-sm">
                   <Image
                     src="/images/expert/caio-1.png"
                     alt="Caio Vicentino"
@@ -115,8 +122,9 @@ export default function LP1MainPage() {
       </section>
 
       {/* Chega de teoria */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-radial-glow" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
@@ -168,8 +176,11 @@ export default function LP1MainPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 sm:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-hero-gradient" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
             Em 28 de Fevereiro, voce pode continuar como espectador ou{" "}
             <span className="text-gradient-orange">se tornar um builder.</span>

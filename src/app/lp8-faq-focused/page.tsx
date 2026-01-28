@@ -18,7 +18,7 @@ export default function LP8FAQFocused() {
       <StickyBar />
       <Header />
 
-      <section className="bg-black pt-28 sm:pt-32 pb-16 sm:pb-20">
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
             <HelpCircle className="w-4 h-4 text-cb-orange" />

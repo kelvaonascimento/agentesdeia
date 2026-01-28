@@ -9,15 +9,16 @@ interface CountdownTimerProps {
 
 export default function CountdownTimer({ targetDate, variant = "default" }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    setMounted(true);
+    const calculate = () => {
       const now = new Date().getTime();
       const target = new Date(targetDate).getTime();
       const diff = target - now;
 
       if (diff <= 0) {
-        clearInterval(timer);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         return;
       }
@@ -28,8 +29,10 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
-    }, 1000);
+    };
 
+    calculate();
+    const timer = setInterval(calculate, 1000);
     return () => clearInterval(timer);
   }, [targetDate]);
 
@@ -40,18 +43,23 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
     { value: timeLeft.seconds, label: "Seg" },
   ];
 
+  if (!mounted) {
+    return null;
+  }
+
   if (variant === "compact") {
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-center gap-2">
         {blocks.map((block, i) => (
           <div key={block.label} className="flex items-center gap-2">
-            <div className="bg-cb-surface-light border border-cb-border rounded-lg px-3 py-2 text-center min-w-[52px]">
-              <span className="text-xl font-bold text-cb-orange tabular-nums">
+            <div className="relative bg-black/80 border border-cb-orange/20 rounded-xl px-3 py-2 text-center min-w-[52px] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-cb-orange/5 to-transparent" />
+              <span className="relative text-xl font-black text-cb-orange tabular-nums">
                 {String(block.value).padStart(2, "0")}
               </span>
-              <p className="text-[10px] text-cb-text-muted uppercase tracking-wider">{block.label}</p>
+              <p className="relative text-[10px] text-cb-text-muted uppercase tracking-wider">{block.label}</p>
             </div>
-            {i < blocks.length - 1 && <span className="text-cb-orange font-bold text-lg">:</span>}
+            {i < blocks.length - 1 && <span className="text-cb-orange/40 font-bold text-lg">:</span>}
           </div>
         ))}
       </div>
@@ -60,42 +68,62 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
 
   if (variant === "inline") {
     return (
-      <span className="inline-flex items-center gap-1 font-mono font-bold text-cb-orange">
-        {String(timeLeft.days).padStart(2, "0")}d {String(timeLeft.hours).padStart(2, "0")}h{" "}
-        {String(timeLeft.minutes).padStart(2, "0")}m {String(timeLeft.seconds).padStart(2, "0")}s
+      <span className="inline-flex items-center gap-1.5 font-mono font-bold text-cb-orange text-sm">
+        <span className="bg-cb-orange/10 rounded px-1.5 py-0.5">{String(timeLeft.days).padStart(2, "0")}d</span>
+        <span className="bg-cb-orange/10 rounded px-1.5 py-0.5">{String(timeLeft.hours).padStart(2, "0")}h</span>
+        <span className="bg-cb-orange/10 rounded px-1.5 py-0.5">{String(timeLeft.minutes).padStart(2, "0")}m</span>
+        <span className="bg-cb-orange/10 rounded px-1.5 py-0.5 animate-pulse">{String(timeLeft.seconds).padStart(2, "0")}s</span>
       </span>
     );
   }
 
   if (variant === "large") {
     return (
-      <div className="flex items-center justify-center gap-3 sm:gap-4">
+      <div className="flex items-center justify-center gap-3 sm:gap-5">
         {blocks.map((block, i) => (
-          <div key={block.label} className="flex items-center gap-3 sm:gap-4">
-            <div className="border-glow-orange rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-center min-w-[70px] sm:min-w-[90px] animate-count-pulse" style={{ animationDelay: `${i * 0.2}s` }}>
-              <span className="text-3xl sm:text-5xl font-black text-cb-orange tabular-nums">
-                {String(block.value).padStart(2, "0")}
-              </span>
-              <p className="text-xs sm:text-sm text-cb-text-muted uppercase tracking-widest mt-1">{block.label}</p>
+          <div key={block.label} className="flex items-center gap-3 sm:gap-5">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-cb-orange/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-gradient-to-b from-cb-surface-lighter to-cb-surface border border-cb-orange/30 rounded-2xl px-5 sm:px-8 py-5 sm:py-6 text-center min-w-[80px] sm:min-w-[100px] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-cb-orange/10 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/50 to-transparent" />
+                <span className="relative text-4xl sm:text-5xl font-black text-white tabular-nums">
+                  {String(block.value).padStart(2, "0")}
+                </span>
+                <p className="relative text-xs sm:text-sm text-cb-orange uppercase tracking-widest mt-2 font-semibold">{block.label}</p>
+              </div>
             </div>
-            {i < blocks.length - 1 && <span className="text-cb-orange font-bold text-2xl sm:text-3xl">:</span>}
+            {i < blocks.length - 1 && (
+              <div className="flex flex-col gap-1.5">
+                <div className="w-1.5 h-1.5 bg-cb-orange rounded-full animate-pulse" />
+                <div className="w-1.5 h-1.5 bg-cb-orange rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
+              </div>
+            )}
           </div>
         ))}
       </div>
     );
   }
 
+  // Default
   return (
     <div className="flex items-center justify-center gap-2 sm:gap-3">
       {blocks.map((block, i) => (
         <div key={block.label} className="flex items-center gap-2 sm:gap-3">
-          <div className="bg-cb-surface border border-cb-border rounded-xl px-3 sm:px-5 py-3 sm:py-4 text-center min-w-[60px] sm:min-w-[80px]">
-            <span className="text-2xl sm:text-4xl font-bold text-cb-orange tabular-nums">
+          <div className="relative bg-gradient-to-b from-cb-surface-lighter to-cb-surface border border-cb-orange/20 rounded-xl px-3 sm:px-5 py-3 sm:py-4 text-center min-w-[60px] sm:min-w-[80px] overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-cb-orange/5 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/40 to-transparent" />
+            <span className="relative text-2xl sm:text-4xl font-black text-white tabular-nums">
               {String(block.value).padStart(2, "0")}
             </span>
-            <p className="text-[10px] sm:text-xs text-cb-text-muted uppercase tracking-wider mt-1">{block.label}</p>
+            <p className="relative text-[10px] sm:text-xs text-cb-orange uppercase tracking-wider mt-1 font-semibold">{block.label}</p>
           </div>
-          {i < blocks.length - 1 && <span className="text-cb-orange font-bold text-xl sm:text-2xl">:</span>}
+          {i < blocks.length - 1 && (
+            <div className="flex flex-col gap-1">
+              <div className="w-1 h-1 bg-cb-orange/60 rounded-full" />
+              <div className="w-1 h-1 bg-cb-orange/60 rounded-full" />
+            </div>
+          )}
         </div>
       ))}
     </div>

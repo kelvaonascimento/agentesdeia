@@ -19,8 +19,8 @@ export default function LP2Urgencia() {
       <Header />
 
       {/* HERO - Countdown Centered */}
-      <section className="bg-black pt-28 sm:pt-32 pb-16 sm:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
             <Flame className="w-4 h-4 text-red-500" />
             <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscricoes Encerrando</span>
@@ -138,7 +138,7 @@ export default function LP2Urgencia() {
       </section>
 
       <section className="py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <Flame className="w-12 h-12 text-cb-orange mx-auto mb-6" />
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
             O relogio nao para.

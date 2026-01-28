@@ -33,6 +33,9 @@ export default function LeadCaptureForm({
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const btnClass =
+    "w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold px-6 py-4 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap btn-glow text-sm sm:text-base";
+
   if (variant === "inline") {
     return (
       <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-2 ${className}`}>
@@ -43,13 +46,9 @@ export default function LeadCaptureForm({
           placeholder="Seu melhor e-mail"
           value={formData.email}
           onChange={handleChange}
-          className="flex-1 bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange transition-colors"
+          className="flex-1 bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
         />
-        <button
-          type="submit"
-          disabled={loading}
-          className="inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold px-6 py-3 rounded-xl hover:brightness-110 transition-all animate-glow-pulse disabled:opacity-70 whitespace-nowrap"
-        >
+        <button type="submit" disabled={loading} className={btnClass}>
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
           {buttonText}
         </button>
@@ -68,7 +67,7 @@ export default function LeadCaptureForm({
             placeholder="Seu nome"
             value={formData.name}
             onChange={handleChange}
-            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange transition-colors"
+            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
           />
           <input
             type="email"
@@ -77,7 +76,7 @@ export default function LeadCaptureForm({
             placeholder="Seu melhor e-mail"
             value={formData.email}
             onChange={handleChange}
-            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange transition-colors"
+            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
           />
         </div>
         <input
@@ -87,13 +86,9 @@ export default function LeadCaptureForm({
           placeholder="Seu WhatsApp (com DDD)"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange transition-colors"
+          className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
         />
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold text-base px-8 py-4 rounded-xl hover:brightness-110 transition-all animate-glow-pulse disabled:opacity-70"
-        >
+        <button type="submit" disabled={loading} className={btnClass}>
           {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
           {buttonText}
         </button>
@@ -103,44 +98,34 @@ export default function LeadCaptureForm({
 
   return (
     <form onSubmit={handleSubmit} className={`max-w-md mx-auto space-y-4 ${className}`}>
-      <div>
-        <input
-          type="text"
-          name="name"
-          required
-          placeholder="Seu nome completo"
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange transition-colors"
-        />
-      </div>
-      <div>
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="Seu melhor e-mail"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange transition-colors"
-        />
-      </div>
-      <div>
-        <input
-          type="tel"
-          name="phone"
-          required
-          placeholder="Seu WhatsApp (com DDD)"
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange transition-colors"
-        />
-      </div>
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold text-lg px-10 py-5 rounded-xl hover:brightness-110 transition-all animate-glow-pulse disabled:opacity-70"
-      >
+      <input
+        type="text"
+        name="name"
+        required
+        placeholder="Seu nome completo"
+        value={formData.name}
+        onChange={handleChange}
+        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+      />
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="Seu melhor e-mail"
+        value={formData.email}
+        onChange={handleChange}
+        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+      />
+      <input
+        type="tel"
+        name="phone"
+        required
+        placeholder="Seu WhatsApp (com DDD)"
+        value={formData.phone}
+        onChange={handleChange}
+        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+      />
+      <button type="submit" disabled={loading} className={`${btnClass} !py-5 !text-base sm:!text-lg`}>
         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
         {buttonText}
       </button>

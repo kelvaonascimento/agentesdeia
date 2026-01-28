@@ -34,7 +34,7 @@ export default function LP9Countdown() {
       </div>
 
       {/* HERO */}
-      <section className="bg-black pt-28 sm:pt-32 pb-16 sm:pb-20">
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" /><div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/20 to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
             <Timer className="w-4 h-4 text-red-400" />

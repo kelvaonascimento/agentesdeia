@@ -16,7 +16,7 @@ export default function LP5Minimalista() {
       <Header />
 
       {/* HERO - Ultra Clean */}
-      <section className="pt-32 sm:pt-40 pb-20 sm:pb-28">
+      <section className="pt-32 sm:pt-40 pb-20 sm:pb-28 relative overflow-hidden bg-hero-gradient"><div className="absolute inset-0 bg-grid-pattern opacity-30" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-cb-orange text-sm font-semibold uppercase tracking-widest">
             Workshop Ao Vivo &mdash; 28 de Fevereiro

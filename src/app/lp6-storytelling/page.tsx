@@ -19,7 +19,7 @@ export default function LP6Storytelling() {
       <Header />
 
       {/* HERO - Story Opening */}
-      <section className="bg-black pt-28 sm:pt-32 pb-16 sm:pb-20">
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>

@@ -23,7 +23,7 @@ export default function LP10MobileCTA() {
       </div>
 
       {/* HERO - 2 Column */}
-      <section className="bg-black pt-24 sm:pt-32 pb-12 sm:pb-20">
+      <section className="bg-hero-gradient relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>

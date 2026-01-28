@@ -19,7 +19,7 @@ export default function LP7VideoFirst() {
       <Header />
 
       {/* HERO - Video Prominent */}
-      <section className="bg-black pt-28 sm:pt-32 pb-16 sm:pb-20">
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative aspect-video bg-cb-surface border-2 border-cb-orange/20 rounded-2xl overflow-hidden mb-10 group cursor-pointer hover:border-cb-orange/40 transition-all">
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10">
