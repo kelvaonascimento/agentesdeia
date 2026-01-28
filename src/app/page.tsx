@@ -1,65 +1,131 @@
-import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
+const pages = [
+  {
+    path: "/workshop-agente-ia",
+    title: "LP1 - Pagina Principal Completa",
+    desc: "Landing page completa com todas as secoes do documento: Hero, Fim da Teoria, Para Quem, Passo a Passo, Expert, Bonus, FAQ e CTA Final.",
+    tag: "Principal",
+  },
+  {
+    path: "/lp2-urgencia",
+    title: "LP2 - Urgencia / Ultima Chance",
+    desc: "Foco total em escassez e urgencia. Countdown proeminente, barra de vagas preenchidas, alerta de ultima chamada.",
+    tag: "Urgencia",
+  },
+  {
+    path: "/lp3-expert",
+    title: "LP3 - Foco no Expert",
+    desc: "Centrada no Caio Vicentino. Hero com foto grande, credenciais, citacao, bio detalhada. Autoridade como principal gatilho.",
+    tag: "Expert",
+  },
+  {
+    path: "/lp4-prova-social",
+    title: "LP4 - Prova Social",
+    desc: "6 depoimentos em grid, caso de estudo detalhado, numeros de resultado, social proof bar no hero.",
+    tag: "Social Proof",
+  },
+  {
+    path: "/lp5-minimalista",
+    title: "LP5 - Minimalista",
+    desc: "Design ultra clean e direto. Poucos elementos, muito espaco em branco (escuro). Foco na clareza da mensagem.",
+    tag: "Minimal",
+  },
+  {
+    path: "/lp6-storytelling",
+    title: "LP6 - Storytelling",
+    desc: "Comeca com uma historia real de aluno. Jornada do espectador ao builder. Antes/Depois visual. Narrativa emocional.",
+    tag: "Story",
+  },
+  {
+    path: "/lp7-video-first",
+    title: "LP7 - Video First",
+    desc: "Video placeholder proeminente no hero. Demonstracoes visuais do que sera construido. Layout orientado a midia.",
+    tag: "Video",
+  },
+  {
+    path: "/lp8-faq-focused",
+    title: "LP8 - FAQ Completo",
+    desc: "Quebra de objecoes como estrategia principal. Mitos vs Realidade. FAQ organizado por categorias. Ideal para retargeting.",
+    tag: "FAQ",
+  },
+  {
+    path: "/lp9-countdown",
+    title: "LP9 - Countdown Sticky",
+    desc: "Barra fixa de countdown no rodape. Timeline de fechamento. Progress bar de vagas. Urgencia visual em cada secao.",
+    tag: "Countdown",
+  },
+  {
+    path: "/lp10-mobile-cta",
+    title: "LP10 - Mobile CTA Sticky",
+    desc: "Otimizada para mobile com CTA fixo no rodape. Cards compactos, chips informativos, layout vertical otimizado.",
+    tag: "Mobile",
+  },
+  {
+    path: "/obrigado",
+    title: "Pagina de Obrigado",
+    desc: "Confirmacao de inscricao + botao para entrar no grupo VIP do WhatsApp + instrucoes de preparacao para o workshop.",
+    tag: "Obrigado",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-background">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-10 h-10 bg-gradient-orange rounded-xl flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L20 7V17L12 22L4 17V7L12 2Z" fill="white" />
+                <path d="M12 8L16 10.5V15.5L12 18L8 15.5V10.5L12 8Z" fill="#E8590C" />
+              </svg>
+            </div>
+            <span className="text-2xl font-black tracking-tight">
+              CULTURA <span className="text-cb-orange">BUILDER</span>
+            </span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
+            Landing Pages do <span className="text-gradient-orange">Workshop</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-cb-text-muted text-lg max-w-2xl mx-auto">
+            10 landing pages diferentes + pagina de obrigado para o Workshop de Agentes de IA.
+            Cada uma com abordagem, layout e estrategia de conversao unicos.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid gap-4">
+          {pages.map((page, i) => (
+            <a
+              key={i}
+              href={page.path}
+              className="group bg-cb-surface border border-cb-border rounded-2xl p-6 hover:border-cb-orange/40 transition-all hover:translate-x-1"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="bg-cb-orange/10 text-cb-orange text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-cb-orange/20">
+                      {page.tag}
+                    </span>
+                    <span className="text-cb-text-muted text-xs font-mono">{page.path}</span>
+                  </div>
+                  <h2 className="text-lg font-bold text-white group-hover:text-cb-orange transition-colors">
+                    {page.title}
+                  </h2>
+                  <p className="text-cb-text-muted text-sm mt-1 leading-relaxed">{page.desc}</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-cb-border group-hover:text-cb-orange transition-colors shrink-0 mt-2" />
+              </div>
+            </a>
+          ))}
         </div>
-      </main>
-    </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-cb-text-muted text-sm">
+            Cultura Builder &copy; {new Date().getFullYear()} | Hub de Inteligencia Artificial
+          </p>
+        </div>
+      </div>
+    </main>
   );
 }
