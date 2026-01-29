@@ -18,7 +18,7 @@ export default function LP3Expert() {
       <Header />
 
       {/* HERO - Expert Focused 2-Column */}
-      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 right-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 left-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="flex justify-center order-2 lg:order-1">
@@ -40,26 +40,26 @@ export default function LP3Expert() {
                 <span className="text-cb-orange text-sm font-medium">Workshop Exclusivo</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl font-black text-white leading-[1.08] mb-4">
+              <h1 className="text-3xl sm:text-5xl font-black text-white leading-[1.08] mb-4">
                 Aprenda com quem{" "}
                 <span className="text-gradient-orange">constrói todos os dias</span>
               </h1>
 
-              <p className="text-lg text-cb-text-secondary mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-cb-text-secondary mb-6 leading-relaxed">
                 Caio Vicentino, co-fundador do Cultura Builder e criador da Yield Hackers, vai te guiar na construção do seu primeiro agente de IA em 90 minutos.
               </p>
 
-              <div className="grid grid-cols-3 gap-3 mb-8">
-                <div className="bg-cb-surface border border-cb-border rounded-xl p-4 text-center">
-                  <p className="text-2xl font-black text-cb-orange">6.793+</p>
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
+                <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
+                  <p className="text-lg sm:text-2xl font-black text-cb-orange">6.793+</p>
                   <p className="text-xs text-cb-text-muted mt-1">Alunos</p>
                 </div>
-                <div className="bg-cb-surface border border-cb-border rounded-xl p-4 text-center">
-                  <p className="text-2xl font-black text-cb-orange">100+</p>
+                <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
+                  <p className="text-lg sm:text-2xl font-black text-cb-orange">100+</p>
                   <p className="text-xs text-cb-text-muted mt-1">Agentes</p>
                 </div>
-                <div className="bg-cb-surface border border-cb-border rounded-xl p-4 text-center">
-                  <p className="text-2xl font-black text-cb-orange">50+</p>
+                <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
+                  <p className="text-lg sm:text-2xl font-black text-cb-orange">50+</p>
                   <p className="text-xs text-cb-text-muted mt-1">Empresas</p>
                 </div>
               </div>

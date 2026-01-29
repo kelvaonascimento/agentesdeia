@@ -23,7 +23,7 @@ export default function LP10MobileCTA() {
       </div>
 
       {/* HERO - 2 Column */}
-      <section className="bg-hero-gradient relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-12 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
@@ -95,15 +95,15 @@ export default function LP10MobileCTA() {
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <p className="text-xl sm:text-2xl font-black text-cb-orange">90min</p>
-              <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">Ao vivo</p>
+              <p className="text-cb-text-muted text-xs mt-0.5">Ao vivo</p>
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-black text-cb-orange">0 código</p>
-              <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">No-code</p>
+              <p className="text-cb-text-muted text-xs mt-0.5">No-code</p>
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-black text-cb-orange">R$167</p>
-              <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">Único</p>
+              <p className="text-cb-text-muted text-xs mt-0.5">Único</p>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function LP10MobileCTA() {
 
       <PartnersSection variant="compact" />      <section className="py-10 sm:py-16 bg-cb-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center gap-6 bg-cb-surface-light border border-cb-border rounded-2xl p-6">
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-cb-surface-light border border-cb-border rounded-2xl p-4 sm:p-6">
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-cb-orange/20 shrink-0 relative">
               <Image src="/images/expert/caio-5.png" alt="Caio Vicentino" fill className="object-cover" />
             </div>
@@ -161,7 +161,7 @@ export default function LP10MobileCTA() {
             <div className="bg-gradient-orange p-4 text-center">
               <p className="text-white font-bold text-lg">Workshop Agente de IA</p>
             </div>
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <div className="text-center mb-6">
                 <span className="text-cb-text-muted line-through text-sm">R$ 297</span>
                 <div className="text-4xl font-black text-white mt-1">R$ 167</div>

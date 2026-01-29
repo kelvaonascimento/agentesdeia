@@ -54,7 +54,7 @@ export default function StepsSection({ variant = "default" }: StepsSectionProps)
               const Icon = step.icon;
               return (
                 <div key={i} className="relative group">
-                  <div className="bg-cb-surface border border-cb-border rounded-2xl p-6 h-full hover:border-cb-orange/40 transition-all duration-300 hover:translate-y-[-4px]">
+                  <div className="bg-cb-surface border border-cb-border rounded-2xl p-4 sm:p-6 h-full hover:border-cb-orange/40 transition-all duration-300 hover:translate-y-[-4px]">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 bg-cb-orange/10 rounded-xl flex items-center justify-center group-hover:bg-cb-orange/20 transition-colors">
                         <Icon className="w-6 h-6 text-cb-orange" />
@@ -63,7 +63,7 @@ export default function StepsSection({ variant = "default" }: StepsSectionProps)
                         {step.number}
                       </span>
                     </div>
-                    <span className="text-[10px] text-cb-orange uppercase tracking-widest font-semibold">{step.time}</span>
+                    <span className="text-[10px] sm:text-xs text-cb-orange uppercase tracking-widest font-semibold">{step.time}</span>
                     <h3 className="text-xl font-bold text-white mt-1 mb-3">{step.title}</h3>
                     <p className="text-cb-text-muted text-sm leading-relaxed">{step.description}</p>
                   </div>
@@ -89,16 +89,16 @@ export default function StepsSection({ variant = "default" }: StepsSectionProps)
             </h2>
           </div>
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-cb-orange via-cb-orange/30 to-transparent" />
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-cb-orange via-cb-orange/30 to-transparent" />
             <div className="space-y-8">
               {steps.map((step, i) => {
                 const Icon = step.icon;
                 return (
-                  <div key={i} className="flex gap-6 relative">
-                    <div className="relative z-10 w-16 h-16 bg-cb-surface border-2 border-cb-orange rounded-2xl flex items-center justify-center shrink-0">
-                      <Icon className="w-7 h-7 text-cb-orange" />
+                  <div key={i} className="flex gap-3 sm:gap-6 relative">
+                    <div className="relative z-10 w-10 h-10 sm:w-16 sm:h-16 bg-cb-surface border-2 border-cb-orange rounded-2xl flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-cb-orange" />
                     </div>
-                    <div className="bg-cb-surface border border-cb-border rounded-2xl p-6 flex-1">
+                    <div className="bg-cb-surface border border-cb-border rounded-2xl p-4 sm:p-6 flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <span className="text-cb-orange text-xs font-semibold uppercase tracking-wider">{step.time}</span>
                         <span className="text-3xl font-black text-cb-surface-lighter">{step.number}</span>
@@ -128,14 +128,14 @@ export default function StepsSection({ variant = "default" }: StepsSectionProps)
           </h2>
           <p className="text-xl text-cb-text-muted mt-2">Do Zero ao Agente Funcional</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
-              <div key={i} className="bg-cb-surface border border-cb-border rounded-2xl p-8 hover:border-cb-orange/30 transition-all group">
+              <div key={i} className="bg-cb-surface border border-cb-border rounded-2xl p-5 sm:p-8 hover:border-cb-orange/30 transition-all group">
                 <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-gradient-orange rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-orange rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div>
                     <span className="text-cb-orange text-xs font-semibold uppercase tracking-wider">{step.time}</span>

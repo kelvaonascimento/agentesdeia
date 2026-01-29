@@ -49,7 +49,7 @@ export default function FAQ({ variant = "default" }: FAQProps) {
         {faqData.map((item, index) => (
           <div
             key={index}
-            className="bg-cb-surface border border-cb-border rounded-xl p-6 hover:border-cb-orange/30 transition-all cursor-pointer"
+            className="bg-cb-surface border border-cb-border rounded-xl p-4 sm:p-6 hover:border-cb-orange/30 transition-all cursor-pointer"
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
           >
             <div className="flex items-start justify-between gap-3">
@@ -80,7 +80,7 @@ export default function FAQ({ variant = "default" }: FAQProps) {
         >
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="w-full flex items-center justify-between p-5 text-left hover:bg-cb-surface-light/50 transition-colors"
+            className="w-full flex items-center justify-between p-4 sm:p-5 text-left hover:bg-cb-surface-light/50 transition-colors"
           >
             <span className="font-semibold text-white pr-4">{item.question}</span>
             <ChevronDown
@@ -90,7 +90,7 @@ export default function FAQ({ variant = "default" }: FAQProps) {
             />
           </button>
           <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-60" : "max-h-0"}`}>
-            <p className="px-5 pb-5 text-cb-text-muted leading-relaxed">{item.answer}</p>
+            <p className="px-4 pb-4 sm:px-5 sm:pb-5 text-cb-text-muted leading-relaxed">{item.answer}</p>
           </div>
         </div>
       ))}

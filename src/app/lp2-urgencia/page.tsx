@@ -19,7 +19,7 @@ export default function LP2Urgencia() {
       <Header />
 
       {/* HERO - Countdown Centered */}
-      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
             <Flame className="w-4 h-4 text-red-500" />
@@ -30,12 +30,12 @@ export default function LP2Urgencia() {
             <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
             Última Chance de Criar seu{" "}
             <span className="text-gradient-orange">Agente de IA</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-cb-text-secondary mb-8 max-w-2xl mx-auto">
             Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
           </p>
 

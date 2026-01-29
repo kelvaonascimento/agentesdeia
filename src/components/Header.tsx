@@ -29,7 +29,7 @@ export default function Header() {
         />
         <a
           href="#inscricao"
-          className="hidden sm:inline-flex items-center gap-2 bg-gradient-orange text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:brightness-110 transition-all"
+          className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-orange text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm hover:brightness-110 transition-all"
         >
           Garantir Vaga
         </a>

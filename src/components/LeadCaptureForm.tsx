@@ -34,7 +34,7 @@ export default function LeadCaptureForm({
   };
 
   const btnClass =
-    "w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold px-6 py-4 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap btn-glow text-sm sm:text-base";
+    "w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold px-5 py-4 sm:px-6 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap btn-glow text-sm sm:text-base min-h-[44px]";
 
   if (variant === "inline") {
     return (
@@ -46,7 +46,7 @@ export default function LeadCaptureForm({
           placeholder="Seu melhor e-mail"
           value={formData.email}
           onChange={handleChange}
-          className="flex-1 bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+          className="flex-1 bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
         />
         <button type="submit" disabled={loading} className={btnClass}>
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
@@ -58,8 +58,8 @@ export default function LeadCaptureForm({
 
   if (variant === "compact") {
     return (
-      <form onSubmit={handleSubmit} className={`space-y-3 ${className}`}>
-        <div className="grid sm:grid-cols-2 gap-3">
+      <form onSubmit={handleSubmit} className={`space-y-4 sm:space-y-3 ${className}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input
             type="text"
             name="name"
@@ -67,7 +67,7 @@ export default function LeadCaptureForm({
             placeholder="Seu nome"
             value={formData.name}
             onChange={handleChange}
-            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
           />
           <input
             type="email"
@@ -76,7 +76,7 @@ export default function LeadCaptureForm({
             placeholder="Seu melhor e-mail"
             value={formData.email}
             onChange={handleChange}
-            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+            className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
           />
         </div>
         <input
@@ -86,7 +86,7 @@ export default function LeadCaptureForm({
           placeholder="Seu WhatsApp (com DDD)"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+          className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
         />
         <button type="submit" disabled={loading} className={btnClass}>
           {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
@@ -105,7 +105,7 @@ export default function LeadCaptureForm({
         placeholder="Seu nome completo"
         value={formData.name}
         onChange={handleChange}
-        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
       />
       <input
         type="email"
@@ -114,7 +114,7 @@ export default function LeadCaptureForm({
         placeholder="Seu melhor e-mail"
         value={formData.email}
         onChange={handleChange}
-        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
       />
       <input
         type="tel"
@@ -123,7 +123,7 @@ export default function LeadCaptureForm({
         placeholder="Seu WhatsApp (com DDD)"
         value={formData.phone}
         onChange={handleChange}
-        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
+        className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
       />
       <button type="submit" disabled={loading} className={`${btnClass} !py-5 !text-base sm:!text-lg`}>
         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}

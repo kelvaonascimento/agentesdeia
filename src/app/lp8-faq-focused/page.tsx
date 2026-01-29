@@ -18,18 +18,18 @@ export default function LP8FAQFocused() {
       <StickyBar />
       <Header />
 
-      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/3 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
             <HelpCircle className="w-4 h-4 text-cb-orange" />
             <span className="text-cb-orange text-sm font-medium">Vamos quebrar alguns mitos</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
             Tudo que você <span className="text-gradient-orange">acha que sabe</span> sobre IA está errado
           </h1>
 
-          <p className="text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
             Você não precisa de código. Não precisa de semanas. Não precisa ser um expert em tecnologia. Crie seu primeiro agente de IA em 90 minutos.
           </p>
 
@@ -63,7 +63,7 @@ export default function LP8FAQFocused() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-12">Mitos vs <span className="text-gradient-orange">Realidade</span></h2>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-cb-surface border border-cb-border rounded-2xl p-8">
+            <div className="bg-cb-surface border border-cb-border rounded-2xl p-5 sm:p-8">
               <h3 className="text-xl font-bold text-white mb-6">O que você acha:</h3>
               <div className="h-px bg-cb-border mb-6" />
               <div className="space-y-4">
@@ -82,7 +82,7 @@ export default function LP8FAQFocused() {
                 ))}
               </div>
             </div>
-            <div className="bg-cb-surface border border-green-500/20 rounded-2xl p-8">
+            <div className="bg-cb-surface border border-green-500/20 rounded-2xl p-5 sm:p-8">
               <h3 className="text-xl font-bold text-white mb-6">A verdade:</h3>
               <div className="h-px bg-green-500/20 mb-6" />
               <div className="space-y-4">
@@ -127,7 +127,7 @@ export default function LP8FAQFocused() {
             <div className="bg-gradient-orange p-4 text-center">
               <p className="text-white font-bold text-lg">Workshop Agente de IA</p>
             </div>
-            <div className="p-8 text-center">
+            <div className="p-5 sm:p-8 text-center">
               <span className="text-cb-text-muted line-through text-sm">R$ 297</span>
               <div className="text-5xl font-black text-white mt-2">R$ 167</div>
               <p className="text-cb-text-muted text-sm mt-2">Pagamento único</p>
@@ -152,7 +152,7 @@ export default function LP8FAQFocused() {
       <section className="py-16 sm:py-24 bg-cb-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">Sem mais desculpas.{" "}<span className="text-gradient-orange">Sem mais mitos.</span></h2>
-          <p className="text-cb-text-muted text-lg mb-8">28 de Fevereiro. 14h. Online. Sem código. R$167.</p>
+          <p className="text-cb-text-muted text-base sm:text-lg mb-8">28 de Fevereiro. 14h. Online. Sem código. R$167.</p>
           <div className="mb-8"><CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="compact" /></div>
           <LeadCaptureForm variant="compact" buttonText="QUERO COMECAR AGORA" />
         </div>

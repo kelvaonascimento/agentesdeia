@@ -19,7 +19,7 @@ export default function LP6Storytelling() {
       <Header />
 
       {/* HERO - Story Opening */}
-      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
@@ -28,7 +28,7 @@ export default function LP6Storytelling() {
                 &ldquo;Eu passava 3 horas por dia respondendo as mesmas perguntas. Até que criei um agente de IA em{" "}
                 <span className="text-gradient-orange">90 minutos.</span>&rdquo;
               </h1>
-              <p className="text-lg text-cb-text-muted mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-cb-text-muted mb-6 leading-relaxed">
                 Essa é a história do Rafael. Empreendedor, sobrecarregado, e cansado de ouvir que IA era &ldquo;so para quem sabe programar.&rdquo; Ele estava errado. E você também pode estar.
               </p>
               <p className="text-cb-text-secondary mb-8 leading-relaxed">
@@ -73,7 +73,7 @@ export default function LP6Storytelling() {
           <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-4">A Jornada: <span className="text-gradient-orange">De Espectador a Builder</span></h2>
           <p className="text-cb-text-muted text-center mb-12 max-w-2xl mx-auto">Você já consumiu horas de conteúdo sobre IA. Chegou a hora de parar de assistir e começar a construir.</p>
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-cb-surface border border-cb-border rounded-2xl p-8">
+            <div className="bg-cb-surface border border-cb-border rounded-2xl p-5 sm:p-8">
               <h3 className="text-red-400 font-bold text-lg mb-6 flex items-center gap-2"><X className="w-5 h-5" />O Espectador</h3>
               <ul className="space-y-4">
                 {["Consome conteúdo mas nunca aplica", "Acha que IA é só para programadores", "Perde horas em tarefas repetitivas", "Sente que está ficando para trás", "Tem medo de dar o primeiro passo"].map((item, i) => (
@@ -81,7 +81,7 @@ export default function LP6Storytelling() {
                 ))}
               </ul>
             </div>
-            <div className="bg-cb-surface border border-green-500/20 rounded-2xl p-8">
+            <div className="bg-cb-surface border border-green-500/20 rounded-2xl p-5 sm:p-8">
               <h3 className="text-green-400 font-bold text-lg mb-6 flex items-center gap-2"><CheckCircle className="w-5 h-5" />O Builder</h3>
               <ul className="space-y-4">
                 {["Cria agentes de IA funcionais", "Não precisa de uma linha de código", "Automatiza tarefas e ganha tempo", "Esta na vanguarda da tecnologia", "Tem um template para criar mais agentes"].map((item, i) => (
@@ -147,7 +147,7 @@ export default function LP6Storytelling() {
       <section className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">Toda grande história começa com{" "}<span className="text-gradient-orange">um primeiro passo.</span></h2>
-          <p className="text-cb-text-muted text-lg mb-8 max-w-2xl mx-auto">O seu começa dia 28 de Fevereiro. 14h. Online e ao vivo.</p>
+          <p className="text-cb-text-muted text-base sm:text-lg mb-8 max-w-2xl mx-auto">O seu começa dia 28 de Fevereiro. 14h. Online e ao vivo.</p>
           <div className="mb-8"><CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="compact" /></div>
           <LeadCaptureForm variant="compact" buttonText="COMECAR MINHA HISTORIA - R$167" />
         </div>

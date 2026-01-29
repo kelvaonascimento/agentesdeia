@@ -20,7 +20,7 @@ export default function StickyBar() {
       }`}
     >
       <div className="bg-black/90 backdrop-blur-xl border-b border-cb-orange/20">
-        <div className="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-3 py-2 sm:px-4 sm:py-2.5 flex items-center justify-between gap-4">
           <div className="hidden sm:flex items-center gap-3">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cb-orange opacity-75" />
@@ -35,7 +35,7 @@ export default function StickyBar() {
           </div>
           <a
             href="#inscricao"
-            className="flex items-center gap-2 bg-gradient-orange text-white font-bold text-sm px-5 py-2 rounded-lg hover:brightness-110 transition-all whitespace-nowrap"
+            className="flex items-center gap-2 bg-gradient-orange text-white font-bold text-xs sm:text-sm px-4 py-2.5 sm:px-5 sm:py-2 min-h-[44px] rounded-lg hover:brightness-110 transition-all whitespace-nowrap"
           >
             Garantir Vaga - R$167
             <ArrowRight className="w-4 h-4" />

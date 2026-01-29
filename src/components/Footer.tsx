@@ -16,10 +16,10 @@ export default function Footer() {
             Cultura Builder &copy; {new Date().getFullYear()}. Todos os direitos reservados. Hub de Inteligência Artificial.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-cb-text-muted text-xs hover:text-cb-orange transition-colors">
+            <a href="#" className="text-cb-text-muted text-xs sm:text-sm hover:text-cb-orange transition-colors">
               Termos de Uso
             </a>
-            <a href="#" className="text-cb-text-muted text-xs hover:text-cb-orange transition-colors">
+            <a href="#" className="text-cb-text-muted text-xs sm:text-sm hover:text-cb-orange transition-colors">
               Privacidade
             </a>
           </div>

@@ -79,15 +79,15 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
 
   if (variant === "large") {
     return (
-      <div className="flex items-center justify-center gap-3 sm:gap-5">
+      <div className="flex items-center justify-center gap-2 sm:gap-5">
         {blocks.map((block, i) => (
-          <div key={block.label} className="flex items-center gap-3 sm:gap-5">
+          <div key={block.label} className="flex items-center gap-2 sm:gap-5">
             <div className="relative group">
               <div className="absolute -inset-1 bg-cb-orange/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity" />
-              <div className="relative bg-gradient-to-b from-cb-surface-lighter to-cb-surface border border-cb-orange/30 rounded-2xl px-5 sm:px-8 py-5 sm:py-6 text-center min-w-[80px] sm:min-w-[100px] overflow-hidden">
+              <div className="relative bg-gradient-to-b from-cb-surface-lighter to-cb-surface border border-cb-orange/30 rounded-2xl px-3 sm:px-8 py-3 sm:py-6 text-center min-w-[60px] sm:min-w-[100px] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-cb-orange/10 to-transparent" />
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/50 to-transparent" />
-                <span className="relative text-4xl sm:text-5xl font-black text-white tabular-nums">
+                <span className="relative text-3xl sm:text-5xl font-black text-white tabular-nums">
                   {String(block.value).padStart(2, "0")}
                 </span>
                 <p className="relative text-xs sm:text-sm text-cb-orange uppercase tracking-widest mt-2 font-semibold">{block.label}</p>
@@ -107,10 +107,10 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
 
   // Default
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-3">
+    <div className="flex items-center justify-center gap-1.5 sm:gap-3">
       {blocks.map((block, i) => (
-        <div key={block.label} className="flex items-center gap-2 sm:gap-3">
-          <div className="relative bg-gradient-to-b from-cb-surface-lighter to-cb-surface border border-cb-orange/20 rounded-xl px-3 sm:px-5 py-3 sm:py-4 text-center min-w-[60px] sm:min-w-[80px] overflow-hidden">
+        <div key={block.label} className="flex items-center gap-1.5 sm:gap-3">
+          <div className="relative bg-gradient-to-b from-cb-surface-lighter to-cb-surface border border-cb-orange/20 rounded-xl px-2.5 sm:px-5 py-2.5 sm:py-4 text-center min-w-[52px] sm:min-w-[80px] overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-cb-orange/5 to-transparent" />
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/40 to-transparent" />
             <span className="relative text-2xl sm:text-4xl font-black text-white tabular-nums">

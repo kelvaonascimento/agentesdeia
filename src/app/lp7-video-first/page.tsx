@@ -19,7 +19,7 @@ export default function LP7VideoFirst() {
       <Header />
 
       {/* HERO - Video Prominent */}
-      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-cb-orange/5 rounded-full blur-[150px]" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/2 -translate-x-1/2 w-[350px] h-[250px] sm:w-[700px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative aspect-video bg-cb-surface border-2 border-cb-orange/20 rounded-2xl overflow-hidden mb-10 group cursor-pointer hover:border-cb-orange/40 transition-all">
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10">
@@ -32,13 +32,13 @@ export default function LP7VideoFirst() {
           </div>
 
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
               Crie seu Primeiro{" "}
               <span className="text-gradient-orange">Agente de IA</span>
               {" "}em 90 Minutos
             </h1>
 
-            <p className="text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
               Workshop ao vivo, prático, sem código. Assista ao convite e garanta sua vaga.
             </p>
 
@@ -94,7 +94,7 @@ export default function LP7VideoFirst() {
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <div key={i} className="bg-cb-surface border border-cb-border rounded-2xl p-6 text-center hover:border-cb-orange/20 transition-all">
+                <div key={i} className="bg-cb-surface border border-cb-border rounded-2xl p-4 sm:p-6 text-center hover:border-cb-orange/20 transition-all">
                   <div className="w-14 h-14 bg-cb-orange/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-7 h-7 text-cb-orange" />
                   </div>
@@ -122,7 +122,7 @@ export default function LP7VideoFirst() {
       <section className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">Assista. Decida. <span className="text-gradient-orange">Construa.</span></h2>
-          <p className="text-cb-text-muted text-lg mb-8">28 de Fevereiro. 14h. Online e ao vivo.</p>
+          <p className="text-cb-text-muted text-base sm:text-lg mb-8">28 de Fevereiro. 14h. Online e ao vivo.</p>
           <div className="mb-8"><CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="compact" /></div>
           <LeadCaptureForm variant="compact" buttonText="GARANTIR MINHA VAGA - R$167" />
         </div>

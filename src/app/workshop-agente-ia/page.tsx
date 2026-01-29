@@ -22,8 +22,8 @@ export default function LP1MainPage() {
       <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
+        <div className="absolute top-0 left-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
+        <div className="absolute bottom-0 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/20 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -38,13 +38,13 @@ export default function LP1MainPage() {
                 <span className="text-cb-orange text-sm font-medium">Workshop Ao Vivo - Vagas Limitadas</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
                 Crie seu Primeiro{" "}
                 <span className="text-gradient-orange">Agente de IA</span>
                 {" "}em 90 Minutos
               </h1>
 
-              <p className="text-lg text-cb-text-secondary mb-3">
+              <p className="text-base sm:text-lg text-cb-text-secondary mb-3">
                 (Mesmo Sem Saber Escrever Uma Linha de Código)
               </p>
 
@@ -179,7 +179,7 @@ export default function LP1MainPage() {
       <section className="py-16 sm:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
             Em 28 de Fevereiro, você pode continuar como espectador ou{" "}

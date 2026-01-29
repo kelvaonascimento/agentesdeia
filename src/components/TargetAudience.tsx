@@ -41,9 +41,9 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
               return (
                 <div key={i} className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-cb-orange/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative bg-cb-surface-light border border-cb-border rounded-2xl p-8 h-full hover:border-cb-orange/30 transition-all">
-                    <div className="w-14 h-14 bg-gradient-orange rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Icon className="w-7 h-7 text-white" />
+                  <div className="relative bg-cb-surface-light border border-cb-border rounded-2xl p-5 sm:p-8 h-full hover:border-cb-orange/30 transition-all">
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-orange rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
                     <p className="text-cb-text-muted leading-relaxed">{item.description}</p>
@@ -68,7 +68,7 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
             {audiences.map((item, i) => {
               const Icon = item.icon;
               return (
-                <div key={i} className="flex items-start gap-5 p-6 bg-cb-surface/50 rounded-xl border border-cb-border hover:border-cb-orange/20 transition-all">
+                <div key={i} className="flex items-start gap-4 p-4 sm:gap-5 sm:p-6 bg-cb-surface/50 rounded-xl border border-cb-border hover:border-cb-orange/20 transition-all">
                   <div className="w-10 h-10 bg-cb-orange/10 rounded-xl flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-cb-orange" />
                   </div>
@@ -101,8 +101,8 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
             const Icon = item.icon;
             return (
               <div key={i} className="text-center group">
-                <div className="w-20 h-20 mx-auto bg-cb-surface border border-cb-border rounded-2xl flex items-center justify-center mb-6 group-hover:border-cb-orange/40 group-hover:bg-cb-orange/5 transition-all">
-                  <Icon className="w-10 h-10 text-cb-orange" />
+                <div className="w-14 h-14 sm:w-20 sm:h-20 mx-auto bg-cb-surface border border-cb-border rounded-2xl flex items-center justify-center mb-6 group-hover:border-cb-orange/40 group-hover:bg-cb-orange/5 transition-all">
+                  <Icon className="w-7 h-7 sm:w-10 sm:h-10 text-cb-orange" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
                 <p className="text-cb-text-muted leading-relaxed">{item.description}</p>

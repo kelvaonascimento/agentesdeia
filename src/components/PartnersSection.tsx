@@ -13,7 +13,7 @@ export default function PartnersSection({ variant = "default" }: PartnersSection
             Parceiros oficiais
           </p>
           <div className="flex items-center justify-center">
-            <Image src="/images/partners-nvidia-aws.png" alt="NVIDIA Inception Program e AWS" width={400} height={80} className="h-12 sm:h-14 w-auto object-contain" />
+            <Image src="/images/partners-nvidia-aws.png" alt="NVIDIA Inception Program e AWS" width={400} height={80} className="h-10 sm:h-14 w-auto object-contain" />
           </div>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function PartnersSection({ variant = "default" }: PartnersSection
 
         <div className="grid sm:grid-cols-2 gap-6">
           {/* AWS Card - Dark */}
-          <div className="bg-gradient-to-b from-cb-surface-light to-black border border-cb-border rounded-2xl p-8 flex flex-col items-center text-center hover:border-cb-orange/30 transition-all group">
+          <div className="bg-gradient-to-b from-cb-surface-light to-black border border-cb-border rounded-2xl p-5 sm:p-8 flex flex-col items-center text-center hover:border-cb-orange/30 transition-all group">
             <span className="inline-block text-cb-text-muted text-[10px] font-semibold uppercase tracking-[0.2em] border border-cb-border rounded-full px-3 py-1 mb-5">Cloud + IA</span>
             <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Infraestrutura sem custo</h3>
             <p className="text-cb-orange font-bold text-sm mb-6">+ R$ 25k em créditos AWS</p>
@@ -51,7 +51,7 @@ export default function PartnersSection({ variant = "default" }: PartnersSection
           </div>
 
           {/* NVIDIA Card - Green */}
-          <div className="bg-gradient-to-b from-[#76B900]/20 to-[#76B900]/5 border border-[#76B900]/30 rounded-2xl p-8 flex flex-col items-center text-center hover:border-[#76B900]/50 transition-all group">
+          <div className="bg-gradient-to-b from-[#76B900]/20 to-[#76B900]/5 border border-[#76B900]/30 rounded-2xl p-5 sm:p-8 flex flex-col items-center text-center hover:border-[#76B900]/50 transition-all group">
             <span className="inline-block text-white/70 text-[10px] font-semibold uppercase tracking-[0.2em] border border-white/20 rounded-full px-3 py-1 mb-5">Hardware + Services</span>
             <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Poder de processamento</h3>
             <p className="text-cb-orange font-bold text-sm mb-6">+ R$ 255k em recursos NVIDIA</p>

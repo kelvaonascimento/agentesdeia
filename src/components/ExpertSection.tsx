@@ -12,7 +12,7 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
     return (
       <section className="py-16 sm:py-24 bg-gradient-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 items-center">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-cb-orange/20 to-transparent rounded-3xl blur-2xl" />
               <div className="relative rounded-2xl overflow-hidden border border-cb-orange/20">
@@ -31,7 +31,7 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
               <p className="text-cb-text-secondary leading-relaxed mb-4">
                 O Cultura Builder é parceiro oficial da NVIDIA (Inception Program) e da AWS, conectando 6.793+ builders às maiores plataformas de tecnologia do mundo.
               </p>
-              <p className="text-cb-text-secondary leading-relaxed mb-8">
+              <p className="text-cb-text-secondary leading-relaxed mb-6 sm:mb-8">
                 Ele vai te guiar com a didática de quem já ensinou milhares de pessoas e a experiência prática de quem usa agentes de IA para escalar seus próprios negócios. Ele vai te mostrar os atalhos, os truques e, mais importante, provar que você também pode fazer isso.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -99,15 +99,15 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
             <p className="text-cb-text-secondary leading-relaxed text-lg mb-8">
               Ele vai te guiar com a didática de quem já ensinou milhares de pessoas e a experiência prática de quem usa agentes de IA para escalar seus próprios negócios.
             </p>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {[
                 { number: "6.793+", label: "Builders" },
                 { number: "100+", label: "Agentes criados" },
                 { number: "50+", label: "Empresas parceiras" },
               ].map((stat) => (
-                <div key={stat.label} className="text-center p-4 bg-cb-surface rounded-xl border border-cb-border">
-                  <p className="text-2xl font-black text-cb-orange">{stat.number}</p>
-                  <p className="text-xs text-cb-text-muted mt-1">{stat.label}</p>
+                <div key={stat.label} className="text-center p-2.5 sm:p-4 bg-cb-surface rounded-xl border border-cb-border">
+                  <p className="text-lg sm:text-2xl font-black text-cb-orange">{stat.number}</p>
+                  <p className="text-[10px] sm:text-xs text-cb-text-muted mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>

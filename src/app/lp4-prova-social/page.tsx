@@ -18,19 +18,19 @@ export default function LP4ProvaSocial() {
       <StickyBar />
       <Header />
 
-      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
+      <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
             <Users className="w-4 h-4 text-cb-orange" />
             <span className="text-cb-orange text-sm font-medium">+6.793 Builders já formados</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
             Junte-se aos Builders que ja{" "}
             <span className="text-gradient-orange">transformaram suas carreiras</span>
           </h1>
 
-          <p className="text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
             Crie seu primeiro Agente de IA em 90 minutos. Workshop ao vivo, prático, sem código.
           </p>
 
@@ -38,7 +38,7 @@ export default function LP4ProvaSocial() {
             <LeadCaptureForm buttonText="QUERO SER O PROXIMO BUILDER - R$167" />
           </div>
 
-          <div className="flex items-center justify-center gap-6 sm:gap-8 mt-10 pt-8 border-t border-cb-border">
+          <div className="flex items-center justify-center gap-4 sm:gap-8 mt-10 pt-8 border-t border-cb-border">
             <div className="text-center">
               <p className="text-3xl sm:text-4xl font-black text-cb-orange">6.793+</p>
               <p className="text-xs text-cb-text-muted mt-1">Alunos</p>
