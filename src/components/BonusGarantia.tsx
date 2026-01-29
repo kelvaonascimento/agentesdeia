@@ -18,8 +18,8 @@ export default function BonusGarantia({ variant = "default" }: BonusGarantiaProp
               <div>
                 <h3 className="text-xl font-bold text-white mb-3">Bonus Exclusivo: Template &ldquo;Plug-and-Play&rdquo;</h3>
                 <p className="text-cb-text-muted leading-relaxed">
-                  Alem de todo o conhecimento, voce recebera o template exato do agente que construirmos na aula.
-                  Voce podera copiar, colar e adaptar para criar novos agentes em minutos.
+                  Além de todo o conhecimento, você recebera o template exato do agente que construirmos na aula.
+                  Você podera copiar, colar e adaptar para criar novos agentes em minutos.
                 </p>
               </div>
             </div>
@@ -33,8 +33,8 @@ export default function BonusGarantia({ variant = "default" }: BonusGarantiaProp
               <div>
                 <h3 className="text-xl font-bold text-white mb-3">Sua Satisfacao ou seu Dinheiro de Volta</h3>
                 <p className="text-cb-text-muted leading-relaxed">
-                  Se ao final do workshop voce sentir que nao entregamos a transformacao prometida,
-                  basta nos enviar um e-mail em ate 7 dias e nos devolvemos 100% do seu investimento. Risco zero para voce.
+                  Se ao final do workshop você sentir que não entregamos a transformação prometida,
+                  basta nos enviar um e-mail em ate 7 dias e nos devolvemos 100% do seu investimento. Risco zero para você.
                 </p>
               </div>
             </div>
@@ -56,8 +56,8 @@ export default function BonusGarantia({ variant = "default" }: BonusGarantiaProp
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Bonus Exclusivo: Template &ldquo;Plug-and-Play&rdquo;</h3>
               <p className="text-cb-text-muted leading-relaxed">
-                Alem de todo o conhecimento, voce recebera o template exato do agente que construirmos na aula.
-                Voce podera copiar, colar e adaptar para criar novos agentes em minutos.
+                Além de todo o conhecimento, você recebera o template exato do agente que construirmos na aula.
+                Você podera copiar, colar e adaptar para criar novos agentes em minutos.
               </p>
             </div>
           </div>
@@ -69,8 +69,8 @@ export default function BonusGarantia({ variant = "default" }: BonusGarantiaProp
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Sua Satisfacao ou seu Dinheiro de Volta</h3>
               <p className="text-cb-text-muted leading-relaxed">
-                Se ao final do workshop voce sentir que nao entregamos a transformacao prometida,
-                basta nos enviar um e-mail em ate 7 dias e nos devolvemos 100% do seu investimento. Risco zero para voce.
+                Se ao final do workshop você sentir que não entregamos a transformação prometida,
+                basta nos enviar um e-mail em ate 7 dias e nos devolvemos 100% do seu investimento. Risco zero para você.
               </p>
             </div>
           </div>

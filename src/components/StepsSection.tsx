@@ -6,28 +6,28 @@ const steps = [
     number: "01",
     title: "O Setup",
     time: "Minutos 0-20",
-    description: "Vamos configurar seu ambiente de construcao do zero. Voce vai entender a logica por tras de um agente e desenhar o seu primeiro fluxo.",
+    description: "Vamos configurar seu ambiente de construção do zero. Você vai entender a logica por trás de um agente e desenhar o seu primeiro fluxo.",
   },
   {
     icon: Brain,
     number: "02",
     title: "A Inteligencia",
     time: "Minutos 20-50",
-    description: "E aqui que a magica acontece. Vamos conectar seu agente ao cerebro do ChatGPT/Claude e ensina-lo a pensar e a tomar decisoes.",
+    description: "E aqui que a magica acontece. Vamos conectar seu agente ao cerebro do ChatGPT/Claude e ensina-lo a pensar é a tomar decisoes.",
   },
   {
     icon: Zap,
     number: "03",
-    title: "A Acao",
+    title: "A Ação",
     time: "Minutos 50-80",
     description: "Seu agente vai aprender a executar uma tarefa real. Seja responder um e-mail, triar um lead ou organizar sua agenda.",
   },
   {
     icon: Rocket,
     number: "04",
-    title: "O Lancamento",
+    title: "O Lançamento",
     time: "Minutos 80-90",
-    description: "Com um clique, seu agente estara no ar, pronto para trabalhar para voce. Voce tera um link, um ativo, uma prova real da sua nova capacidade.",
+    description: "Com um clique, seu agente estara no ar, pronto para trabalhar para você. Você tera um link, um ativo, uma prova real da sua nova capacidade.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function StepsSection({ variant = "default" }: StepsSectionProps)
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <span className="inline-block bg-cb-orange/10 text-cb-orange text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full border border-cb-orange/20 mb-4">
-            O que voce vai construir
+            O que você vai construir
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
             Sua Jornada de 90 Minutos:

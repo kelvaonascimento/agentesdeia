@@ -27,7 +27,7 @@ export default function StickyBar() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cb-orange" />
             </span>
             <span className="text-white text-sm font-bold">
-              <span className="text-cb-orange">ULTIMAS VAGAS</span> - Workshop 28/02
+              <span className="text-cb-orange">ÚLTIMAS VAGAS</span> - Workshop 28/02
             </span>
           </div>
           <div className="hidden md:block">

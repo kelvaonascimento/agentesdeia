@@ -22,10 +22,10 @@ export default function ThankYouPage() {
           </h1>
 
           <p className="text-xl text-cb-text-secondary mb-2">
-            Sua inscricao foi confirmada com sucesso.
+            Sua inscrição foi confirmada com sucesso.
           </p>
           <p className="text-cb-text-muted text-lg mb-12 max-w-xl mx-auto">
-            Voce acaba de dar o passo mais importante. Agora, falta apenas mais um: entrar no nosso grupo VIP.
+            Você acaba de dar o passo mais importante. Agora, falta apenas mais um: entrar no nosso grupo VIP.
           </p>
 
           <div className="bg-cb-surface border border-cb-orange/20 rounded-2xl p-8 sm:p-10 mb-10">
@@ -34,7 +34,7 @@ export default function ThankYouPage() {
               <h2 className="text-2xl font-bold text-white">Entre no Grupo VIP do WhatsApp</h2>
             </div>
             <p className="text-cb-text-muted mb-8 max-w-md mx-auto">
-              O grupo e o nosso canal direto com voce. Por la, voce recebera lembretes, materiais de preparacao e o link de acesso ao workshop.
+              O grupo é o nosso canal direto com você. Por la, você recebera lembretes, materiais de preparacao é o link de acesso ao workshop.
             </p>
             <a
               href="https://chat.whatsapp.com/SEU_LINK_AQUI"
@@ -53,7 +53,7 @@ export default function ThankYouPage() {
             <div className="bg-cb-surface/50 border border-cb-border rounded-xl p-5">
               <Clock className="w-6 h-6 text-cb-orange mx-auto mb-3" />
               <h3 className="text-white font-semibold text-sm mb-1">Data e Horario</h3>
-              <p className="text-cb-text-muted text-sm">28/02 as 14h (Brasilia)</p>
+              <p className="text-cb-text-muted text-sm">28/02 as 14h (Brasília)</p>
             </div>
             <div className="bg-cb-surface/50 border border-cb-border rounded-xl p-5">
               <MessageCircle className="w-6 h-6 text-cb-orange mx-auto mb-3" />

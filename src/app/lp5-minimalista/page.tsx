@@ -24,7 +24,7 @@ export default function LP5Minimalista() {
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mt-6 mb-6">
             Crie seu Agente de IA.{" "}
-            <span className="text-gradient-orange">Sem codigo.</span>
+            <span className="text-gradient-orange">Sem código.</span>
           </h1>
 
           <p className="text-lg text-cb-text-muted mb-10 max-w-xl mx-auto leading-relaxed">
@@ -52,18 +52,18 @@ export default function LP5Minimalista() {
         </div>
       </section>
 
-      {/* O que voce recebe */}
+      {/* O que você recebe */}
       <section className="py-16 sm:py-24 bg-cb-surface">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-black text-white text-center mb-10">O que esta incluso</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-white text-center mb-10">O que está incluso</h2>
           <div className="space-y-4">
             {[
               "Workshop ao vivo de 90 minutos",
               "Agente de IA funcional criado do zero",
               "Template Plug-and-Play exclusivo",
-              "Gravacao completa por 7 dias",
+              "Gravação completa por 7 dias",
               "Acesso ao Grupo VIP no WhatsApp",
-              "Certificado de participacao",
+              "Certificado de participação",
               "Garantia de 7 dias — risco zero",
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 py-3 border-b border-cb-border last:border-0">
@@ -88,7 +88,7 @@ export default function LP5Minimalista() {
             <div className="p-8 text-center">
               <span className="text-cb-text-muted line-through text-sm">R$ 297</span>
               <div className="text-5xl font-black text-white mt-2">R$ 167</div>
-              <p className="text-cb-text-muted text-sm mt-2">Pagamento unico</p>
+              <p className="text-cb-text-muted text-sm mt-2">Pagamento único</p>
               <div className="my-8">
                 <LeadCaptureForm variant="compact" buttonText="GARANTIR MINHA VAGA" />
               </div>
@@ -109,7 +109,7 @@ export default function LP5Minimalista() {
 
       <section className="py-16 sm:py-24 bg-cb-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-black text-white text-center mb-10">Duvidas?</h2>
+          <h2 className="text-2xl font-black text-white text-center mb-10">Dúvidas?</h2>
           <FAQ />
         </div>
       </section>

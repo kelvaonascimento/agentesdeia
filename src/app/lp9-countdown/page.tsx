@@ -38,7 +38,7 @@ export default function LP9Countdown() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
             <Timer className="w-4 h-4 text-red-400" />
-            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscricoes encerrando</span>
+            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscrições encerrando</span>
           </div>
 
           <div className="mb-10">
@@ -52,7 +52,7 @@ export default function LP9Countdown() {
           </h1>
 
           <p className="text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Workshop ao vivo no dia 28 de Fevereiro. Sem codigo. Com template. Garantia de 7 dias.
+            Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
           </p>
 
           <div id="inscricao">
@@ -96,12 +96,12 @@ export default function LP9Countdown() {
           <div className="grid sm:grid-cols-3 gap-4">
             <div className="p-6 bg-cb-surface border-2 border-green-500/30 rounded-2xl text-center">
               <Lock className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <p className="text-white font-bold text-lg">Inscricoes Abertas</p>
+              <p className="text-white font-bold text-lg">Inscrições Abertas</p>
               <p className="text-green-400 text-sm mt-1">Agora</p>
             </div>
             <div className="p-6 bg-cb-surface border border-cb-border rounded-2xl text-center opacity-60">
               <AlertTriangle className="w-8 h-8 text-yellow-500 mx-auto mb-3" />
-              <p className="text-white font-bold text-lg">Ultimas Vagas</p>
+              <p className="text-white font-bold text-lg">Últimas Vagas</p>
               <p className="text-yellow-400 text-sm mt-1">27/02 - 12h</p>
             </div>
             <div className="p-6 bg-cb-surface border border-cb-border rounded-2xl text-center opacity-40">
@@ -117,7 +117,7 @@ export default function LP9Countdown() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-black text-white text-center mb-10">Tudo isso antes que o <span className="text-gradient-orange">tempo acabe</span></h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {["Workshop ao vivo de 90 minutos com Caio Vicentino", "Agente de IA funcional criado ao vivo", "Template Plug-and-Play exclusivo", "Gravacao completa por 7 dias", "Grupo VIP no WhatsApp", "Garantia total de 7 dias - risco zero"].map((item, i) => (
+            {["Workshop ao vivo de 90 minutos com Caio Vicentino", "Agente de IA funcional criado ao vivo", "Template Plug-and-Play exclusivo", "Gravação completa por 7 dias", "Grupo VIP no WhatsApp", "Garantia total de 7 dias - risco zero"].map((item, i) => (
               <div key={i} className="flex items-center gap-3 p-4 bg-cb-surface-light border border-cb-border rounded-xl">
                 <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
                 <span className="text-cb-text-secondary">{item}</span>
@@ -142,8 +142,8 @@ export default function LP9Countdown() {
       <section className="py-16 sm:py-24 mb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Timer className="w-12 h-12 text-cb-orange mx-auto mb-6" />
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">O relogio esta correndo.</h2>
-          <p className="text-lg text-cb-text-muted mb-6">Quando chegar a zero, as inscricoes serao encerradas.</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">O relógio está correndo.</h2>
+          <p className="text-lg text-cb-text-muted mb-6">Quando chegar a zero, as inscrições serão encerradas.</p>
           <div className="mb-8"><CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" /></div>
           <LeadCaptureForm variant="compact" buttonText="GARANTIR MINHA VAGA ANTES QUE ACABE" />
         </div>

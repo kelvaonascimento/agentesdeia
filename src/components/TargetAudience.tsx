@@ -17,7 +17,7 @@ const audiences = [
     icon: Sparkles,
     title: "O Curioso Corajoso",
     description:
-      "...e fascinado por IA, mas se sente intimidado pelo codigo. Voce quer dar o primeiro passo pratico, criar seu primeiro projeto real e finalmente entender o poder da construcao com IA.",
+      "...e fascinado por IA, mas se sente intimidado pelo código. Você quer dar o primeiro passo prático, criar seu primeiro projeto real e finalmente entender o poder da construção com IA.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
-              Este workshop e para <span className="text-gradient-orange">voce que...</span>
+              Este workshop é para <span className="text-gradient-orange">você que...</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -62,7 +62,7 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
       <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-12">
-            Este workshop e para voce que...
+            Este workshop é para você que...
           </h2>
           <div className="space-y-6">
             {audiences.map((item, i) => {
@@ -93,7 +93,7 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
             Para quem e
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
-            Este workshop e para <span className="text-gradient-orange">voce que...</span>
+            Este workshop é para <span className="text-gradient-orange">você que...</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">

@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Workshop Ao Vivo: Crie seu Agente de IA em 90 Minutos | Cultura Builder",
   description:
-    "Participe do nosso workshop pratico e crie seu primeiro agente de IA do zero, mesmo sem saber programar. Vagas limitadas. Inscreva-se agora por R$167.",
-  keywords: "workshop ia, criar agente de ia, automacao com ia, curso pratico de ia",
+    "Participe do nosso workshop prático e crie seu primeiro agente de IA do zero, mesmo sem saber programar. Vagas limitadas. Inscreva-se agora por R$167.",
+  keywords: "workshop ia, criar agente de ia, automação com ia, curso prático de ia",
   openGraph: {
     title: "Workshop Ao Vivo: Crie seu Agente de IA em 90 Minutos",
-    description: "Participe do nosso workshop pratico e crie seu primeiro agente de IA do zero.",
+    description: "Participe do nosso workshop prático e crie seu primeiro agente de IA do zero.",
     type: "website",
   },
 };

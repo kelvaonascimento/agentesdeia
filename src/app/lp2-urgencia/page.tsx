@@ -23,7 +23,7 @@ export default function LP2Urgencia() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
             <Flame className="w-4 h-4 text-red-500" />
-            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscricoes Encerrando</span>
+            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscrições Encerrando</span>
           </div>
 
           <div className="mb-8">
@@ -31,12 +31,12 @@ export default function LP2Urgencia() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
-            Ultima Chance de Criar seu{" "}
+            Última Chance de Criar seu{" "}
             <span className="text-gradient-orange">Agente de IA</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Workshop ao vivo no dia 28 de Fevereiro. Sem codigo. Com template. Garantia de 7 dias.
+            Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
           </p>
 
           <div id="inscricao">
@@ -84,12 +84,12 @@ export default function LP2Urgencia() {
           <div className="grid sm:grid-cols-3 gap-4">
             <div className="p-6 bg-cb-surface border-2 border-green-500/30 rounded-2xl text-center">
               <Lock className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <p className="text-white font-bold text-lg">Inscricoes Abertas</p>
+              <p className="text-white font-bold text-lg">Inscrições Abertas</p>
               <p className="text-green-400 text-sm mt-1">Agora</p>
             </div>
             <div className="p-6 bg-cb-surface border border-cb-border rounded-2xl text-center opacity-60">
               <AlertTriangle className="w-8 h-8 text-yellow-500 mx-auto mb-3" />
-              <p className="text-white font-bold text-lg">Ultimas Vagas</p>
+              <p className="text-white font-bold text-lg">Últimas Vagas</p>
               <p className="text-yellow-400 text-sm mt-1">27/02 - 12h</p>
             </div>
             <div className="p-6 bg-cb-surface border border-cb-border rounded-2xl text-center opacity-40">
@@ -101,7 +101,7 @@ export default function LP2Urgencia() {
         </div>
       </section>
 
-      {/* O que esta incluso */}
+      {/* O que está incluso */}
       <section className="py-16 sm:py-20 bg-cb-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-black text-white text-center mb-10">
@@ -112,7 +112,7 @@ export default function LP2Urgencia() {
               "Workshop ao vivo de 90 minutos com Caio Vicentino",
               "Agente de IA funcional criado ao vivo",
               "Template Plug-and-Play exclusivo",
-              "Gravacao completa por 7 dias",
+              "Gravação completa por 7 dias",
               "Grupo VIP no WhatsApp",
               "Garantia total de 7 dias - risco zero",
             ].map((item, i) => (
@@ -141,10 +141,10 @@ export default function LP2Urgencia() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <Flame className="w-12 h-12 text-cb-orange mx-auto mb-6" />
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
-            O relogio nao para.
+            O relógio não para.
           </h2>
           <p className="text-lg text-cb-text-muted mb-6 max-w-2xl mx-auto">
-            Quando o contador chegar a zero, as inscricoes serao encerradas definitivamente.
+            Quando o contador chegar a zero, as inscrições serão encerradas definitivamente.
           </p>
           <div className="mb-8">
             <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />

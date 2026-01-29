@@ -38,7 +38,7 @@ export default function LP10MobileCTA() {
               </h1>
 
               <p className="text-base sm:text-lg text-cb-text-secondary mb-5 leading-relaxed">
-                Sem codigo. Workshop pratico ao vivo. Saia com um agente funcional e um template para criar mais.
+                Sem código. Workshop prático ao vivo. Saia com um agente funcional é um template para criar mais.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-5">
@@ -98,12 +98,12 @@ export default function LP10MobileCTA() {
               <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">Ao vivo</p>
             </div>
             <div>
-              <p className="text-xl sm:text-2xl font-black text-cb-orange">0 codigo</p>
+              <p className="text-xl sm:text-2xl font-black text-cb-orange">0 código</p>
               <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">No-code</p>
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-black text-cb-orange">R$167</p>
-              <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">Unico</p>
+              <p className="text-cb-text-muted text-[10px] sm:text-xs mt-0.5">Único</p>
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@ export default function LP10MobileCTA() {
             {[
               { icon: Settings, title: "Setup", time: "0-20min", desc: "Configure do zero" },
               { icon: Brain, title: "Inteligencia", time: "20-50min", desc: "Conecte ao ChatGPT" },
-              { icon: Zap, title: "Acao", time: "50-80min", desc: "Automatize uma tarefa" },
-              { icon: Rocket, title: "Lancamento", time: "80-90min", desc: "Coloque no ar" },
+              { icon: Zap, title: "Ação", time: "50-80min", desc: "Automatize uma tarefa" },
+              { icon: Rocket, title: "Lançamento", time: "80-90min", desc: "Coloque no ar" },
             ].map((step, i) => {
               const Icon = step.icon;
               return (
@@ -149,7 +149,7 @@ export default function LP10MobileCTA() {
             <div className="text-center sm:text-left">
               <h3 className="text-xl font-bold text-white">Caio Vicentino</h3>
               <p className="text-cb-orange text-sm font-medium mb-2">Co-fundador Cultura Builder</p>
-              <p className="text-cb-text-muted text-sm leading-relaxed">6.793+ alunos. Criador da Yield Hackers. Ele usa agentes de IA para escalar seus negocios e vai te ensinar a fazer o mesmo.</p>
+              <p className="text-cb-text-muted text-sm leading-relaxed">6.793+ alunos. Criador da Yield Hackers. Ele usa agentes de IA para escalar seus negócios e vai te ensinar a fazer o mesmo.</p>
             </div>
           </div>
         </div>
@@ -165,10 +165,10 @@ export default function LP10MobileCTA() {
               <div className="text-center mb-6">
                 <span className="text-cb-text-muted line-through text-sm">R$ 297</span>
                 <div className="text-4xl font-black text-white mt-1">R$ 167</div>
-                <p className="text-cb-text-muted text-xs mt-1">Pagamento unico</p>
+                <p className="text-cb-text-muted text-xs mt-1">Pagamento único</p>
               </div>
               <div className="space-y-3 mb-6">
-                {["Workshop ao vivo 90min", "Agente funcional", "Template exclusivo", "Gravacao 7 dias", "Grupo VIP WhatsApp", "Certificado"].map((item, i) => (
+                {["Workshop ao vivo 90min", "Agente funcional", "Template exclusivo", "Gravação 7 dias", "Grupo VIP WhatsApp", "Certificado"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
                     <span className="text-cb-text-secondary text-sm">{item}</span>
@@ -193,7 +193,7 @@ export default function LP10MobileCTA() {
 
       <PartnersSection variant="compact" />      <section className="py-10 sm:py-16 bg-cb-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-black text-white text-center mb-8">Duvidas?</h2>
+          <h2 className="text-2xl font-black text-white text-center mb-8">Dúvidas?</h2>
           <FAQ />
         </div>
       </section>

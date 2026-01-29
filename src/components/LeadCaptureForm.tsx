@@ -129,7 +129,7 @@ export default function LeadCaptureForm({
         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
         {buttonText}
       </button>
-      <p className="text-cb-text-muted text-xs text-center">Seus dados estao seguros. Nao enviamos spam.</p>
+      <p className="text-cb-text-muted text-xs text-center">Seus dados estão seguros. Não enviamos spam.</p>
     </form>
   );
 }

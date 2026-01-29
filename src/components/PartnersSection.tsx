@@ -26,13 +26,13 @@ export default function PartnersSection({ variant = "default" }: PartnersSection
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-10">
           <span className="inline-block bg-cb-orange/10 text-cb-orange text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full border border-cb-orange/20 mb-4">
-            Parcerias Estrategicas
+            Parcerias Estratégicas
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-white">
-            Pioneiro em <span className="text-gradient-orange">financas descentralizadas e IA</span>
+            Pioneiro em <span className="text-gradient-orange">finanças descentralizadas e IA</span>
           </h2>
           <p className="text-cb-text-muted mt-3 max-w-2xl mx-auto">
-            O Cultura Builder e parceiro oficial da NVIDIA e AWS, conectando sua comunidade de 6.793+ builders as maiores plataformas de tecnologia do mundo.
+            O Cultura Builder é parceiro oficial da NVIDIA e AWS, conectando sua comunidade de 6.793+ builders às maiores plataformas de tecnologia do mundo.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export default function PartnersSection({ variant = "default" }: PartnersSection
           <div className="bg-gradient-to-b from-cb-surface-light to-black border border-cb-border rounded-2xl p-8 flex flex-col items-center text-center hover:border-cb-orange/30 transition-all group">
             <span className="inline-block text-cb-text-muted text-[10px] font-semibold uppercase tracking-[0.2em] border border-cb-border rounded-full px-3 py-1 mb-5">Cloud + IA</span>
             <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Infraestrutura sem custo</h3>
-            <p className="text-cb-orange font-bold text-sm mb-6">+ R$ 25k em creditos AWS</p>
+            <p className="text-cb-orange font-bold text-sm mb-6">+ R$ 25k em créditos AWS</p>
             <div className="bg-white rounded-xl p-4 mb-6 group-hover:shadow-[0_0_30px_rgba(255,153,0,0.15)] transition-all">
               <Image src="/images/partners-nvidia-aws.png" alt="AWS" width={160} height={60} className="h-12 w-auto object-contain object-right" style={{ objectPosition: "right center", clipPath: "inset(0 0 0 55%)" }} />
             </div>
@@ -59,7 +59,7 @@ export default function PartnersSection({ variant = "default" }: PartnersSection
               <Image src="/images/partners-nvidia-aws.png" alt="NVIDIA Inception Program" width={160} height={60} className="h-12 w-auto object-contain object-left" style={{ objectPosition: "left center", clipPath: "inset(0 50% 0 0)" }} />
             </div>
             <p className="text-cb-text-muted text-sm leading-relaxed">
-              Acesso a GPUs, servicos e suporte tecnico para seus projetos de IA liderarem a inovacao.
+              Acesso a GPUs, serviços e suporte técnico para seus projetos de IA liderarem a inovação.
             </p>
           </div>
         </div>

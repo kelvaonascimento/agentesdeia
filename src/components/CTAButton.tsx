@@ -12,7 +12,7 @@ interface CTAButtonProps {
 
 export default function CTAButton({
   text,
-  href = "#inscricao",
+  href = "#inscrição",
   variant = "primary",
   size = "lg",
   pulse = true,

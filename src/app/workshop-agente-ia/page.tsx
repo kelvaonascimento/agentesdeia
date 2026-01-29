@@ -45,7 +45,7 @@ export default function LP1MainPage() {
               </h1>
 
               <p className="text-lg text-cb-text-secondary mb-3">
-                (Mesmo Sem Saber Escrever Uma Linha de Codigo)
+                (Mesmo Sem Saber Escrever Uma Linha de Código)
               </p>
 
               <p className="text-cb-text-muted mb-8 leading-relaxed max-w-lg">
@@ -60,7 +60,7 @@ export default function LP1MainPage() {
                 </div>
                 <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
                   <Clock className="w-4 h-4 text-cb-orange" />
-                  14h (Brasilia)
+                  14h (Brasília)
                 </div>
                 <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
                   <MapPin className="w-4 h-4 text-cb-orange" />
@@ -128,17 +128,17 @@ export default function LP1MainPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-                Chega de so assistir.{" "}
-                <span className="text-gradient-orange">E hora de construir.</span>
+                Chega de só assistir.{" "}
+                <span className="text-gradient-orange">É hora de construir.</span>
               </h2>
               <p className="text-cb-text-muted text-lg leading-relaxed mb-4">
-                Voce ja consumiu horas de conteudo sobre Inteligencia Artificial, mas ainda se sente
-                um espectador? Este workshop foi desenhado para uma unica coisa: transformar
-                voce em um builder.
+                Você já consumiu horas de conteúdo sobre Inteligência Artificial, mas ainda se sente
+                um espectador? Este workshop foi desenhado para uma única coisa: transformar
+                você em um builder.
               </p>
               <p className="text-cb-text-secondary text-lg leading-relaxed font-medium">
-                Em 90 minutos, voce nao vai apenas aprender &mdash; voce vai fazer.
-                Voce vai sair desta aula com um ativo digital real, criado por voce, funcionando e
+                Em 90 minutos, você não vai apenas aprender &mdash; você vai fazer.
+                Você vai sair desta aula com um ativo digital real, criado por você, funcionando e
                 pronto para trabalhar.
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function LP1MainPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block bg-cb-orange/10 text-cb-orange text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full border border-cb-orange/20 mb-4">
-              Duvidas frequentes
+              Dúvidas frequentes
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
               Perguntas <span className="text-gradient-orange">Frequentes</span>
@@ -182,11 +182,11 @@ export default function LP1MainPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-            Em 28 de Fevereiro, voce pode continuar como espectador ou{" "}
+            Em 28 de Fevereiro, você pode continuar como espectador ou{" "}
             <span className="text-gradient-orange">se tornar um builder.</span>
           </h2>
           <p className="text-cb-text-muted text-lg mb-8 max-w-2xl mx-auto">
-            A escolha e sua. Esta e a sua oportunidade de dar o passo mais importante: o primeiro.
+            A escolha é sua. Esta é a sua oportunidade de dar o passo mais importante: o primeiro.
           </p>
           <div className="mb-8">
             <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />

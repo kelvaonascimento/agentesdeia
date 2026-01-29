@@ -22,7 +22,7 @@ export default function LP4ProvaSocial() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
             <Users className="w-4 h-4 text-cb-orange" />
-            <span className="text-cb-orange text-sm font-medium">+6.793 Builders ja formados</span>
+            <span className="text-cb-orange text-sm font-medium">+6.793 Builders já formados</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
@@ -31,7 +31,7 @@ export default function LP4ProvaSocial() {
           </h1>
 
           <p className="text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Crie seu primeiro Agente de IA em 90 minutos. Workshop ao vivo, pratico, sem codigo.
+            Crie seu primeiro Agente de IA em 90 minutos. Workshop ao vivo, prático, sem código.
           </p>
 
           <div id="inscricao">
@@ -51,7 +51,7 @@ export default function LP4ProvaSocial() {
             <div className="w-px h-12 bg-cb-border" />
             <div className="text-center">
               <p className="text-3xl sm:text-4xl font-black text-cb-orange">4.9</p>
-              <p className="text-xs text-cb-text-muted mt-1">Avaliacao</p>
+              <p className="text-xs text-cb-text-muted mt-1">Avaliação</p>
             </div>
             <div className="w-px h-12 bg-cb-border hidden sm:block" />
             <div className="text-center hidden sm:block">
@@ -93,10 +93,10 @@ export default function LP4ProvaSocial() {
             {[
               { name: "Rafael M.", role: "Empreendedor", text: "Em 90 minutos eu criei algo que achei que levaria semanas. O template e ouro puro." },
               { name: "Juliana S.", role: "Marketing Digital", text: "Nunca pensei que conseguiria criar um agente de IA sem saber programar. O Caio simplifica tudo." },
-              { name: "Pedro A.", role: "Gestor de Projetos", text: "O agente que criei no workshop ja esta economizando 2h do meu dia. Melhor investimento que fiz." },
+              { name: "Pedro A.", role: "Gestor de Projetos", text: "O agente que criei no workshop já está economizando 2h do meu dia. Melhor investimento que fiz." },
               { name: "Mariana L.", role: "Freelancer", text: "Agora eu oferto criacao de agentes como servico. Uma nova fonte de renda que surgiu do workshop." },
               { name: "Carlos R.", role: "CEO Startup", text: "Automatizei o atendimento da minha empresa em um dia. O workshop me deu a base que eu precisava." },
-              { name: "Ana B.", role: "Consultora", text: "A didatica do Caio e incrivel. Mesmo sem background tecnico, sai do workshop com um agente funcionando." },
+              { name: "Ana B.", role: "Consultora", text: "A didática do Caio é incrível. Mesmo sem background técnico, sai do workshop com um agente funcionando." },
             ].map((dep, i) => (
               <div key={i} className="bg-cb-surface border border-cb-border rounded-2xl p-6 hover:border-cb-orange/20 transition-all">
                 <div className="flex items-center gap-0.5 mb-4">
@@ -125,7 +125,7 @@ export default function LP4ProvaSocial() {
             <div className="bg-cb-surface-light border border-red-500/20 rounded-2xl p-6">
               <p className="text-red-400 font-bold text-sm uppercase tracking-wider mb-4">Antes do Workshop</p>
               <ul className="space-y-3">
-                {["Consumia conteudo sobre IA sem aplicar", "Achava que precisava saber programar", "Perdia horas em tarefas manuais repetitivas", "Sentia que IA era so para grandes empresas"].map((item, i) => (
+                {["Consumia conteúdo sobre IA sem aplicar", "Achava que precisava saber programar", "Perdia horas em tarefas manuais repetitivas", "Sentia que IA era só para grandes empresas"].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-cb-text-muted text-sm"><span className="text-red-400 mt-0.5">&#x2715;</span>{item}</li>
                 ))}
               </ul>
@@ -133,7 +133,7 @@ export default function LP4ProvaSocial() {
             <div className="bg-cb-surface-light border border-green-500/20 rounded-2xl p-6">
               <p className="text-green-400 font-bold text-sm uppercase tracking-wider mb-4">Depois do Workshop</p>
               <ul className="space-y-3">
-                {["Criou um agente funcional em 90 minutos", "Entendeu que nao precisa de codigo", "Automatizou tarefas e economiza 2h/dia", "Oferece servico de criacao de agentes"].map((item, i) => (
+                {["Criou um agente funcional em 90 minutos", "Entendeu que não precisa de código", "Automatizou tarefas e economiza 2h/dia", "Oferece servico de criacao de agentes"].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-cb-text-muted text-sm"><CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />{item}</li>
                 ))}
               </ul>
@@ -156,7 +156,7 @@ export default function LP4ProvaSocial() {
 
       <section className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">Mais de 6.793 Builders ja comecaram.{" "}<span className="text-gradient-orange">Voce e o proximo?</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">Mais de 6.793 Builders já começaram.{" "}<span className="text-gradient-orange">Você é o próximo?</span></h2>
           <p className="text-cb-text-muted text-lg mb-8">28 de Fevereiro. 14h. Online e ao vivo.</p>
           <div className="mb-8"><CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="compact" /></div>
           <LeadCaptureForm variant="compact" buttonText="QUERO ME TORNAR UM BUILDER - R$167" />

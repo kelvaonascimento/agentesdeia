@@ -26,13 +26,13 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-2">Caio Vicentino</h2>
               <p className="text-cb-orange font-semibold mb-6">Co-fundador do Cultura Builder</p>
               <p className="text-cb-text-secondary leading-relaxed mb-4">
-                Caio Vicentino nao e um teorico. Como co-fundador do Cultura Builder — pioneiro em financas descentralizadas e inteligencia artificial — e criador da Yield Hackers, ele vive na fronteira da inovacao.
+                Caio Vicentino não é um teórico. Como co-fundador do Cultura Builder — pioneiro em finanças descentralizadas e inteligência artificial — e criador da Yield Hackers, ele vive na fronteira da inovação.
               </p>
               <p className="text-cb-text-secondary leading-relaxed mb-4">
-                O Cultura Builder e parceiro oficial da NVIDIA (Inception Program) e da AWS, conectando 6.793+ builders as maiores plataformas de tecnologia do mundo.
+                O Cultura Builder é parceiro oficial da NVIDIA (Inception Program) e da AWS, conectando 6.793+ builders às maiores plataformas de tecnologia do mundo.
               </p>
               <p className="text-cb-text-secondary leading-relaxed mb-8">
-                Ele vai te guiar com a didatica de quem ja ensinou milhares de pessoas e a experiencia pratica de quem usa agentes de IA para escalar seus proprios negocios. Ele vai te mostrar os atalhos, os truques e, mais importante, provar que voce tambem pode fazer isso.
+                Ele vai te guiar com a didática de quem já ensinou milhares de pessoas e a experiência prática de quem usa agentes de IA para escalar seus próprios negócios. Ele vai te mostrar os atalhos, os truques e, mais importante, provar que você também pode fazer isso.
               </p>
               <div className="flex flex-wrap gap-3">
                 {["Yield Hackers", "6.793+ alunos", "Cultura Builder"].map((tag) => (
@@ -59,7 +59,7 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
           <h3 className="text-2xl font-bold text-white">Caio Vicentino</h3>
           <p className="text-cb-orange text-sm font-semibold mt-1 mb-4">Co-fundador do Cultura Builder</p>
           <p className="text-cb-text-muted leading-relaxed max-w-xl mx-auto">
-            Pioneiro em financas descentralizadas e IA. Criador da Yield Hackers, parceiro NVIDIA e AWS. Ja ensinou 6.793+ pessoas a construir com IA.
+            Pioneiro em finanças descentralizadas e IA. Criador da Yield Hackers, parceiro NVIDIA e AWS. Já ensinou 6.793+ pessoas a construir com IA.
           </p>
         </div>
       </section>
@@ -72,10 +72,10 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12">
           <span className="inline-block bg-cb-orange/10 text-cb-orange text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full border border-cb-orange/20 mb-4">
-            Conheca seu guia
+            Conheça seu guia
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
-            Guiado por quem constroi <span className="text-gradient-orange">todos os dias.</span>
+            Guiado por quem constrói <span className="text-gradient-orange">todos os dias.</span>
           </h2>
         </div>
         <div className="grid lg:grid-cols-5 gap-10 items-center">
@@ -91,13 +91,13 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">Caio Vicentino</h3>
             <p className="text-cb-orange font-semibold mb-6">Co-fundador do Cultura Builder | Criador da Yield Hackers</p>
             <p className="text-cb-text-secondary leading-relaxed text-lg mb-4">
-              Caio Vicentino nao e um teorico. Como co-fundador do Cultura Builder — pioneiro em financas descentralizadas e inteligencia artificial — e criador da Yield Hackers, ele vive na fronteira da inovacao.
+              Caio Vicentino não é um teórico. Como co-fundador do Cultura Builder — pioneiro em finanças descentralizadas e inteligência artificial — e criador da Yield Hackers, ele vive na fronteira da inovação.
             </p>
             <p className="text-cb-text-secondary leading-relaxed text-lg mb-4">
-              Com parcerias estrategicas com NVIDIA (Inception Program) e AWS, o Cultura Builder conecta sua comunidade de 6.793+ builders as maiores plataformas de tecnologia do mundo.
+              Com parcerias estratégicas com NVIDIA (Inception Program) e AWS, o Cultura Builder conecta sua comunidade de 6.793+ builders às maiores plataformas de tecnologia do mundo.
             </p>
             <p className="text-cb-text-secondary leading-relaxed text-lg mb-8">
-              Ele vai te guiar com a didatica de quem ja ensinou milhares de pessoas e a experiencia pratica de quem usa agentes de IA para escalar seus proprios negocios.
+              Ele vai te guiar com a didática de quem já ensinou milhares de pessoas e a experiência prática de quem usa agentes de IA para escalar seus próprios negócios.
             </p>
             <div className="grid grid-cols-3 gap-4">
               {[

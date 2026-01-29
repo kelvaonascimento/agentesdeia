@@ -39,7 +39,7 @@ export default function LP7VideoFirst() {
             </h1>
 
             <p className="text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-              Workshop ao vivo, pratico, sem codigo. Assista ao convite e garanta sua vaga.
+              Workshop ao vivo, prático, sem código. Assista ao convite e garanta sua vaga.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
@@ -49,7 +49,7 @@ export default function LP7VideoFirst() {
               </div>
               <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
                 <Clock className="w-4 h-4 text-cb-orange" />
-                14h (Brasilia)
+                14h (Brasília)
               </div>
               <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
                 <MapPin className="w-4 h-4 text-cb-orange" />
@@ -85,12 +85,12 @@ export default function LP7VideoFirst() {
 
       <section className="py-16 sm:py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-12">O que voce vai <span className="text-gradient-orange">construir</span></h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-white text-center mb-12">O que você vai <span className="text-gradient-orange">construir</span></h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
               { icon: Cpu, title: "Agente de IA", desc: "Um agente funcional, no ar, pronto para executar tarefas automaticamente." },
-              { icon: FileText, title: "Template Exclusivo", desc: "O template exato da aula para voce copiar e criar novos agentes em minutos." },
-              { icon: Zap, title: "Automacao Real", desc: "Uma tarefa automatizada: responder e-mails, triar leads ou organizar agenda." },
+              { icon: FileText, title: "Template Exclusivo", desc: "O template exato da aula para você copiar e criar novos agentes em minutos." },
+              { icon: Zap, title: "Automação Real", desc: "Uma tarefa automatizada: responder e-mails, triar leads ou organizar agenda." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (

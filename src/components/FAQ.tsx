@@ -7,32 +7,32 @@ const faqData = [
   {
     question: "Preciso saber programar?",
     answer:
-      "Nao! O workshop foi desenhado para pessoas sem conhecimento tecnico. Usamos ferramentas visuais e no-code. Voce vai aprender a construir seu agente de IA usando interfaces intuitivas, sem escrever uma unica linha de codigo.",
+      "Nao! O workshop foi desenhado para pessoas sem conhecimento técnico. Usamos ferramentas visuais e no-code. Você vai aprender a construir seu agente de IA usando interfaces intuitivas, sem escrever uma única linha de código.",
   },
   {
-    question: "E se eu nao puder assistir ao vivo?",
+    question: "E se eu não puder assistir ao vivo?",
     answer:
-      "Voce recebera acesso a gravacao completa do workshop por 7 dias. Porem, recomendamos fortemente a participacao ao vivo para tirar duvidas em tempo real e ter a melhor experiencia de aprendizado.",
+      "Você recebera acesso a gravação completa do workshop por 7 dias. Porem, recomendamos fortemente a participação ao vivo para tirar dúvidas em tempo real e ter a melhor experiência de aprendizado.",
   },
   {
     question: "Quais ferramentas vamos usar? Sao pagas?",
     answer:
-      "Vamos usar ferramentas com planos gratuitos ou com creditos iniciais, como ChatGPT e plataformas de automacao. Voce nao precisara investir nada alem do valor do workshop para comecar.",
+      "Vamos usar ferramentas com planos gratuitos ou com créditos iniciais, como ChatGPT e plataformas de automação. Você não precisara investir nada além do valor do workshop para começar.",
   },
   {
     question: "Vou receber certificado?",
     answer:
-      "Sim! Todos os participantes que concluirem o workshop receberao um certificado digital de participacao do Cultura Builder.",
+      "Sim! Todos os participantes que concluirem o workshop receberao um certificado digital de participação do Cultura Builder.",
   },
   {
     question: "Como acesso o workshop no dia?",
     answer:
-      "Apos a inscricao, voce sera adicionado ao nosso grupo VIP no WhatsApp. O link de acesso a sala ao vivo sera enviado por e-mail e pelo grupo 1 hora antes do evento.",
+      "Apos a inscrição, você sera adicionado ao nosso grupo VIP no WhatsApp. O link de acesso a sala ao vivo sera enviado por e-mail e pelo grupo 1 hora antes do evento.",
   },
   {
     question: "Por que este workshop e pago?",
     answer:
-      "Porque valorizamos quem investe em si mesmo. O valor de R$167 garante um grupo seleto de participantes comprometidos, atendimento personalizado ao vivo, template exclusivo e acesso a gravacao. Alem disso, oferecemos garantia de 7 dias: se nao gostar, devolvemos 100% do valor.",
+      "Porque valorizamos quem investe em si mesmo. O valor de R$167 garante um grupo seleto de participantes comprometidos, atendimento personalizado ao vivo, template exclusivo e acesso a gravação. Além disso, oferecemos garantia de 7 dias: se não gostar, devolvemos 100% do valor.",
   },
 ];
 

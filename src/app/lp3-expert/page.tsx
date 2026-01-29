@@ -42,11 +42,11 @@ export default function LP3Expert() {
 
               <h1 className="text-4xl sm:text-5xl font-black text-white leading-[1.08] mb-4">
                 Aprenda com quem{" "}
-                <span className="text-gradient-orange">constroi todos os dias</span>
+                <span className="text-gradient-orange">constrói todos os dias</span>
               </h1>
 
               <p className="text-lg text-cb-text-secondary mb-6 leading-relaxed">
-                Caio Vicentino, co-fundador do Cultura Builder e criador da Yield Hackers, vai te guiar na construcao do seu primeiro agente de IA em 90 minutos.
+                Caio Vicentino, co-fundador do Cultura Builder e criador da Yield Hackers, vai te guiar na construção do seu primeiro agente de IA em 90 minutos.
               </p>
 
               <div className="grid grid-cols-3 gap-3 mb-8">
@@ -92,7 +92,7 @@ export default function LP3Expert() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Quote className="w-10 h-10 text-cb-orange/30 mx-auto mb-4" />
           <blockquote className="text-xl sm:text-2xl text-white font-medium italic leading-relaxed mb-4">
-            &ldquo;A IA nao vai substituir pessoas. Mas pessoas que usam IA vao substituir as que nao usam. Meu trabalho e garantir que voce esteja do lado certo.&rdquo;
+            &ldquo;A IA não vai substituir pessoas. Mas pessoas que usam IA vao substituir as que não usam. Meu trabalho e garantir que você esteja do lado certo.&rdquo;
           </blockquote>
           <p className="text-cb-orange font-semibold">&mdash; Caio Vicentino</p>
         </div>
@@ -115,9 +115,9 @@ export default function LP3Expert() {
                 Quem e <span className="text-gradient-orange">Caio Vicentino</span>
               </h2>
               <div className="space-y-4 text-cb-text-muted leading-relaxed text-lg">
-                <p>Caio Vicentino nao e um teorico. Como co-fundador do Cultura Builder — pioneiro em financas descentralizadas e inteligencia artificial — e criador da Yield Hackers, ele vive na fronteira da inovacao.</p>
-                <p>Com mais de 6.793 builders formados e parcerias com NVIDIA (Inception Program) e AWS, ele ja ajudou profissionais e empreendedores a criar mais de 100 agentes de IA para diferentes aplicacoes &mdash; atendimento ao cliente, automacao de processos, geracao de conteudo e muito mais.</p>
-                <p className="text-cb-text-secondary font-medium">Ele vai te guiar com a didatica de quem ja ensinou milhares de pessoas e a experiencia pratica de quem usa agentes de IA para escalar seus proprios negocios.</p>
+                <p>Caio Vicentino não é um teórico. Como co-fundador do Cultura Builder — pioneiro em finanças descentralizadas e inteligência artificial — e criador da Yield Hackers, ele vive na fronteira da inovação.</p>
+                <p>Com mais de 6.793 builders formados e parcerias com NVIDIA (Inception Program) e AWS, ele já ajudou profissionais e empreendedores a criar mais de 100 agentes de IA para diferentes aplicações &mdash; atendimento ao cliente, automação de processos, geração de conteúdo é muito mais.</p>
+                <p className="text-cb-text-secondary font-medium">Ele vai te guiar com a didática de quem já ensinou milhares de pessoas e a experiência prática de quem usa agentes de IA para escalar seus próprios negócios.</p>
               </div>
               <div className="flex flex-wrap gap-3 mt-8">
                 {["Co-fundador Cultura Builder", "Criador Yield Hackers", "6.793+ Alunos", "Especialista em IA No-Code"].map((tag) => (
@@ -129,16 +129,16 @@ export default function LP3Expert() {
         </div>
       </section>
 
-      {/* O que voce vai construir */}
+      {/* O que você vai construir */}
       <section className="py-16 sm:py-20 bg-cb-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">O que voce vai <span className="text-gradient-orange">construir</span></h2>
-          <p className="text-cb-text-muted text-lg mb-10 max-w-2xl mx-auto">Em 90 minutos, guiado pelo Caio, voce vai sair com:</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">O que você vai <span className="text-gradient-orange">construir</span></h2>
+          <p className="text-cb-text-muted text-lg mb-10 max-w-2xl mx-auto">Em 90 minutos, guiado pelo Caio, você vai sair com:</p>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { icon: Cpu, title: "Agente Funcional", desc: "Um agente de IA real, no ar, funcionando e pronto para trabalhar por voce." },
-              { icon: Users, title: "Template Exclusivo", desc: "O template exato usado na aula para voce replicar e criar novos agentes." },
-              { icon: Award, title: "Conhecimento Pratico", desc: "A habilidade de construir com IA sem depender de programadores." },
+              { icon: Cpu, title: "Agente Funcional", desc: "Um agente de IA real, no ar, funcionando e pronto para trabalhar por você." },
+              { icon: Users, title: "Template Exclusivo", desc: "O template exato usado na aula para você replicar e criar novos agentes." },
+              { icon: Award, title: "Conhecimento Prático", desc: "A habilidade de construir com IA sem depender de programadores." },
             ].map((item, i) => {
               const Icon = item.icon;
               return (

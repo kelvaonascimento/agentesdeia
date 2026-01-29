@@ -13,7 +13,7 @@ export default function Footer() {
             className="h-6 w-auto"
           />
           <p className="text-cb-text-muted text-xs text-center">
-            Cultura Builder &copy; {new Date().getFullYear()}. Todos os direitos reservados. Hub de Inteligencia Artificial.
+            Cultura Builder &copy; {new Date().getFullYear()}. Todos os direitos reservados. Hub de Inteligência Artificial.
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-cb-text-muted text-xs hover:text-cb-orange transition-colors">

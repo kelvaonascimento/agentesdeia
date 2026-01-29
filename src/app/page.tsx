@@ -9,7 +9,7 @@ const pages = [
   },
   {
     path: "/lp2-urgencia",
-    title: "LP2 - Urgencia / Ultima Chance",
+    title: "LP2 - Urgencia / Última Chance",
     desc: "Foco total em escassez e urgencia. Countdown proeminente, barra de vagas preenchidas, alerta de ultima chamada.",
     tag: "Urgencia",
   },
@@ -22,7 +22,7 @@ const pages = [
   {
     path: "/lp4-prova-social",
     title: "LP4 - Prova Social",
-    desc: "6 depoimentos em grid, caso de estudo detalhado, numeros de resultado, social proof bar no hero.",
+    desc: "6 depoimentos em grid, caso de estudo detalhado, números de resultado, social proof bar no hero.",
     tag: "Social Proof",
   },
   {
@@ -34,7 +34,7 @@ const pages = [
   {
     path: "/lp6-storytelling",
     title: "LP6 - Storytelling",
-    desc: "Comeca com uma historia real de aluno. Jornada do espectador ao builder. Antes/Depois visual. Narrativa emocional.",
+    desc: "Comeca com uma história real de aluno. Jornada do espectador ao builder. Antes/Depois visual. Narrativa emocional.",
     tag: "Story",
   },
   {
@@ -64,7 +64,7 @@ const pages = [
   {
     path: "/obrigado",
     title: "Pagina de Obrigado",
-    desc: "Confirmacao de inscricao + botao para entrar no grupo VIP do WhatsApp + instrucoes de preparacao para o workshop.",
+    desc: "Confirmacao de inscrição + botao para entrar no grupo VIP do WhatsApp + instrucoes de preparacao para o workshop.",
     tag: "Obrigado",
   },
 ];
@@ -90,7 +90,7 @@ export default function Home() {
           </h1>
           <p className="text-cb-text-muted text-lg max-w-2xl mx-auto">
             10 landing pages diferentes + pagina de obrigado para o Workshop de Agentes de IA.
-            Cada uma com abordagem, layout e estrategia de conversao unicos.
+            Cada uma com abordagem, layout e estrategia de conversao únicos.
           </p>
         </div>
 
@@ -122,7 +122,7 @@ export default function Home() {
 
         <div className="mt-16 text-center">
           <p className="text-cb-text-muted text-sm">
-            Cultura Builder &copy; {new Date().getFullYear()} | Hub de Inteligencia Artificial
+            Cultura Builder &copy; {new Date().getFullYear()} | Hub de Inteligência Artificial
           </p>
         </div>
       </div>
