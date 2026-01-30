@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { ArrowRight, Loader2 } from "lucide-react";
+
+// URL do checkout Pagar.me
+const CHECKOUT_URL = "https://payment-link-v3.pagar.me/pl_roLp6MW3jl0YomOTw8tPxD2zbgEA4wxN";
 
 interface LeadCaptureFormProps {
   variant?: "default" | "compact" | "inline";
@@ -15,18 +17,38 @@ export default function LeadCaptureForm({
   buttonText = "GARANTIR MINHA VAGA - R$167",
   className = "",
 }: LeadCaptureFormProps) {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
-    // Simulate form submission (replace with real endpoint)
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    router.push("/obrigado");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Erro ao processar inscrição");
+      }
+
+      // Sucesso - redirecionar para checkout do Pagar.me
+      window.location.href = CHECKOUT_URL;
+    } catch (err) {
+      console.error("Erro no formulário:", err);
+      setError("Ocorreu um erro. Tente novamente.");
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +74,7 @@ export default function LeadCaptureForm({
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ArrowRight className="w-4 h-4" />}
           {buttonText}
         </button>
+        {error && <p className="text-red-500 text-sm text-center mt-2">{error}</p>}
       </form>
     );
   }
@@ -92,6 +115,7 @@ export default function LeadCaptureForm({
           {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
           {buttonText}
         </button>
+        {error && <p className="text-red-500 text-sm text-center">{error}</p>}
       </form>
     );
   }
@@ -129,6 +153,7 @@ export default function LeadCaptureForm({
         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
         {buttonText}
       </button>
+      {error && <p className="text-red-500 text-sm text-center">{error}</p>}
       <p className="text-cb-text-muted text-xs text-center">Seus dados estão seguros. Não enviamos spam.</p>
     </form>
   );

@@ -37,7 +37,7 @@ export default function ThankYouPage() {
               O grupo é o nosso canal direto com você. Por la, você recebera lembretes, materiais de preparacao é o link de acesso ao workshop.
             </p>
             <a
-              href="https://chat.whatsapp.com/SEU_LINK_AQUI"
+              href="https://chat.whatsapp.com/Dm7j5XHA83v3bwEqiH6vv8"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-10 py-5 rounded-xl transition-all animate-glow-pulse"

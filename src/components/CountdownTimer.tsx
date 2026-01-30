@@ -11,9 +11,13 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
+  // Effect separado para hydration - usando callback no setInterval
   useEffect(() => {
-    setMounted(true);
+    let isMounted = true;
+    
     const calculate = () => {
+      if (!isMounted) return;
+      
       const now = new Date().getTime();
       const target = new Date(targetDate).getTime();
       const diff = target - now;
@@ -31,9 +35,18 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
       });
     };
 
+    // Marca como montado e calcula imediatamente
+    // Este padrão é necessário para evitar hydration mismatch em Next.js
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
     calculate();
+    
     const timer = setInterval(calculate, 1000);
-    return () => clearInterval(timer);
+    
+    return () => {
+      isMounted = false;
+      clearInterval(timer);
+    };
   }, [targetDate]);
 
   const blocks = [

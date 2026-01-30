@@ -191,7 +191,7 @@ export default function LP10MobileCTA() {
         </div>
       </section>
 
-      <PartnersSection variant="compact" />      <section className="py-10 sm:py-16 bg-cb-surface">
+      <section className="py-10 sm:py-16 bg-cb-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-black text-white text-center mb-8">Dúvidas?</h2>
           <FAQ />
