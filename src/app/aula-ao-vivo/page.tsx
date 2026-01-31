@@ -46,28 +46,27 @@ export default function LP7VideoFirst() {
               <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
                 Workshop ao vivo, prático, sem código. Assista ao convite e garanta sua vaga.
               </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
+                <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
+                  <Calendar className="w-4 h-4 text-cb-orange" />
+                  28 de Fevereiro
+                </div>
+                <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
+                  <Clock className="w-4 h-4 text-cb-orange" />
+                  14h (Brasília)
+                </div>
+                <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
+                  <MapPin className="w-4 h-4 text-cb-orange" />
+                  Online
+                </div>
+              </div>
+
+              <div id="inscricao">
+                <LeadCaptureForm buttonText="GARANTIR MINHA VAGA POR R$167" />
+              </div>
             </div>
           </ScrollReveal>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-              <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
-                <Calendar className="w-4 h-4 text-cb-orange" />
-                28 de Fevereiro
-              </div>
-              <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
-                <Clock className="w-4 h-4 text-cb-orange" />
-                14h (Brasília)
-              </div>
-              <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
-                <MapPin className="w-4 h-4 text-cb-orange" />
-                Online
-              </div>
-            </div>
-
-            <div id="inscricao">
-              <LeadCaptureForm buttonText="GARANTIR MINHA VAGA POR R$167" />
-            </div>
-          </div>
         </div>
       </section>
 

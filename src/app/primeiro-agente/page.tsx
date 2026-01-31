@@ -62,14 +62,15 @@ export default function LP4ProvaSocial() {
                 <p className="text-3xl sm:text-4xl font-black text-cb-orange"><AnimatedNumber value="4.9" /></p>
                 <p className="text-xs text-cb-text-muted mt-1">Avaliação</p>
               </div>
-            <div className="w-px h-12 bg-cb-border hidden sm:block" />
-            <div className="text-center hidden sm:block">
-              <div className="flex items-center gap-0.5 justify-center">
-                {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
+              <div className="w-px h-12 bg-cb-border hidden sm:block" />
+              <div className="text-center hidden sm:block">
+                <div className="flex items-center gap-0.5 justify-center">
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
+                </div>
+                <p className="text-xs text-cb-text-muted mt-1">5 estrelas</p>
               </div>
-              <p className="text-xs text-cb-text-muted mt-1">5 estrelas</p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
