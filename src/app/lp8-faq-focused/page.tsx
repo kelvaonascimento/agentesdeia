@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -9,6 +11,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { XCircle, CheckCircle, ShieldCheck, Gift, HelpCircle } from "lucide-react";
 
@@ -20,22 +24,26 @@ export default function LP8FAQFocused() {
 
       <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/3 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
-            <HelpCircle className="w-4 h-4 text-cb-orange" />
-            <span className="text-cb-orange text-sm font-medium">Vamos quebrar alguns mitos</span>
-          </div>
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
+              <HelpCircle className="w-4 h-4 text-cb-orange" />
+              <span className="text-cb-orange text-sm font-medium">Vamos quebrar alguns mitos</span>
+            </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
-            Tudo que você <span className="text-gradient-orange">acha que sabe</span> sobre IA está errado
-          </h1>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+              Tudo que você <span className="text-gradient-orange">acha que sabe</span> sobre IA está errado
+            </h1>
 
-          <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Você não precisa de código. Não precisa de semanas. Não precisa ser um expert em tecnologia. Crie seu primeiro agente de IA em 90 minutos.
-          </p>
+            <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+              Você não precisa de código. Não precisa de semanas. Não precisa ser um expert em tecnologia. Crie seu primeiro agente de IA em 90 minutos.
+            </p>
+          </ScrollReveal>
 
-          <div id="inscricao">
-            <LeadCaptureForm buttonText="QUERO DESCOBRIR A VERDADE - R$167" />
-          </div>
+          <ScrollReveal delay={100}>
+            <div id="inscricao">
+              <LeadCaptureForm buttonText="QUERO DESCOBRIR A VERDADE - R$167" />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -52,7 +60,7 @@ export default function LP8FAQFocused() {
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
           <div className="flex items-center gap-6 text-sm text-cb-text-muted">
-            <span><strong className="text-white">6.793+</strong> Builders</span>
+            <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><strong className="text-white">28/02</strong> 14h</span>
           </div>
         </div>

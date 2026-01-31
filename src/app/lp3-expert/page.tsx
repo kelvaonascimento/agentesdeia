@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -8,6 +10,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { Calendar, Clock, MapPin, Quote, Award, Users, Cpu } from "lucide-react";
 
@@ -21,48 +25,54 @@ export default function LP3Expert() {
       <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 right-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 left-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="flex justify-center order-2 lg:order-1">
-              <div className="w-full max-w-md rounded-2xl overflow-hidden border border-cb-orange/20">
-                <Image
-                  src="/images/expert/caio-3.png"
-                  alt="Caio Vicentino"
-                  width={500}
-                  height={600}
-                  className="w-full object-cover"
-                  priority
-                />
+            <ScrollReveal direction="left" delay={100}>
+              <div className="flex justify-center order-2 lg:order-1">
+                <div className="w-full max-w-md rounded-2xl overflow-hidden border border-cb-orange/20">
+                  <Image
+                    src="/images/expert/caio-3.png"
+                    alt="Caio Vicentino"
+                    width={500}
+                    height={600}
+                    className="w-full object-cover"
+                    priority
+                  />
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
-                <Award className="w-4 h-4 text-cb-orange" />
-                <span className="text-cb-orange text-sm font-medium">Workshop Exclusivo</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-5xl font-black text-white leading-[1.08] mb-4">
-                Aprenda com quem{" "}
-                <span className="text-gradient-orange">constrói todos os dias</span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-cb-text-secondary mb-6 leading-relaxed">
-                Caio Vicentino, co-fundador do Cultura Builder e criador da Yield Hackers, vai te guiar na construção do seu primeiro agente de IA em 90 minutos.
-              </p>
-
-              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
-                <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
-                  <p className="text-lg sm:text-2xl font-black text-cb-orange">6.793+</p>
-                  <p className="text-xs text-cb-text-muted mt-1">Alunos</p>
+              <ScrollReveal>
+                <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
+                  <Award className="w-4 h-4 text-cb-orange" />
+                  <span className="text-cb-orange text-sm font-medium">Workshop Exclusivo</span>
                 </div>
-                <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
-                  <p className="text-lg sm:text-2xl font-black text-cb-orange">100+</p>
-                  <p className="text-xs text-cb-text-muted mt-1">Agentes</p>
+
+                <h1 className="text-3xl sm:text-5xl font-black text-white leading-[1.08] mb-4">
+                  Aprenda com quem{" "}
+                  <span className="text-gradient-orange">constrói todos os dias</span>
+                </h1>
+
+                <p className="text-base sm:text-lg text-cb-text-secondary mb-6 leading-relaxed">
+                  Caio Vicentino, co-fundador do Cultura Builder e criador da Yield Hackers, vai te guiar na construção do seu primeiro agente de IA em 90 minutos.
+                </p>
+              </ScrollReveal>
+
+              <ScrollReveal delay={100}>
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
+                  <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
+                    <p className="text-lg sm:text-2xl font-black text-cb-orange"><AnimatedNumber value="6.793+" /></p>
+                    <p className="text-xs text-cb-text-muted mt-1">Alunos</p>
+                  </div>
+                  <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
+                    <p className="text-lg sm:text-2xl font-black text-cb-orange"><AnimatedNumber value="100+" /></p>
+                    <p className="text-xs text-cb-text-muted mt-1">Agentes</p>
+                  </div>
+                  <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
+                    <p className="text-lg sm:text-2xl font-black text-cb-orange"><AnimatedNumber value="50+" /></p>
+                    <p className="text-xs text-cb-text-muted mt-1">Empresas</p>
+                  </div>
                 </div>
-                <div className="bg-cb-surface border border-cb-border rounded-xl p-3 sm:p-4 text-center">
-                  <p className="text-lg sm:text-2xl font-black text-cb-orange">50+</p>
-                  <p className="text-xs text-cb-text-muted mt-1">Empresas</p>
-                </div>
-              </div>
+              </ScrollReveal>
 
               <div className="flex flex-wrap gap-3 mb-8">
                 <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-3 py-1.5 text-sm text-cb-text-secondary">

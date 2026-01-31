@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -9,6 +11,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { Flame, Lock, CheckCircle, AlertTriangle } from "lucide-react";
 
@@ -21,27 +25,33 @@ export default function LP2Urgencia() {
       {/* HERO - Countdown Centered */}
       <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-0 left-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[120px] animate-orb-1" /><div className="absolute bottom-0 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cb-orange/3 rounded-full blur-[100px] animate-orb-2" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
-            <Flame className="w-4 h-4 text-red-500" />
-            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscrições Encerrando</span>
-          </div>
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
+              <Flame className="w-4 h-4 text-red-500" />
+              <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscrições Encerrando</span>
+            </div>
 
-          <div className="mb-8">
-            <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />
-          </div>
+            <div className="mb-8">
+              <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />
+            </div>
+          </ScrollReveal>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
-            Última Chance de Criar seu{" "}
-            <span className="text-gradient-orange">Agente de IA</span>
-          </h1>
+          <ScrollReveal delay={100}>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+              Última Chance de Criar seu{" "}
+              <span className="text-gradient-orange">Agente de IA</span>
+            </h1>
 
-          <p className="text-base sm:text-xl text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
-          </p>
+            <p className="text-base sm:text-xl text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+              Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
+            </p>
+          </ScrollReveal>
 
-          <div id="inscricao">
-            <LeadCaptureForm buttonText="GARANTIR MINHA VAGA POR R$167" />
-          </div>
+          <ScrollReveal delay={200}>
+            <div id="inscricao">
+              <LeadCaptureForm buttonText="GARANTIR MINHA VAGA POR R$167" />
+            </div>
+          </ScrollReveal>
 
           <div className="max-w-md mx-auto mt-8">
             <div className="flex items-center justify-between text-sm mb-2">
@@ -69,7 +79,7 @@ export default function LP2Urgencia() {
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
           <div className="flex items-center gap-6 text-sm text-cb-text-muted">
-            <span><strong className="text-white">6.793+</strong> Builders</span>
+            <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><strong className="text-white">28/02</strong> 14h ao vivo</span>
           </div>
         </div>
@@ -78,9 +88,11 @@ export default function LP2Urgencia() {
       {/* Timeline de fechamento */}
       <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-black text-white text-center mb-10">
-            Cronograma de <span className="text-gradient-orange">Fechamento</span>
-          </h2>
+          <ScrollReveal>
+            <h2 className="text-2xl sm:text-3xl font-black text-white text-center mb-10">
+              Cronograma de <span className="text-gradient-orange">Fechamento</span>
+            </h2>
+          </ScrollReveal>
           <div className="grid sm:grid-cols-3 gap-4">
             <div className="p-6 bg-cb-surface border-2 border-green-500/30 rounded-2xl text-center">
               <Lock className="w-8 h-8 text-green-500 mx-auto mb-3" />

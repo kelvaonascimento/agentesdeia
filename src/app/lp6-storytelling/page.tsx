@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -9,6 +11,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { Quote, CheckCircle, X } from "lucide-react";
 
@@ -23,20 +27,24 @@ export default function LP6Storytelling() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <span className="text-cb-orange text-sm font-semibold uppercase tracking-widest mb-6 block">Uma história real</span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.12] mb-6">
-                &ldquo;Eu passava 3 horas por dia respondendo as mesmas perguntas. Até que criei um agente de IA em{" "}
-                <span className="text-gradient-orange">90 minutos.</span>&rdquo;
-              </h1>
-              <p className="text-base sm:text-lg text-cb-text-muted mb-6 leading-relaxed">
-                Essa é a história do Rafael. Empreendedor, sobrecarregado, e cansado de ouvir que IA era &ldquo;so para quem sabe programar.&rdquo; Ele estava errado. E você também pode estar.
-              </p>
-              <p className="text-cb-text-secondary mb-8 leading-relaxed">
-                No dia 28 de Fevereiro, você tem a chance de viver a mesma transformação. Em um workshop ao vivo de 90 minutos, sem código, com template pronto.
-              </p>
-              <div id="inscricao">
-                <LeadCaptureForm variant="compact" buttonText="QUERO VIVER ESSA TRANSFORMACAO - R$167" />
-              </div>
+              <ScrollReveal>
+                <span className="text-cb-orange text-sm font-semibold uppercase tracking-widest mb-6 block">Uma história real</span>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.12] mb-6">
+                  &ldquo;Eu passava 3 horas por dia respondendo as mesmas perguntas. Até que criei um agente de IA em{" "}
+                  <span className="text-gradient-orange">90 minutos.</span>&rdquo;
+                </h1>
+                <p className="text-base sm:text-lg text-cb-text-muted mb-6 leading-relaxed">
+                  Essa é a história do Rafael. Empreendedor, sobrecarregado, e cansado de ouvir que IA era &ldquo;só para quem sabe programar.&rdquo; Ele estava errado. E você também pode estar.
+                </p>
+                <p className="text-cb-text-secondary mb-8 leading-relaxed">
+                  No dia 28 de Fevereiro, você tem a chance de viver a mesma transformação. Em um workshop ao vivo de 90 minutos, sem código, com template pronto.
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={100}>
+                <div id="inscricao">
+                  <LeadCaptureForm variant="compact" buttonText="QUERO VIVER ESSA TRANSFORMAÇÃO - R$167" />
+                </div>
+              </ScrollReveal>
             </div>
             <div className="flex justify-center lg:justify-end">
               <div className="w-full max-w-md rounded-2xl overflow-hidden border border-cb-orange/20">
@@ -61,7 +69,7 @@ export default function LP6Storytelling() {
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
           <div className="flex items-center gap-6 text-sm text-cb-text-muted">
-            <span><strong className="text-white">6.793+</strong> Builders</span>
+            <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><strong className="text-white">28/02</strong> 14h</span>
           </div>
         </div>

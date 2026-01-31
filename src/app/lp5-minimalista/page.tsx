@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -6,6 +8,8 @@ import TargetAudience from "@/components/TargetAudience";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { CheckCircle, ShieldCheck, Gift } from "lucide-react";
 
@@ -18,22 +22,26 @@ export default function LP5Minimalista() {
       {/* HERO - Ultra Clean */}
       <section className="pt-32 sm:pt-40 pb-20 sm:pb-28 relative overflow-hidden bg-hero-gradient"><div className="absolute inset-0 bg-grid-pattern opacity-30" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-cb-orange text-sm font-semibold uppercase tracking-widest">
-            Workshop Ao Vivo &mdash; 28 de Fevereiro
-          </span>
+          <ScrollReveal>
+            <span className="text-cb-orange text-sm font-semibold uppercase tracking-widest">
+              Workshop Ao Vivo &mdash; 28 de Fevereiro
+            </span>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mt-6 mb-6">
-            Crie seu Agente de IA.{" "}
-            <span className="text-gradient-orange">Sem código.</span>
-          </h1>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mt-6 mb-6">
+              Crie seu Agente de IA.{" "}
+              <span className="text-gradient-orange">Sem código.</span>
+            </h1>
 
-          <p className="text-base sm:text-lg text-cb-text-muted mb-10 max-w-xl mx-auto leading-relaxed">
-            90 minutos. Um agente funcional. Um template para criar mais. R$167.
-          </p>
+            <p className="text-base sm:text-lg text-cb-text-muted mb-10 max-w-xl mx-auto leading-relaxed">
+              90 minutos. Um agente funcional. Um template para criar mais. R$167.
+            </p>
+          </ScrollReveal>
 
-          <div id="inscricao">
-            <LeadCaptureForm buttonText="GARANTIR MINHA VAGA" />
-          </div>
+          <ScrollReveal delay={100}>
+            <div id="inscricao">
+              <LeadCaptureForm buttonText="GARANTIR MINHA VAGA" />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -46,7 +54,7 @@ export default function LP5Minimalista() {
             </div>
             <div>
               <p className="text-white font-bold">Caio Vicentino</p>
-              <p className="text-cb-text-muted text-sm">Co-fundador Cultura Builder &middot; 6.793+ alunos &middot; Yield Hackers</p>
+              <p className="text-cb-text-muted text-sm">Co-fundador Cultura Builder &middot; <AnimatedNumber value="6.793+" /> alunos &middot; Yield Hackers</p>
             </div>
           </div>
         </div>

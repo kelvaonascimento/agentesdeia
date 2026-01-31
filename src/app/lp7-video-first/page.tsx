@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -9,6 +11,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { Play, Calendar, Clock, MapPin, Cpu, Zap, FileText } from "lucide-react";
 
@@ -31,16 +35,19 @@ export default function LP7VideoFirst() {
             <Image src="/images/expert/caio-2.png" alt="Caio Vicentino" fill className="object-cover opacity-20" />
           </div>
 
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
-              Crie seu Primeiro{" "}
-              <span className="text-gradient-orange">Agente de IA</span>
-              {" "}em 90 Minutos
-            </h1>
+          <ScrollReveal>
+            <div className="text-center">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+                Crie seu Primeiro{" "}
+                <span className="text-gradient-orange">Agente de IA</span>
+                {" "}em 90 Minutos
+              </h1>
 
-            <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-              Workshop ao vivo, prático, sem código. Assista ao convite e garanta sua vaga.
-            </p>
+              <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+                Workshop ao vivo, prático, sem código. Assista ao convite e garanta sua vaga.
+              </p>
+            </div>
+          </ScrollReveal>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
               <div className="flex items-center gap-2 bg-cb-surface border border-cb-border rounded-full px-4 py-2 text-sm text-cb-text-secondary">
@@ -77,7 +84,7 @@ export default function LP7VideoFirst() {
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
           <div className="flex items-center gap-6 text-sm text-cb-text-muted">
-            <span><strong className="text-white">6.793+</strong> Builders</span>
+            <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><strong className="text-white">90min</strong> ao vivo</span>
           </div>
         </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -9,6 +11,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { Star, Users, CheckCircle } from "lucide-react";
 
@@ -20,39 +24,44 @@ export default function LP4ProvaSocial() {
 
       <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
-            <Users className="w-4 h-4 text-cb-orange" />
-            <span className="text-cb-orange text-sm font-medium">+6.793 Builders já formados</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
-            Junte-se aos Builders que ja{" "}
-            <span className="text-gradient-orange">transformaram suas carreiras</span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Crie seu primeiro Agente de IA em 90 minutos. Workshop ao vivo, prático, sem código.
-          </p>
-
-          <div id="inscricao">
-            <LeadCaptureForm buttonText="QUERO SER O PROXIMO BUILDER - R$167" />
-          </div>
-
-          <div className="flex items-center justify-center gap-4 sm:gap-8 mt-10 pt-8 border-t border-cb-border">
-            <div className="text-center">
-              <p className="text-3xl sm:text-4xl font-black text-cb-orange">6.793+</p>
-              <p className="text-xs text-cb-text-muted mt-1">Alunos</p>
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
+              <Users className="w-4 h-4 text-cb-orange" />
+              <span className="text-cb-orange text-sm font-medium">+6.793 Builders já formados</span>
             </div>
-            <div className="w-px h-12 bg-cb-border" />
-            <div className="text-center">
-              <p className="text-3xl sm:text-4xl font-black text-cb-orange">100+</p>
-              <p className="text-xs text-cb-text-muted mt-1">Agentes Criados</p>
+
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+              Junte-se aos Builders que já{" "}
+              <span className="text-gradient-orange">transformaram suas carreiras</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+              Crie seu primeiro Agente de IA em 90 minutos. Workshop ao vivo, prático, sem código.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <div id="inscricao">
+              <LeadCaptureForm buttonText="QUERO SER O PRÓXIMO BUILDER - R$167" />
             </div>
-            <div className="w-px h-12 bg-cb-border" />
-            <div className="text-center">
-              <p className="text-3xl sm:text-4xl font-black text-cb-orange">4.9</p>
-              <p className="text-xs text-cb-text-muted mt-1">Avaliação</p>
-            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="flex items-center justify-center gap-4 sm:gap-8 mt-10 pt-8 border-t border-cb-border">
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-black text-cb-orange"><AnimatedNumber value="6.793+" /></p>
+                <p className="text-xs text-cb-text-muted mt-1">Alunos</p>
+              </div>
+              <div className="w-px h-12 bg-cb-border" />
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-black text-cb-orange"><AnimatedNumber value="100+" /></p>
+                <p className="text-xs text-cb-text-muted mt-1">Agentes Criados</p>
+              </div>
+              <div className="w-px h-12 bg-cb-border" />
+              <div className="text-center">
+                <p className="text-3xl sm:text-4xl font-black text-cb-orange"><AnimatedNumber value="4.9" /></p>
+                <p className="text-xs text-cb-text-muted mt-1">Avaliação</p>
+              </div>
             <div className="w-px h-12 bg-cb-border hidden sm:block" />
             <div className="text-center hidden sm:block">
               <div className="flex items-center gap-0.5 justify-center">

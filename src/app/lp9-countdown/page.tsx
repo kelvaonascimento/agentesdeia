@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/Header";
 import StickyBar from "@/components/StickyBar";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -9,6 +11,8 @@ import BonusGarantia from "@/components/BonusGarantia";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 import Image from "next/image";
 import { ArrowRight, Timer, Lock, AlertTriangle, CheckCircle } from "lucide-react";
 
@@ -36,28 +40,34 @@ export default function LP9Countdown() {
       {/* HERO */}
       <section className="bg-hero-gradient relative pt-28 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"><div className="absolute inset-0 bg-grid-pattern opacity-40" /><div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-cb-orange/5 rounded-full blur-[150px]" /><div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cb-orange/20 to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
-            <Timer className="w-4 h-4 text-red-400" />
-            <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscrições encerrando</span>
-          </div>
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-8">
+              <Timer className="w-4 h-4 text-red-400" />
+              <span className="text-red-400 text-sm font-semibold uppercase tracking-wider">Inscrições encerrando</span>
+            </div>
 
-          <div className="mb-10">
-            <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />
-          </div>
+            <div className="mb-10">
+              <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="large" />
+            </div>
+          </ScrollReveal>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
-            Crie seu Primeiro{" "}
-            <span className="text-gradient-orange">Agente de IA</span>
-            {" "}em 90 Minutos
-          </h1>
+          <ScrollReveal delay={100}>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.08] mb-6">
+              Crie seu Primeiro{" "}
+              <span className="text-gradient-orange">Agente de IA</span>
+              {" "}em 90 Minutos
+            </h1>
 
-          <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
-            Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
-          </p>
+            <p className="text-base sm:text-lg text-cb-text-secondary mb-8 max-w-2xl mx-auto">
+              Workshop ao vivo no dia 28 de Fevereiro. Sem código. Com template. Garantia de 7 dias.
+            </p>
+          </ScrollReveal>
 
-          <div id="inscricao">
-            <LeadCaptureForm buttonText="GARANTIR MINHA VAGA POR R$167" />
-          </div>
+          <ScrollReveal delay={200}>
+            <div id="inscricao">
+              <LeadCaptureForm buttonText="GARANTIR MINHA VAGA POR R$167" />
+            </div>
+          </ScrollReveal>
 
           <div className="max-w-md mx-auto mt-8">
             <div className="flex items-center justify-between text-sm mb-2">
@@ -84,7 +94,7 @@ export default function LP9Countdown() {
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
           <div className="flex items-center gap-6 text-sm text-cb-text-muted">
-            <span><strong className="text-white">6.793+</strong> Builders</span>
+            <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><strong className="text-white">28/02</strong> 14h ao vivo</span>
           </div>
         </div>

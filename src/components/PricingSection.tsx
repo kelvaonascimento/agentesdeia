@@ -6,8 +6,11 @@ interface PricingSectionProps {
   highlightText?: string;
 }
 
+// URL do checkout Pagar.me
+const CHECKOUT_URL = "https://payment-link-v3.pagar.me/pl_roLp6MW3jl0YomOTw8tPxD2zbgEA4wxN";
+
 export default function PricingSection({
-  checkoutUrl = "#checkout",
+  checkoutUrl = CHECKOUT_URL,
   headline = "GARANTA SUA VAGA NO WORKSHOP E APRENDA NA PRÁTICA",
   highlightText = "COMO CRIAR SEU PRIMEIRO AGENTE DE IA!",
 }: PricingSectionProps) {
