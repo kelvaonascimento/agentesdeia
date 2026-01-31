@@ -3,68 +3,68 @@ import { ArrowRight } from "lucide-react";
 const pages = [
   {
     path: "/workshop-agente-ia",
-    title: "LP1 - Pagina Principal Completa",
-    desc: "Landing page completa com todas as secoes do documento: Hero, Fim da Teoria, Para Quem, Passo a Passo, Expert, Bonus, FAQ e CTA Final.",
+    title: "Workshop Agente de IA",
+    desc: "Landing page principal completa com todas as seções: Hero, Fim da Teoria, Para Quem, Passo a Passo, Expert, Bônus, FAQ e CTA Final.",
     tag: "Principal",
   },
   {
-    path: "/lp2-urgencia",
-    title: "LP2 - Urgencia / Última Chance",
-    desc: "Foco total em escassez e urgencia. Countdown proeminente, barra de vagas preenchidas, alerta de ultima chamada.",
-    tag: "Urgencia",
+    path: "/automatize",
+    title: "Automatize com IA",
+    desc: "Foco em urgência e escassez. Countdown proeminente, barra de vagas preenchidas, alerta de última chamada.",
+    tag: "Urgência",
   },
   {
-    path: "/lp3-expert",
-    title: "LP3 - Foco no Expert",
-    desc: "Centrada no Caio Vicentino. Hero com foto grande, credenciais, citacao, bio detalhada. Autoridade como principal gatilho.",
+    path: "/construir-agente",
+    title: "Construir seu Agente",
+    desc: "Centrada no Caio Vicentino. Hero com foto grande, credenciais, citação, bio detalhada. Autoridade como principal gatilho.",
     tag: "Expert",
   },
   {
-    path: "/lp4-prova-social",
-    title: "LP4 - Prova Social",
-    desc: "6 depoimentos em grid, caso de estudo detalhado, números de resultado, social proof bar no hero.",
+    path: "/primeiro-agente",
+    title: "Seu Primeiro Agente",
+    desc: "6 depoimentos em grid, caso de estudo detalhado, números de resultado, prova social no hero.",
     tag: "Social Proof",
   },
   {
-    path: "/lp5-minimalista",
-    title: "LP5 - Minimalista",
-    desc: "Design ultra clean e direto. Poucos elementos, muito espaco em branco (escuro). Foco na clareza da mensagem.",
+    path: "/sem-codigo",
+    title: "Agente Sem Código",
+    desc: "Design ultra clean e direto. Poucos elementos, muito espaço em branco (escuro). Foco na clareza da mensagem.",
     tag: "Minimal",
   },
   {
-    path: "/lp6-storytelling",
-    title: "LP6 - Storytelling",
-    desc: "Comeca com uma história real de aluno. Jornada do espectador ao builder. Antes/Depois visual. Narrativa emocional.",
+    path: "/jornada-ia",
+    title: "Sua Jornada com IA",
+    desc: "Começa com uma história real de aluno. Jornada do espectador ao builder. Antes/Depois visual. Narrativa emocional.",
     tag: "Story",
   },
   {
-    path: "/lp7-video-first",
-    title: "LP7 - Video First",
-    desc: "Video placeholder proeminente no hero. Demonstracoes visuais do que sera construido. Layout orientado a midia.",
-    tag: "Video",
+    path: "/aula-ao-vivo",
+    title: "Aula Ao Vivo",
+    desc: "Vídeo placeholder proeminente no hero. Demonstrações visuais do que será construído. Layout orientado a mídia.",
+    tag: "Vídeo",
   },
   {
-    path: "/lp8-faq-focused",
-    title: "LP8 - FAQ Completo",
-    desc: "Quebra de objecoes como estrategia principal. Mitos vs Realidade. FAQ organizado por categorias. Ideal para retargeting.",
+    path: "/ia-pratica",
+    title: "IA na Prática",
+    desc: "Quebra de objeções como estratégia principal. Mitos vs Realidade. FAQ organizado por categorias. Ideal para retargeting.",
     tag: "FAQ",
   },
   {
-    path: "/lp9-countdown",
-    title: "LP9 - Countdown Sticky",
-    desc: "Barra fixa de countdown no rodape. Timeline de fechamento. Progress bar de vagas. Urgencia visual em cada secao.",
+    path: "/garantir-vaga",
+    title: "Garantir sua Vaga",
+    desc: "Barra fixa de countdown no rodapé. Timeline de fechamento. Progress bar de vagas. Urgência visual em cada seção.",
     tag: "Countdown",
   },
   {
-    path: "/lp10-mobile-cta",
-    title: "LP10 - Mobile CTA Sticky",
-    desc: "Otimizada para mobile com CTA fixo no rodape. Cards compactos, chips informativos, layout vertical otimizado.",
+    path: "/automacao",
+    title: "Automação com IA",
+    desc: "Otimizada para mobile com CTA fixo no rodapé. Cards compactos, chips informativos, layout vertical otimizado.",
     tag: "Mobile",
   },
   {
     path: "/obrigado",
-    title: "Pagina de Obrigado",
-    desc: "Confirmacao de inscrição + botao para entrar no grupo VIP do WhatsApp + instrucoes de preparacao para o workshop.",
+    title: "Página de Obrigado",
+    desc: "Confirmação de inscrição + botão para entrar no grupo VIP do WhatsApp + instruções de preparação para o workshop.",
     tag: "Obrigado",
   },
 ];
@@ -95,9 +95,9 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4">
-          {pages.map((page, i) => (
+          {pages.map((page) => (
             <a
-              key={i}
+              key={page.path}
               href={page.path}
               className="group bg-cb-surface border border-cb-border rounded-2xl p-6 hover:border-cb-orange/40 transition-all hover:translate-x-1"
             >
