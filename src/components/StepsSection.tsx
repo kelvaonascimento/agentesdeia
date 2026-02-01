@@ -9,14 +9,14 @@ const steps = [
     number: "01",
     title: "O Setup",
     time: "Minutos 0-20",
-    description: "Vamos configurar seu ambiente de construção do zero. Você vai entender a logica por trás de um agente e desenhar o seu primeiro fluxo.",
+    description: "Vamos configurar seu ambiente de construção do zero. Você vai entender a lógica por trás de um agente e desenhar o seu primeiro fluxo.",
   },
   {
     icon: Brain,
     number: "02",
-    title: "A Inteligencia",
+    title: "A Inteligência",
     time: "Minutos 20-50",
-    description: "E aqui que a magica acontece. Vamos conectar seu agente ao cerebro do ChatGPT/Claude e ensina-lo a pensar é a tomar decisoes.",
+    description: "É aqui que a mágica acontece. Vamos conectar seu agente ao cérebro do ChatGPT/Claude e ensiná-lo a pensar e a tomar decisões.",
   },
   {
     icon: Zap,

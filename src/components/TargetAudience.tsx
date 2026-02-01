@@ -8,19 +8,19 @@ const audiences = [
     icon: Briefcase,
     title: "O Profissional Eficiente",
     description:
-      "...esta sobrecarregado com tarefas manuais e quer usar a IA para recuperar seu tempo, aumentar sua produtividade e se tornar indispensavel na sua empresa.",
+      "...está sobrecarregado com tarefas manuais e quer usar a IA para recuperar seu tempo, aumentar sua produtividade e se tornar indispensável na sua empresa.",
   },
   {
     icon: Lightbulb,
-    title: "O Empreendedor Visionario",
+    title: "O Empreendedor Visionário",
     description:
-      "...quer automatizar processos, otimizar o atendimento, reduzir custos operacionais e escalar seu negocio sem precisar contratar um time de desenvolvedores.",
+      "...quer automatizar processos, otimizar o atendimento, reduzir custos operacionais e escalar seu negócio sem precisar contratar um time de desenvolvedores.",
   },
   {
     icon: Sparkles,
     title: "O Curioso Corajoso",
     description:
-      "...e fascinado por IA, mas se sente intimidado pelo código. Você quer dar o primeiro passo prático, criar seu primeiro projeto real e finalmente entender o poder da construção com IA.",
+      "...é fascinado por IA, mas se sente intimidado pelo código. Você quer dar o primeiro passo prático, criar seu primeiro projeto real e finalmente entender o poder da construção com IA.",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function TargetAudience({ variant = "default" }: TargetAudiencePr
         <ScrollReveal>
           <div className="text-center mb-14">
             <span className="inline-block bg-cb-orange/10 text-cb-orange text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full border border-cb-orange/20 mb-4">
-              Para quem e
+              Para quem é
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white">
               Este workshop é para <span className="text-gradient-orange">você que...</span>

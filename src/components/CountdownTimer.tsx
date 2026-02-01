@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gtm } from "@/lib/gtm";
 
 interface CountdownTimerProps {
   targetDate: string;
@@ -10,6 +11,7 @@ interface CountdownTimerProps {
 export default function CountdownTimer({ targetDate, variant = "default" }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
+  const hasTracked = useRef(false);
 
   useEffect(() => {
     setMounted(true);
@@ -23,18 +25,27 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
         return;
       }
 
-      setTimeLeft({
+      const newTimeLeft = {
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
-      });
+      };
+
+      setTimeLeft(newTimeLeft);
+
+      // Tracking: countdown_view (apenas uma vez por sessão)
+      if (!hasTracked.current) {
+        hasTracked.current = true;
+        const timeRemaining = `${newTimeLeft.days}d ${newTimeLeft.hours}h ${newTimeLeft.minutes}m`;
+        gtm.countdownView(variant, timeRemaining);
+      }
     };
 
     calculate();
     const timer = setInterval(calculate, 1000);
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [targetDate, variant]);
 
   const blocks = [
     { value: timeLeft.days, label: "Dias" },

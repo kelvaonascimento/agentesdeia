@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowRight, ShieldCheck, Lock } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 interface PricingSectionProps {
   checkoutUrl?: string;
@@ -14,6 +17,12 @@ export default function PricingSection({
   headline = "GARANTA SUA VAGA NO WORKSHOP E APRENDA NA PRÁTICA",
   highlightText = "COMO CRIAR SEU PRIMEIRO AGENTE DE IA!",
 }: PricingSectionProps) {
+  // Tracking: cta_click e checkout_initiated
+  const handleCheckoutClick = () => {
+    gtm.ctaClick("pricing_section", "QUERO MINHA VAGA");
+    gtm.checkoutInitiated();
+  };
+
   return (
     <section id="inscricao" className="py-16 sm:py-24 bg-[#0a0a0a]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -37,6 +46,7 @@ export default function PricingSection({
 
           <a
             href={checkoutUrl}
+            onClick={handleCheckoutClick}
             className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold text-base sm:text-lg px-8 py-4 sm:py-5 rounded-xl hover:brightness-110 transition-all btn-glow"
           >
             QUERO MINHA VAGA

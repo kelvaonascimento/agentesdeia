@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { gtm } from "@/lib/gtm";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,6 +12,11 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Tracking: cta_click no header
+  const handleCtaClick = () => {
+    gtm.ctaClick("header", "Garantir Vaga");
+  };
 
   return (
     <header
@@ -29,6 +35,7 @@ export default function Header() {
         />
         <a
           href="#inscricao"
+          onClick={handleCtaClick}
           className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-orange text-white px-3 py-2 sm:px-5 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm hover:brightness-110 transition-all"
         >
           Garantir Vaga

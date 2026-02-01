@@ -13,12 +13,20 @@ import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import PageTracker from "@/components/PageTracker";
 import Image from "next/image";
 import { ArrowRight, Timer, Lock, AlertTriangle, CheckCircle } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 export default function LP9Countdown() {
+  // Tracking: countdown_bar_click
+  const handleCountdownBarClick = () => {
+    gtm.ctaClick("countdown_bar", "Garantir Vaga - R$167");
+  };
+
   return (
     <>
+      <PageTracker pageName="Workshop Agente IA" variant="countdown" />
       <StickyBar />
       <Header />
 
@@ -30,7 +38,7 @@ export default function LP9Countdown() {
             <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="inline" />
             <span className="text-cb-text-muted text-sm hidden sm:block">para o encerramento</span>
           </div>
-          <a href="#inscricao" className="bg-gradient-orange text-white font-bold text-xs sm:text-sm px-4 py-3 sm:px-6 sm:py-2.5 min-h-[44px] rounded-lg hover:brightness-110 transition-all flex items-center gap-2">
+          <a href="#inscricao" onClick={handleCountdownBarClick} className="bg-gradient-orange text-white font-bold text-xs sm:text-sm px-4 py-3 sm:px-6 sm:py-2.5 min-h-[44px] rounded-lg hover:brightness-110 transition-all flex items-center gap-2">
             Garantir Vaga - R$167
             <ArrowRight className="w-4 h-4" />
           </a>

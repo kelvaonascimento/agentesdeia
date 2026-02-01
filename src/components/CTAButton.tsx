@@ -1,5 +1,7 @@
 "use client";
 
+import { gtm } from "@/lib/gtm";
+
 interface CTAButtonProps {
   text: string;
   href?: string;
@@ -8,6 +10,7 @@ interface CTAButtonProps {
   pulse?: boolean;
   className?: string;
   icon?: React.ReactNode;
+  location?: string;
 }
 
 export default function CTAButton({
@@ -18,6 +21,7 @@ export default function CTAButton({
   pulse = true,
   className = "",
   icon,
+  location = "section",
 }: CTAButtonProps) {
   const sizeClasses = {
     sm: "px-3 py-2 text-xs sm:text-sm",
@@ -33,9 +37,15 @@ export default function CTAButton({
     ghost: "bg-transparent text-cb-orange font-semibold hover:bg-cb-orange/10 underline-offset-4 hover:underline",
   };
 
+  // Tracking: cta_click
+  const handleClick = () => {
+    gtm.ctaClick(location, text);
+  };
+
   return (
     <a
       href={href}
+      onClick={handleClick}
       className={`inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
       {icon}

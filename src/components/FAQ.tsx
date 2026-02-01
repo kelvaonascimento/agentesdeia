@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 const faqData = [
   {
@@ -44,6 +45,12 @@ export default function FAQ({ variant = "default" }: FAQProps) {
   const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
 
   const toggleIndex = (index: number) => {
+    const isCurrentlyOpen = openIndexes.has(index);
+    const question = faqData[index]?.question || "";
+    
+    // Tracking: faq_click
+    gtm.faqClick(question, isCurrentlyOpen ? "close" : "open");
+    
     setOpenIndexes((prev) => {
       const next = new Set(prev);
       if (next.has(index)) {

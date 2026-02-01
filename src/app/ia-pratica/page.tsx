@@ -13,12 +13,14 @@ import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import PageTracker from "@/components/PageTracker";
 import Image from "next/image";
 import { XCircle, CheckCircle, ShieldCheck, Gift, HelpCircle } from "lucide-react";
 
 export default function LP8FAQFocused() {
   return (
     <>
+      <PageTracker pageName="Workshop Agente IA" variant="faq-focused" />
       <StickyBar />
       <Header />
 

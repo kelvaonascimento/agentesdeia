@@ -89,8 +89,8 @@ export default function Home() {
             Landing Pages do <span className="text-gradient-orange">Workshop</span>
           </h1>
           <p className="text-cb-text-muted text-lg max-w-2xl mx-auto">
-            10 landing pages diferentes + pagina de obrigado para o Workshop de Agentes de IA.
-            Cada uma com abordagem, layout e estrategia de conversao únicos.
+            10 landing pages diferentes + página de obrigado para o Workshop de Agentes de IA.
+            Cada uma com abordagem, layout e estratégia de conversão únicos.
           </p>
         </div>
 

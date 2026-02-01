@@ -13,12 +13,14 @@ import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import PageTracker from "@/components/PageTracker";
 import Image from "next/image";
 import { Flame, Lock, CheckCircle, AlertTriangle } from "lucide-react";
 
 export default function LP2Urgencia() {
   return (
     <>
+      <PageTracker pageName="Workshop Agente IA" variant="urgencia" />
       <StickyBar />
       <Header />
 

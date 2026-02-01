@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 // URL do checkout Pagar.me
 const CHECKOUT_URL = "https://payment-link-v3.pagar.me/pl_roLp6MW3jl0YomOTw8tPxD2zbgEA4wxN";
@@ -19,13 +20,16 @@ export default function LeadCaptureForm({
 }: LeadCaptureFormProps) {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
-
   const [error, setError] = useState("");
+  const formStarted = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    // Tracking: form_submit
+    gtm.formSubmit("inscricao", window.location.pathname);
 
     try {
       const response = await fetch("/api/subscribe", {
@@ -39,8 +43,13 @@ export default function LeadCaptureForm({
       const data = await response.json();
 
       if (!response.ok) {
+        // Tracking: form_error
+        gtm.formError(data.error || "Erro ao processar inscrição", "submit");
         throw new Error(data.error || "Erro ao processar inscrição");
       }
+
+      // Tracking: checkout_initiated (antes de redirecionar)
+      gtm.checkoutInitiated();
 
       // Sucesso - redirecionar para checkout do Pagar.me
       window.location.href = CHECKOUT_URL;
@@ -52,6 +61,11 @@ export default function LeadCaptureForm({
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Tracking: form_start (apenas uma vez)
+    if (!formStarted.current) {
+      formStarted.current = true;
+      gtm.formStart("inscricao", variant);
+    }
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 

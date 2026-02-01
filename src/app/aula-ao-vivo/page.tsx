@@ -13,12 +13,14 @@ import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import PageTracker from "@/components/PageTracker";
 import Image from "next/image";
 import { Play, Calendar, Clock, MapPin, Cpu, Zap, FileText } from "lucide-react";
 
 export default function LP7VideoFirst() {
   return (
     <>
+      <PageTracker pageName="Workshop Agente IA" variant="video-first" />
       <StickyBar />
       <Header />
 

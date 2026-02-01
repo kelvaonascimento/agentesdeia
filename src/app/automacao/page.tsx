@@ -9,18 +9,26 @@ import Footer from "@/components/Footer";
 import PartnersSection from "@/components/PartnersSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedNumber from "@/components/AnimatedNumber";
+import PageTracker from "@/components/PageTracker";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock, MapPin, CheckCircle, Settings, Brain, Zap, Rocket, Gift, ShieldCheck, Star, Users, ChevronRight } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 export default function LP10MobileCTA() {
+  // Tracking: mobile_cta_click
+  const handleMobileCtaClick = () => {
+    gtm.ctaClick("mobile_sticky", "Garantir Vaga - R$167");
+  };
+
   return (
     <>
+      <PageTracker pageName="Workshop Agente IA" variant="mobile-cta" />
       <StickyBar />
       <Header />
 
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-black/95 backdrop-blur-lg border-t border-cb-orange/20 p-3">
-        <a href="#inscricao" className="flex items-center justify-center gap-2 w-full bg-gradient-orange text-white font-bold py-4 rounded-xl animate-glow-pulse">
+        <a href="#inscricao" onClick={handleMobileCtaClick} className="flex items-center justify-center gap-2 w-full bg-gradient-orange text-white font-bold py-4 rounded-xl animate-glow-pulse">
           Garantir Vaga - R$167
           <ArrowRight className="w-5 h-5" />
         </a>
@@ -125,7 +133,7 @@ export default function LP10MobileCTA() {
           <div className="space-y-3">
             {[
               { icon: Settings, title: "Setup", time: "0-20min", desc: "Configure do zero" },
-              { icon: Brain, title: "Inteligencia", time: "20-50min", desc: "Conecte ao ChatGPT" },
+              { icon: Brain, title: "Inteligência", time: "20-50min", desc: "Conecte ao ChatGPT" },
               { icon: Zap, title: "Ação", time: "50-80min", desc: "Automatize uma tarefa" },
               { icon: Rocket, title: "Lançamento", time: "80-90min", desc: "Coloque no ar" },
             ].map((step, i) => {
@@ -150,7 +158,7 @@ export default function LP10MobileCTA() {
         </div>
       </section>
 
-      <PartnersSection variant="compact" />      <section className="py-10 sm:py-16 bg-cb-surface">
+      <section className="py-10 sm:py-16 bg-cb-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center gap-6 bg-cb-surface-light border border-cb-border rounded-2xl p-4 sm:p-6">
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden border border-cb-orange/20 shrink-0 relative">

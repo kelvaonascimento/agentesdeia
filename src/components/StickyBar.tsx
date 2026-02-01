@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import CountdownTimer from "./CountdownTimer";
 import { ArrowRight } from "lucide-react";
+import { gtm } from "@/lib/gtm";
 
 export default function StickyBar() {
   const [visible, setVisible] = useState(false);
@@ -12,6 +13,11 @@ export default function StickyBar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Tracking: sticky_bar_click
+  const handleClick = () => {
+    gtm.stickyBarClick();
+  };
 
   return (
     <div
@@ -35,6 +41,7 @@ export default function StickyBar() {
           </div>
           <a
             href="#inscricao"
+            onClick={handleClick}
             className="flex items-center gap-2 bg-gradient-orange text-white font-bold text-xs sm:text-sm px-4 py-2.5 sm:px-5 sm:py-2 min-h-[44px] rounded-lg hover:brightness-110 transition-all whitespace-nowrap"
           >
             Garantir Vaga - R$167
