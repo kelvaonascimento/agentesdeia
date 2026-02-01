@@ -3,6 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Redirect da página principal para o site culturabuilder.com
+      {
+        source: "/",
+        destination: "https://culturabuilder.com",
+        permanent: false, // false = 307 (temporário), permite mudar depois
+      },
       // Redirects das rotas antigas para as novas
       {
         source: "/lp2-urgencia",
