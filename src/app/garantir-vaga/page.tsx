@@ -31,16 +31,16 @@ export default function LP9Countdown() {
       <Header />
 
       {/* Fixed Bottom Countdown Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-lg border-t border-cb-orange/20 py-3 px-4">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <Timer className="w-5 h-5 text-cb-orange hidden sm:block" />
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-lg border-t border-cb-orange/20 py-3 px-3 sm:px-4 overflow-hidden">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-3 min-w-0">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 min-w-0 shrink overflow-hidden">
+            <Timer className="w-4 h-4 sm:w-5 sm:h-5 text-cb-orange shrink-0" />
             <CountdownTimer targetDate="2026-02-28T14:00:00-03:00" variant="inline" />
-            <span className="text-cb-text-muted text-sm hidden sm:block">para o encerramento</span>
+            <span className="text-cb-text-muted text-xs sm:text-sm hidden sm:inline">para o encerramento</span>
           </div>
-          <a href="#inscricao" onClick={handleCountdownBarClick} className="bg-gradient-orange text-white font-bold text-xs sm:text-sm px-4 py-3 sm:px-6 sm:py-2.5 min-h-[44px] rounded-lg hover:brightness-110 transition-all flex items-center gap-2">
+          <a href="#inscricao" onClick={handleCountdownBarClick} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold text-xs sm:text-sm px-4 py-3 sm:px-6 sm:py-2.5 min-h-[44px] rounded-lg hover:brightness-110 transition-all shrink-0">
             Garantir Vaga - R$167
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </a>
         </div>
       </div>
@@ -101,7 +101,7 @@ export default function LP9Countdown() {
             </div>
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
-          <div className="flex items-center gap-6 text-sm text-cb-text-muted">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-cb-text-muted">
             <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><strong className="text-white">28/02</strong> 14h ao vivo</span>
           </div>
@@ -157,7 +157,7 @@ export default function LP9Countdown() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 pb-24 sm:pb-24 mb-16">
+      <section className="py-16 sm:py-24 pb-28 sm:pb-24 mb-20 sm:mb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Timer className="w-12 h-12 text-cb-orange mx-auto mb-6" />
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">O relógio está correndo.</h2>

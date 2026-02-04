@@ -90,7 +90,7 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
 
   if (variant === "large") {
     return (
-      <div className="flex items-center justify-center gap-2 sm:gap-5">
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
         {blocks.map((block, i) => (
           <div key={block.label} className="flex items-center gap-2 sm:gap-5">
             <div className="relative group">

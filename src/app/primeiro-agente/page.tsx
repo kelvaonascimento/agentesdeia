@@ -88,7 +88,7 @@ export default function LP4ProvaSocial() {
             </div>
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
-          <div className="flex items-center gap-6 text-sm text-cb-text-muted">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-cb-text-muted">
             <span><strong className="text-white">28/02</strong> - 14h ao vivo</span>
             <span><strong className="text-white">Online</strong> - 90 minutos</span>
           </div>

@@ -46,7 +46,7 @@ export default function CTAButton({
     <a
       href={href}
       onClick={handleClick}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-300 cursor-pointer text-center break-words min-w-0 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
       {icon}
       {text}

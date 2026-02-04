@@ -27,10 +27,10 @@ export default function LP10MobileCTA() {
       <Header />
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-black/95 backdrop-blur-lg border-t border-cb-orange/20 p-3">
-        <a href="#inscricao" onClick={handleMobileCtaClick} className="flex items-center justify-center gap-2 w-full bg-gradient-orange text-white font-bold py-4 rounded-xl animate-glow-pulse">
+      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-black/95 backdrop-blur-lg border-t border-cb-orange/20 p-3 overflow-hidden">
+        <a href="#inscricao" onClick={handleMobileCtaClick} className="flex items-center justify-center gap-2 w-full bg-gradient-orange text-white font-bold py-4 px-4 rounded-xl animate-glow-pulse min-h-[48px] text-center">
           Garantir Vaga - R$167
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-5 h-5 shrink-0" />
         </a>
       </div>
 

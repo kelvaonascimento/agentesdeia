@@ -37,8 +37,8 @@ export default function LP1MainPage() {
             {/* Left - Content */}
             <div>
               <ScrollReveal delay={0} duration={600}>
-                <div className="inline-flex items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6">
-                  <span className="relative flex h-2 w-2">
+                <div className="inline-flex flex-wrap items-center gap-2 bg-cb-orange/10 border border-cb-orange/20 rounded-full px-4 py-1.5 mb-6 max-w-full">
+                  <span className="relative flex h-2 w-2 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cb-orange opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-cb-orange" />
                   </span>
@@ -131,7 +131,7 @@ export default function LP1MainPage() {
             </div>
           </div>
           <div className="hidden sm:block w-px h-8 bg-cb-border" />
-          <div className="flex items-center gap-6 text-sm text-cb-text-muted">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-cb-text-muted">
             <span><AnimatedNumber value="6.793+" className="text-white font-bold" /> Builders</span>
             <span><AnimatedNumber value="100+" className="text-white font-bold" /> Agentes criados</span>
             <span><strong className="text-white">Yield Hackers</strong></span>

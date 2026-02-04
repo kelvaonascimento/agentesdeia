@@ -70,7 +70,7 @@ export default function LeadCaptureForm({
   };
 
   const btnClass =
-    "w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold px-5 py-4 sm:px-6 rounded-xl transition-all disabled:opacity-70 whitespace-nowrap btn-glow text-sm sm:text-base min-h-[44px]";
+    "w-full inline-flex items-center justify-center gap-2 bg-gradient-orange text-white font-bold px-4 py-4 sm:px-6 rounded-xl transition-all disabled:opacity-70 btn-glow text-sm sm:text-base min-h-[48px] text-center break-words";
 
   if (variant === "inline") {
     return (
