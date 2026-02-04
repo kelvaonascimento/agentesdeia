@@ -76,8 +76,10 @@ export default function LeadCaptureForm({
     return (
       <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-2 ${className}`}>
         <input
+          id="lead-email-inline"
           type="email"
           name="email"
+          autoComplete="email"
           required
           placeholder="Seu melhor e-mail"
           value={formData.email}
@@ -98,8 +100,10 @@ export default function LeadCaptureForm({
       <form onSubmit={handleSubmit} className={`space-y-4 sm:space-y-3 ${className}`}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input
+            id="lead-name-compact"
             type="text"
             name="name"
+            autoComplete="name"
             required
             placeholder="Seu nome"
             value={formData.name}
@@ -107,8 +111,10 @@ export default function LeadCaptureForm({
             className="w-full bg-cb-surface border border-cb-border rounded-xl px-4 py-3 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
           />
           <input
+            id="lead-email-compact"
             type="email"
             name="email"
+            autoComplete="email"
             required
             placeholder="Seu melhor e-mail"
             value={formData.email}
@@ -117,8 +123,10 @@ export default function LeadCaptureForm({
           />
         </div>
         <input
+          id="lead-phone-compact"
           type="tel"
           name="phone"
+          autoComplete="tel"
           required
           placeholder="Seu WhatsApp (com DDD)"
           value={formData.phone}
@@ -137,8 +145,10 @@ export default function LeadCaptureForm({
   return (
     <form onSubmit={handleSubmit} className={`max-w-md mx-auto space-y-4 ${className}`}>
       <input
+        id="lead-name"
         type="text"
         name="name"
+        autoComplete="name"
         required
         placeholder="Seu nome completo"
         value={formData.name}
@@ -146,8 +156,10 @@ export default function LeadCaptureForm({
         className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
       />
       <input
+        id="lead-email"
         type="email"
         name="email"
+        autoComplete="email"
         required
         placeholder="Seu melhor e-mail"
         value={formData.email}
@@ -155,8 +167,10 @@ export default function LeadCaptureForm({
         className="w-full bg-cb-surface border border-cb-border rounded-xl px-5 py-4 text-white placeholder:text-cb-text-muted text-base sm:text-sm focus:outline-none focus:border-cb-orange focus:shadow-[0_0_15px_rgba(232,89,12,0.15)] transition-all"
       />
       <input
+        id="lead-phone"
         type="tel"
         name="phone"
+        autoComplete="tel"
         required
         placeholder="Seu WhatsApp (com DDD)"
         value={formData.phone}

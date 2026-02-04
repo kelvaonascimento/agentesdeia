@@ -52,7 +52,7 @@ export default function LP5Minimalista() {
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-4 p-5 bg-cb-surface border border-cb-border rounded-2xl">
             <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cb-orange shrink-0 relative">
-              <Image src="/images/expert/caio-5.png" alt="Caio Vicentino" fill className="object-cover" />
+              <Image src="/images/expert/caio-5.png" alt="Caio Vicentino" fill sizes="96px" className="object-cover" />
             </div>
             <div>
               <p className="text-white font-bold">Caio Vicentino</p>

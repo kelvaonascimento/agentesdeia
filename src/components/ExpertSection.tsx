@@ -96,7 +96,7 @@ export default function ExpertSection({ variant = "default", imageIndex = 1 }: E
               <div className="relative">
                 <div className="absolute -inset-6 bg-cb-orange/10 rounded-full blur-3xl" />
                 <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border border-cb-orange/30 glow-orange-sm">
-                  <Image src={imageSrc} alt="Caio Vicentino" fill className="object-cover" />
+                  <Image src={imageSrc} alt="Caio Vicentino" fill sizes="(max-width: 640px) 256px, 320px" className="object-cover" />
                 </div>
               </div>
             </div>
