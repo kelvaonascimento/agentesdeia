@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -16,12 +17,18 @@ export default function Footer() {
             Cultura Builder &copy; {new Date().getFullYear()}. Todos os direitos reservados. Hub de Inteligência Artificial.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-cb-text-muted text-xs sm:text-sm hover:text-cb-orange transition-colors">
+            <Link
+              href="/termos"
+              className="text-cb-text-muted text-xs sm:text-sm hover:text-cb-orange transition-colors"
+            >
               Termos de Uso
-            </a>
-            <a href="#" className="text-cb-text-muted text-xs sm:text-sm hover:text-cb-orange transition-colors">
+            </Link>
+            <Link
+              href="/politica-de-privacidade"
+              className="text-cb-text-muted text-xs sm:text-sm hover:text-cb-orange transition-colors"
+            >
               Privacidade
-            </a>
+            </Link>
           </div>
         </div>
       </div>

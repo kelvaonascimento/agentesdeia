@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Lock } from "lucide-react";
 
 const pages = [
   {
@@ -120,10 +120,17 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-cb-border">
           <p className="text-cb-text-muted text-sm">
             Cultura Builder &copy; {new Date().getFullYear()} | Hub de Inteligência Artificial
           </p>
+          <a
+            href="/login"
+            className="flex items-center gap-2 text-cb-text-muted hover:text-cb-orange text-sm transition-colors"
+          >
+            <Lock className="w-4 h-4" />
+            Área da Equipe
+          </a>
         </div>
       </div>
     </main>
