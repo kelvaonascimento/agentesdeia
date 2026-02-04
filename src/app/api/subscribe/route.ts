@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const INTERCOM_TOKEN = process.env.INTERCOM_ACCESS_TOKEN;
 const INTERCOM_API_URL = "https://api.intercom.io";
+const INTERCOM_VERSION = "2.14"; // mesma versão do token no Intercom
 
 // Tag que será aplicada aos leads do workshop
 const WORKSHOP_TAG = "workshop-agente-ia-fev26";
@@ -79,14 +80,14 @@ export async function POST(request: NextRequest) {
         Authorization: `Bearer ${INTERCOM_TOKEN}`,
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Intercom-Version": "2.11",
+        "Intercom-Version": INTERCOM_VERSION,
       },
       body: JSON.stringify(contactPayload),
     });
 
     if (!contactResponse.ok) {
       const errorBody = await contactResponse.text();
-      console.error("Erro ao criar contato no Intercom:", errorBody);
+      console.error("[Intercom] Falha ao criar contato. Status:", contactResponse.status, "Resposta:", errorBody);
       
       // Se o contato já existe, tenta buscar e atualizar
       if (contactResponse.status === 409) {
@@ -99,7 +100,7 @@ export async function POST(request: NextRequest) {
               Authorization: `Bearer ${INTERCOM_TOKEN}`,
               "Content-Type": "application/json",
               Accept: "application/json",
-              "Intercom-Version": "2.11",
+              "Intercom-Version": INTERCOM_VERSION,
             },
             body: JSON.stringify({
               query: {
@@ -128,7 +129,7 @@ export async function POST(request: NextRequest) {
                 Authorization: `Bearer ${INTERCOM_TOKEN}`,
                 "Content-Type": "application/json",
                 Accept: "application/json",
-                "Intercom-Version": "2.11",
+                "Intercom-Version": INTERCOM_VERSION,
               },
               body: JSON.stringify(updateData),
             });
@@ -180,7 +181,7 @@ async function applyTagToContact(contactId: string) {
       headers: {
         Authorization: `Bearer ${INTERCOM_TOKEN}`,
         Accept: "application/json",
-        "Intercom-Version": "2.11",
+        "Intercom-Version": INTERCOM_VERSION,
       },
     });
 
@@ -204,7 +205,7 @@ async function applyTagToContact(contactId: string) {
           Authorization: `Bearer ${INTERCOM_TOKEN}`,
           "Content-Type": "application/json",
           Accept: "application/json",
-          "Intercom-Version": "2.11",
+          "Intercom-Version": INTERCOM_VERSION,
         },
         body: JSON.stringify({
           name: WORKSHOP_TAG,
@@ -219,21 +220,27 @@ async function applyTagToContact(contactId: string) {
 
     // Aplicar tag ao contato
     if (tagId) {
-      await fetch(`${INTERCOM_API_URL}/contacts/${contactId}/tags`, {
+      const tagAttachRes = await fetch(`${INTERCOM_API_URL}/contacts/${contactId}/tags`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${INTERCOM_TOKEN}`,
           "Content-Type": "application/json",
           Accept: "application/json",
-          "Intercom-Version": "2.11",
+          "Intercom-Version": INTERCOM_VERSION,
         },
         body: JSON.stringify({
           id: tagId,
         }),
       });
+      if (!tagAttachRes.ok) {
+        const tagErr = await tagAttachRes.text();
+        console.error("[Intercom] Falha ao aplicar tag ao contato. Status:", tagAttachRes.status, "Resposta:", tagErr);
+      }
+    } else {
+      console.warn("[Intercom] Tag não encontrada/criada, contato ficará sem a tag", WORKSHOP_TAG);
     }
   } catch (error) {
-    console.error("Erro ao aplicar tag:", error);
+    console.error("[Intercom] Erro ao aplicar tag:", error);
     // Não lança erro para não bloquear o fluxo principal
   }
 }
