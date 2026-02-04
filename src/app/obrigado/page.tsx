@@ -4,14 +4,41 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CheckCircle, MessageCircle, ArrowRight, Clock, Users } from "lucide-react";
 import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { gtm } from "@/lib/gtm";
 
+const PURCHASE_SENT_KEY = "cb_purchase_tracked";
+
 export default function ThankYouPage() {
-  // Tracking: purchase ao carregar a página
+  const searchParams = useSearchParams();
+
+  // Tracking: purchase só quando há confirmação de pagamento (param na URL) ou uma vez por sessão
   useEffect(() => {
-    // Disparar evento de compra quando a página carrega
-    gtm.purchase();
-  }, []);
+    if (typeof window === "undefined") return;
+
+    const transactionId =
+      searchParams.get("transaction_id") ||
+      searchParams.get("order_id") ||
+      searchParams.get("payment_id") ||
+      searchParams.get("id") ||
+      "unknown";
+
+    // Se o Pagar.me enviar transaction_id na URL de sucesso, contamos só quando existir (evita acesso direto à página)
+    const hasPaymentParam =
+      searchParams.has("transaction_id") ||
+      searchParams.has("order_id") ||
+      searchParams.has("payment_id");
+
+    const sessionKey = hasPaymentParam ? `${PURCHASE_SENT_KEY}_${transactionId}` : PURCHASE_SENT_KEY;
+    if (sessionStorage.getItem(sessionKey)) return; // já disparou nesta sessão (evita refresh = múltiplas vendas)
+
+    // Só dispara purchase se: veio com param de pagamento OU é a primeira vez nesta sessão (fallback para link sem param)
+    if (hasPaymentParam || !sessionStorage.getItem(PURCHASE_SENT_KEY)) {
+      gtm.purchase(transactionId);
+      sessionStorage.setItem(sessionKey, "1");
+      sessionStorage.setItem(PURCHASE_SENT_KEY, "1"); // evita outro disparo sem param na mesma sessão
+    }
+  }, [searchParams]);
 
   // Tracking: whatsapp_click ao clicar no botão
   const handleWhatsAppClick = () => {
