@@ -75,3 +75,17 @@ export async function getLeads(limit = 150): Promise<{ leads: LeadRow[]; total: 
 export function isDbConfigured(): boolean {
   return Boolean(connectionString);
 }
+
+/** Testa a conexão com o Neon (para health check / produção). */
+export async function checkConnection(): Promise<{ ok: boolean; error?: string }> {
+  if (!sql) {
+    return { ok: false, error: "DATABASE_URL não configurada" };
+  }
+  try {
+    await sql`SELECT 1`;
+    return { ok: true };
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return { ok: false, error: message };
+  }
+}

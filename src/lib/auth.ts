@@ -4,6 +4,7 @@
  */
 
 import { cookies } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
 
 // Credenciais (obrigatórias via .env / Vercel; sem fallback para não expor segredos)
 const VALID_USERNAME = process.env.ADMIN_USERNAME ?? "";
@@ -54,6 +55,18 @@ export async function isAuthenticated(): Promise<boolean> {
   }
   
   return validateAuthToken(token.value);
+}
+
+/**
+ * Para uso em API routes: exige autenticação.
+ * Retorna uma NextResponse 401 se não autenticado; caso contrário retorna null.
+ */
+export function requireAuth(request: NextRequest): NextResponse | null {
+  const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
+  if (!token || !validateAuthToken(token)) {
+    return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
+  }
+  return null;
 }
 
 /**

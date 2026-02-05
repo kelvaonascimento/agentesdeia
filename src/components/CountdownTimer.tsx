@@ -14,7 +14,7 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
   const hasTracked = useRef(false);
 
   useEffect(() => {
-    setMounted(true);
+    const id = setTimeout(() => setMounted(true), 0);
     const calculate = () => {
       const now = new Date().getTime();
       const target = new Date(targetDate).getTime();
@@ -44,7 +44,10 @@ export default function CountdownTimer({ targetDate, variant = "default" }: Coun
 
     calculate();
     const timer = setInterval(calculate, 1000);
-    return () => clearInterval(timer);
+    return () => {
+      clearTimeout(id);
+      clearInterval(timer);
+    };
   }, [targetDate, variant]);
 
   const blocks = [

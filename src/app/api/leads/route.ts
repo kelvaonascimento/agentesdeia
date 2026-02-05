@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { requireAuth } from "@/lib/auth";
 import { getLeads as getLeadsFromNeon, isDbConfigured } from "@/lib/db";
 
 const INTERCOM_TOKEN = process.env.INTERCOM_ACCESS_TOKEN;
@@ -32,11 +33,12 @@ async function getWorkshopTagId(): Promise<string | null> {
 
 /**
  * GET /api/leads
- * Só inscritos das LPs do workshop:
- * - Se DATABASE_URL: lê do Neon (só quem passou pelo formulário).
- * - Se Intercom: filtra por tag workshop-agente-ia-fev26 (só inscritos do workshop).
+ * Só inscritos das LPs do workshop (requer autenticação).
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const unauth = requireAuth(request);
+  if (unauth) return unauth;
+
   try {
     if (isDbConfigured()) {
       const { leads, total } = await getLeadsFromNeon(150);

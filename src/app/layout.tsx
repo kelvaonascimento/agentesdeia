@@ -33,6 +33,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         {/* Google Tag Manager */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga -- GTM inline por ID específico */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

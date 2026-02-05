@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { requireAuth } from "@/lib/auth";
 import {
   getGA4Metrics,
   getGA4Events,
@@ -8,6 +9,9 @@ import {
 } from "@/lib/googleAnalytics";
 
 export async function GET(request: NextRequest) {
+  const unauth = requireAuth(request);
+  if (unauth) return unauth;
+
   try {
     // Verificar se as credenciais estão configuradas (Service Account para GA4 Data API)
     const missing: string[] = [];

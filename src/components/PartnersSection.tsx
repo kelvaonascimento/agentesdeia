@@ -18,17 +18,6 @@ function AWSLogo({ className = "" }: { className?: string }) {
   );
 }
 
-function NVIDIALogo({ className = "" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 351 65" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-      <path d="M0 0h22.9v64.7H0V0zm119.9 0h22.9v64.7h-22.9V0z" />
-      <path d="M31.1 0L58.5 45.4V0h18.8v64.7h-25L24.9 19.3v45.4H6.1V0h25zm78.8 0h39.3v17.4h-16.4v8.4h15.3v16.3h-15.3v5.2h16.4v17.4H109.9V0zm67 0h22.9l13.3 38.5L226.4 0h22.9v64.7h-18.8V24.2l-10.8 33.3h-14.7L194.2 24v40.7h-18.3V0zm92.5 0h24l20.7 64.7h-21.9l-2.7-9.8h-18.8l-2.8 9.8h-19.3L269.4 0zm5.3 39.4h10.9l-5.4-19.6-5.5 19.6z" />
-      <path d="M176.7 0h-21.9v64.7H176.7c20.7 0 29.3-12.2 29.3-32.4C206 12.2 197.4 0 176.7 0zm-1 48.3h-2V16.4h2c10.7 0 13.2 6.7 13.2 15.9 0 9.3-2.5 16-13.2 16z" />
-      <path d="M334.6 0h-21.9v64.7h21.9c20.7 0 29.3-12.2 29.3-32.4C363.9 12.2 355.3 0 334.6 0zm-1 48.3h-2V16.4h2c10.7 0 13.2 6.7 13.2 15.9 0 9.3-2.5 16-13.2 16z" />
-    </svg>
-  );
-}
-
 export default function PartnersSection({ variant = "default" }: PartnersSectionProps) {
   if (variant === "compact") {
     return (

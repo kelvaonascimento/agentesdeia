@@ -6,7 +6,6 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 import CountdownTimer from "@/components/CountdownTimer";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import PartnersSection from "@/components/PartnersSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import PageTracker from "@/components/PageTracker";
