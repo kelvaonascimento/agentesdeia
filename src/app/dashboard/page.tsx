@@ -16,6 +16,7 @@ import {
   Eye,
   Clock,
   Percent,
+  UserPlus,
 } from "lucide-react";
 import AuthGuard from "@/components/AuthGuard";
 import DateRangePicker, { DateRange } from "@/components/dashboard/DateRangePicker";
@@ -33,7 +34,7 @@ import {
 } from "@/lib/mockData";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 
-type TabType = "geral" | "google" | "meta";
+type TabType = "geral" | "google" | "meta" | "leads";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -68,6 +69,7 @@ export default function DashboardPage() {
     { id: "geral" as TabType, label: "Visão Geral", icon: BarChart3 },
     { id: "google" as TabType, label: "Google", icon: TrendingUp },
     { id: "meta" as TabType, label: "Meta", icon: Target },
+    { id: "leads" as TabType, label: "Leads", icon: UserPlus },
   ];
 
   return (
@@ -144,6 +146,7 @@ export default function DashboardPage() {
           {activeTab === "meta" && (
             <MetaTab dateRange={dateRange} loading={loading} />
           )}
+          {activeTab === "leads" && <LeadsTab />}
         </main>
       </div>
     </AuthGuard>
@@ -529,6 +532,80 @@ function MetaTab({
         title="💰 Gastos por Dia"
         data={spendData}
         color="#E8590C"
+        loading={loading}
+      />
+    </div>
+  );
+}
+
+// =====================================================
+// Tab: Leads (Intercom)
+// =====================================================
+function LeadsTab() {
+  const [leads, setLeads] = useState<Record<string, string | number>[]>([]);
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    fetch("/api/leads")
+      .then((res) => {
+        if (!res.ok) throw new Error("Falha ao carregar leads");
+        return res.json();
+      })
+      .then((data) => {
+        if (!cancelled) {
+          setLeads(data.leads || []);
+          setTotal(data.total ?? 0);
+        }
+      })
+      .catch((err) => {
+        if (!cancelled) setError(err.message || "Erro ao buscar leads");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (error) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h2 className="text-xl font-bold text-white mb-1">Leads</h2>
+          <p className="text-cb-text-muted text-sm">Contatos capturados pelo formulário (Intercom)</p>
+        </div>
+        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center">
+          <p className="text-red-400 mb-2">Erro ao carregar leads</p>
+          <p className="text-cb-text-muted text-sm">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-xl font-bold text-white mb-1">Leads</h2>
+        <p className="text-cb-text-muted text-sm">
+          Contatos capturados pelo formulário (Intercom). Total: <strong>{total}</strong>
+        </p>
+      </div>
+
+      <DataTable
+        title="📋 Inscritos (Workshop Agente IA)"
+        columns={[
+          { key: "name", label: "Nome" },
+          { key: "email", label: "E-mail" },
+          { key: "phone", label: "Telefone" },
+          { key: "created_at", label: "Data", align: "right" },
+        ]}
+        data={leads}
         loading={loading}
       />
     </div>

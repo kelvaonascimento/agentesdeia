@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { insertLead } from "@/lib/db";
 
 const INTERCOM_TOKEN = process.env.INTERCOM_ACCESS_TOKEN;
 const INTERCOM_API_URL = "https://api.intercom.io";
@@ -137,6 +138,7 @@ export async function POST(request: NextRequest) {
             // Aplicar tag ao contato existente
             await applyTagToContact(existingContact.id);
 
+            await insertLead({ name, email, phone: formattedPhone ?? null });
             return NextResponse.json({
               success: true,
               message: "Contato atualizado com sucesso",
@@ -146,8 +148,8 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      // Se não conseguiu criar nem atualizar, retorna sucesso mesmo assim
-      // para não bloquear a experiência do usuário
+      // Se não conseguiu criar nem atualizar, salva no Neon mesmo assim e retorna sucesso
+      await insertLead({ name, email, phone: formattedPhone ?? null });
       return NextResponse.json({
         success: true,
         warning: "Erro ao sincronizar com Intercom, mas inscrição registrada",
@@ -160,6 +162,7 @@ export async function POST(request: NextRequest) {
     // 2. Aplicar tag ao contato
     await applyTagToContact(contactId);
 
+    await insertLead({ name, email, phone: formattedPhone ?? null });
     return NextResponse.json({
       success: true,
       message: "Inscrição realizada com sucesso",
