@@ -3,13 +3,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CheckCircle, MessageCircle, ArrowRight, Clock, Users } from "lucide-react";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { gtm } from "@/lib/gtm";
 
 const PURCHASE_SENT_KEY = "cb_purchase_tracked";
 
-export default function ThankYouPage() {
+function ThankYouContent() {
   const searchParams = useSearchParams();
 
   // Tracking: purchase só quando há confirmação de pagamento (param na URL) ou uma vez por sessão
@@ -118,5 +118,25 @@ export default function ThankYouPage() {
 
       <Footer />
     </>
+  );
+}
+
+function ThankYouFallback() {
+  return (
+    <>
+      <Header />
+      <section className="min-h-screen flex items-center justify-center pt-20">
+        <div className="animate-pulse text-cb-text-muted">Carregando...</div>
+      </section>
+      <Footer />
+    </>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense fallback={<ThankYouFallback />}>
+      <ThankYouContent />
+    </Suspense>
   );
 }
