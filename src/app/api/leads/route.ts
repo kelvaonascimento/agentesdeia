@@ -4,6 +4,7 @@ import { getLeads as getLeadsFromNeon, isDbConfigured } from "@/lib/db";
 const INTERCOM_TOKEN = process.env.INTERCOM_ACCESS_TOKEN;
 const INTERCOM_API_URL = "https://api.intercom.io";
 const INTERCOM_VERSION = "2.14";
+const WORKSHOP_TAG = "workshop-agente-ia-fev26";
 
 export interface LeadRow {
   id: string;
@@ -14,9 +15,26 @@ export interface LeadRow {
   role?: string;
 }
 
+/** Busca o ID da tag do workshop no Intercom */
+async function getWorkshopTagId(): Promise<string | null> {
+  const res = await fetch(`${INTERCOM_API_URL}/tags`, {
+    headers: {
+      Authorization: `Bearer ${INTERCOM_TOKEN}`,
+      Accept: "application/json",
+      "Intercom-Version": INTERCOM_VERSION,
+    },
+  });
+  if (!res.ok) return null;
+  const data = await res.json();
+  const tag = data.data?.find((t: { name: string }) => t.name === WORKSHOP_TAG);
+  return tag?.id ?? null;
+}
+
 /**
  * GET /api/leads
- * Se DATABASE_URL estiver definido, lê do Neon. Senão, lê do Intercom.
+ * Só inscritos das LPs do workshop:
+ * - Se DATABASE_URL: lê do Neon (só quem passou pelo formulário).
+ * - Se Intercom: filtra por tag workshop-agente-ia-fev26 (só inscritos do workshop).
  */
 export async function GET() {
   try {
@@ -32,6 +50,11 @@ export async function GET() {
       );
     }
 
+    const tagId = await getWorkshopTagId();
+    if (!tagId) {
+      return NextResponse.json({ leads: [], total: 0 });
+    }
+
     const response = await fetch(`${INTERCOM_API_URL}/contacts/search`, {
       method: "POST",
       headers: {
@@ -42,9 +65,9 @@ export async function GET() {
       },
       body: JSON.stringify({
         query: {
-          field: "role",
+          field: "tag_id",
           operator: "=",
-          value: "lead",
+          value: tagId,
         },
         pagination: { per_page: 150 },
       }),
