@@ -37,12 +37,15 @@ export default function LineChart({
     );
   }
 
+  const safeData = Array.isArray(data) ? data : [];
+  const hasData = safeData.length > 0;
+
   return (
-    <div className="bg-cb-surface border border-cb-border rounded-xl p-6">
+    <div className="bg-cb-surface border border-cb-border rounded-xl p-6 min-w-0">
       <h3 className="text-white font-semibold mb-6">{title}</h3>
-      <div className="h-64">
-        <ResponsiveContainer width="100%" height="100%">
-          <RechartsLineChart data={data}>
+      <div className="h-64 min-h-[256px] w-full min-w-[280px]" style={{ width: "100%" }}>
+        <ResponsiveContainer width="100%" height={256} minWidth={280} minHeight={256}>
+          <RechartsLineChart data={hasData ? safeData : [{ date: "-", value: 0 }]}>
             <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
             <XAxis
               dataKey="date"

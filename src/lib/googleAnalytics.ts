@@ -7,7 +7,18 @@ import { GoogleAuth } from "google-auth-library";
 
 const GA4_PROPERTY_ID = process.env.GA4_PROPERTY_ID;
 const GOOGLE_SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+
+/** Normaliza quebras de linha da chave (\\\\n e \\n no .env viram newline real). */
+function normalizePrivateKey(raw: string | undefined): string | undefined {
+  if (!raw?.trim()) return undefined;
+  const key = raw
+    .replace(/\\\\n/g, "\n")
+    .replace(/\\n/g, "\n")
+    .replace(/\r/g, "")
+    .trim();
+  return key.startsWith("-----BEGIN") ? key : undefined;
+}
+const GOOGLE_PRIVATE_KEY = normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY);
 
 const GA4_API_URL = `https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}:runReport`;
 
@@ -28,6 +39,11 @@ interface MetricData {
  * Obtém token de acesso do Google
  */
 async function getAccessToken(): Promise<string> {
+  if (!GOOGLE_PRIVATE_KEY) {
+    throw new Error(
+      "GOOGLE_PRIVATE_KEY inválida ou mal formatada. No .env.local use uma linha com \\n entre as linhas do PEM (ex.: \"-----BEGIN PRIVATE KEY-----\\nMIIE...\\n-----END PRIVATE KEY-----\\n\"). Copie o valor do campo private_key do JSON da conta de serviço."
+    );
+  }
   const auth = new GoogleAuth({
     credentials: {
       client_email: GOOGLE_SERVICE_ACCOUNT_EMAIL,

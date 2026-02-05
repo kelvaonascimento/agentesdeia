@@ -34,8 +34,7 @@ yarn-error.log*
 .env*
 
 # Google Cloud / service account credentials (nunca commitar)
-lowticket-486200-*.json
-*-credentials.json
+lowticket-486200-d9e363a24871.json
 
 # vercel
 .vercel

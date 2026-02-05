@@ -9,10 +9,17 @@ import {
 
 export async function GET(request: NextRequest) {
   try {
-    // Verificar se as credenciais estão configuradas
-    if (!process.env.GA4_PROPERTY_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
+    // Verificar se as credenciais estão configuradas (Service Account para GA4 Data API)
+    const missing: string[] = [];
+    if (!process.env.GA4_PROPERTY_ID) missing.push("GA4_PROPERTY_ID");
+    if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) missing.push("GOOGLE_SERVICE_ACCOUNT_EMAIL");
+    if (!process.env.GOOGLE_PRIVATE_KEY) missing.push("GOOGLE_PRIVATE_KEY");
+    if (missing.length > 0) {
       return NextResponse.json(
-        { error: "Credenciais do GA4 não configuradas" },
+        {
+          error: "Credenciais do GA4 não configuradas em produção",
+          details: `Defina na Vercel (Environment Variables): ${missing.join(", ")}. Use a chave da conta de serviço (JSON).`,
+        },
         { status: 500 }
       );
     }
@@ -42,11 +49,19 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     console.error("Erro ao buscar dados do GA4:", error);
+    const isPermission =
+      message.includes("403") ||
+      message.includes("PERMISSION_DENIED") ||
+      message.includes("permission");
     return NextResponse.json(
       {
         error: "Erro ao buscar dados do Google Analytics",
-        details: error instanceof Error ? error.message : "Erro desconhecido",
+        details: message,
+        hint: isPermission
+          ? "Adicione o e-mail da conta de serviço no GA4: Admin → Acesso à propriedade → Adicionar usuário (função Visualizador)."
+          : undefined,
       },
       { status: 500 }
     );

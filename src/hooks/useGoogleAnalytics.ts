@@ -48,7 +48,10 @@ export function useGoogleAnalytics(days: number = 7): UseGoogleAnalyticsResult {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || "Erro ao buscar dados");
+        const parts = [result.error || "Erro ao buscar dados"];
+        if (result.details) parts.push(result.details);
+        if (result.hint) parts.push(`→ ${result.hint}`);
+        throw new Error(parts.join(". "));
       }
 
       setData(result.data);

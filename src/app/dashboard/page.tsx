@@ -292,9 +292,9 @@ function GoogleTab({
           <h2 className="text-xl font-bold text-white mb-1">Google Analytics</h2>
           <p className="text-cb-text-muted text-sm">Métricas do GA4 - Workshop Agentes IA</p>
         </div>
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center">
-          <p className="text-red-400 mb-2">Erro ao carregar dados do GA4</p>
-          <p className="text-cb-text-muted text-sm">{error}</p>
+        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-left max-w-2xl">
+          <p className="text-red-400 font-medium mb-2">Erro ao carregar dados do GA4</p>
+          <p className="text-cb-text-muted text-sm whitespace-pre-wrap">{error}</p>
         </div>
       </div>
     );

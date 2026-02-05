@@ -5,11 +5,11 @@
 
 import { cookies } from "next/headers";
 
-// Credenciais (vêm do .env.local)
-const VALID_USERNAME = process.env.ADMIN_USERNAME || "Cultura";
-const VALID_PASSWORD = process.env.ADMIN_PASSWORD || "Builder2026!";
+// Credenciais (obrigatórias via .env / Vercel; sem fallback para não expor segredos)
+const VALID_USERNAME = process.env.ADMIN_USERNAME ?? "";
+const VALID_PASSWORD = process.env.ADMIN_PASSWORD ?? "";
 const AUTH_COOKIE_NAME = "cb_auth_token";
-const AUTH_SECRET = process.env.AUTH_SECRET || "cultura-builder-secret-key-2026";
+const AUTH_SECRET = process.env.AUTH_SECRET ?? "";
 
 /**
  * Valida as credenciais de login
