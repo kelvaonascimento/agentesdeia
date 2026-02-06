@@ -19,6 +19,9 @@ export function validateCredentials(username: string, password: string): boolean
   return username === VALID_USERNAME && password === VALID_PASSWORD;
 }
 
+/** Token válido por no máximo 8 dias (cookie é 7 dias; margem para clock skew) */
+const TOKEN_MAX_AGE_MS = 8 * 24 * 60 * 60 * 1000;
+
 /**
  * Cria um token simples de autenticação
  */
@@ -32,12 +35,14 @@ export function createAuthToken(): string {
 }
 
 /**
- * Valida o token de autenticação
+ * Valida o token de autenticação (inclui expiração)
  */
 export function validateAuthToken(token: string): boolean {
   try {
     const decoded = JSON.parse(Buffer.from(token, "base64").toString());
-    return decoded.authenticated === true && decoded.secret === AUTH_SECRET;
+    if (decoded.authenticated !== true || decoded.secret !== AUTH_SECRET) return false;
+    const age = Date.now() - (decoded.timestamp ?? 0);
+    return age >= 0 && age <= TOKEN_MAX_AGE_MS;
   } catch {
     return false;
   }

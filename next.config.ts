@@ -1,6 +1,33 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Reduz exposição de IDs de build nos bundles (diagnóstico BAIXA)
+  productionBrowserSourceMaps: false,
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: https: blob:",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.pagar.me https://generativelanguage.googleapis.com wss:",
+              "frame-ancestors 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+            ].join("; "),
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       // Redirect da página principal para o site culturabuilder.com

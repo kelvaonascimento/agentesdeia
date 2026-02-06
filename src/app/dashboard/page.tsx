@@ -70,7 +70,10 @@ export default function DashboardPage() {
   const handleLogout = async () => {
     setLoggingOut(true);
     try {
-      await fetch("/api/auth/logout", { method: "POST" });
+      await fetch("/api/auth/logout", {
+        method: "POST",
+        headers: { "X-CB-Dashboard-Logout": "1" },
+      });
       router.push("/login");
     } catch (error) {
       console.error("Erro ao fazer logout:", error);

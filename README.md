@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 Para o dashboard com vendas reais (Pagar.me) e demais integrações:
 
 - **Dashboard / Auth:** `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `AUTH_SECRET`
+- **Login (CORS):** `ALLOWED_ORIGINS` (opcional) — lista de origens permitidas separadas por vírgula (ex.: `https://seu-dominio.com,https://www.seu-dominio.com`). Se não definir, usa localhost e `VERCEL_URL`.
 - **Google Analytics (GA4):** `GA4_PROPERTY_ID`, `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`
 - **Meta Ads:** `META_ACCESS_TOKEN`, `META_AD_ACCOUNT_ID`
 - **Pagar.me (vendas reais):** `PAGARME_SECRET_KEY` — use a **chave secreta de produção** para que o dashboard mostre só vendas confirmadas (pagas). Em ambiente de teste, pedidos de teste não entram se você usar a chave de produção.
