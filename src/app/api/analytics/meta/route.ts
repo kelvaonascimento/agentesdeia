@@ -96,8 +96,10 @@ export async function GET(request: NextRequest) {
       time_range: timeRange,
     });
 
-    // Insights do período (totais)
+    // Só usamos dados filtrados por campanhas "Low Ticket". Nada da conta inteira.
     const actId = accountId.startsWith("act_") ? accountId : `act_${accountId}`;
+
+    // Checagem rápida se a API responde (não usamos esses totais; os totais vêm das campanhas Low Ticket)
     const insightsRes = await fetch(`${baseUrl}/${actId}/insights?${params}`);
     const insightsJson = await insightsRes.json();
 
@@ -135,24 +137,8 @@ export async function GET(request: NextRequest) {
 
     const daysUsed = days || 1;
 
-    // Gastos por dia (time_increment=1)
-    const dayParams = new URLSearchParams({
-      access_token: token,
-      fields: "spend",
-      time_range: timeRange,
-      time_increment: "1",
-    });
-    const byDayRes = await fetch(`${baseUrl}/${actId}/insights?${dayParams}`);
-    const byDayJson = await byDayRes.json();
-    let spendByDay: Array<{ date: string; value: number }> = [];
-    if (Array.isArray(byDayJson.data)) {
-      spendByDay = byDayJson.data.map((row: { date_start: string; spend: string }) => ({
-        date: row.date_start,
-        value: toNum(row.spend),
-      }));
-    }
-
-    // Gastos por dia só das campanhas Low Ticket (insights por campanha com time_increment=1)
+    let spendByDay: Array<{ date: string; value: number }>;
+    // Gastos por dia: só Low Ticket (insights por campanha com time_increment=1)
     const campaignDayParams = new URLSearchParams({
       access_token: token,
       level: "campaign",
@@ -183,15 +169,13 @@ export async function GET(request: NextRequest) {
       }
       spendByDay = out;
     } else {
-      // Fallback: garantir um ponto por dia a partir dos dados da conta
-      const byDate: Record<string, number> = {};
-      for (const p of spendByDay) byDate[p.date] = p.value;
+      // Sem dados por campanha ou erro: gastos por dia = só Low Ticket, então zeramos (não usar totais da conta)
       const out: Array<{ date: string; value: number }> = [];
       const cur = new Date(sinceStr);
       const end = new Date(untilStr);
       while (cur <= end) {
         const d = cur.toISOString().slice(0, 10);
-        out.push({ date: d, value: byDate[d] ?? 0 });
+        out.push({ date: d, value: 0 });
         cur.setDate(cur.getDate() + 1);
       }
       spendByDay = out;
@@ -415,6 +399,7 @@ export async function GET(request: NextRequest) {
       adsWithCreatives.sort((a, b) => b.spend - a.spend);
     }
 
+    // Resposta: 100% Low Ticket (soma das campanhas cujo nome contém "low ticket")
     const metrics = {
       impressions: lowTicketImpressions,
       reach: lowTicketReach,

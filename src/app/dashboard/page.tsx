@@ -21,6 +21,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import AuthGuard from "@/components/AuthGuard";
+import { ChatDrawer } from "@/components/dashboard/ChatDrawer";
 import DateRangePicker, {
   DateRange,
   CustomRange,
@@ -29,9 +30,11 @@ import DateRangePicker, {
 } from "@/components/dashboard/DateRangePicker";
 import MetricCard from "@/components/dashboard/MetricCard";
 import LineChart from "@/components/dashboard/LineChart";
+import BarChart from "@/components/dashboard/BarChart";
 import DataTable from "@/components/dashboard/DataTable";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 import { useMetaAnalytics } from "@/hooks/useMetaAnalytics";
+import { usePagarmeSales } from "@/hooks/usePagarmeSales";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -56,6 +59,7 @@ export default function DashboardPage() {
   });
   const [loading, setLoading] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   // Simula refresh dos dados
   const handleRefresh = () => {
@@ -173,6 +177,32 @@ export default function DashboardPage() {
           )}
           {activeTab === "leads" && <LeadsTab />}
         </main>
+
+        {/* Assistente: botão do chat só aparece quando a aba Comparativo está ativa */}
+        {activeTab === "comparativo" && (
+          <button
+            type="button"
+            onClick={() => setChatOpen(true)}
+            className="fixed bottom-6 right-6 z-30 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full border-0 bg-transparent shadow-lg hover:scale-105 active:scale-95 transition-transform focus:outline-none focus:ring-2 focus:ring-cb-orange focus:ring-offset-2 focus:ring-offset-background"
+            title="Abrir chat com assistente de tráfego"
+            aria-label="Abrir assistente de tráfego"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- PNG robô AI, fundo escuro some com screen */}
+            <img
+              src="/images/brand/ai-robot.png"
+              alt=""
+              className="w-full h-full object-contain pointer-events-none rounded-full"
+              style={{ mixBlendMode: "screen" }}
+            />
+          </button>
+        )}
+
+        <ChatDrawer
+          open={chatOpen}
+          onClose={() => setChatOpen(false)}
+          onSwitchToComparativo={() => setActiveTab("comparativo")}
+          comparativoTabActive={activeTab === "comparativo"}
+        />
       </div>
     </AuthGuard>
   );
@@ -198,10 +228,14 @@ function GoogleTab({
             (1000 * 60 * 60 * 24)
         ) + 1
       : parseInt(dateRange, 10);
-  const { data, loading: gaLoading, error } = useGoogleAnalytics(
-    Number.isNaN(days) ? 7 : Math.min(90, Math.max(1, days))
-  );
-  const loading = parentLoading || gaLoading;
+  const effectiveDays = Number.isNaN(days) ? 7 : Math.min(90, Math.max(1, days));
+  const { data, loading: gaLoading, error } = useGoogleAnalytics(effectiveDays);
+  const { data: pagarmeData, loading: pagarmeLoading } = usePagarmeSales({
+    days: effectiveDays,
+    since: dateRange === "custom" ? customRange.since : undefined,
+    until: dateRange === "custom" ? customRange.until : undefined,
+  });
+  const loading = parentLoading || gaLoading || pagarmeLoading;
 
   // Formatar duração média (segundos para mm:ss)
   const formatDuration = (seconds: number): string => {
@@ -302,12 +336,40 @@ function GoogleTab({
           loading={loading}
         />
         <MetricCard
-          title="purchase"
+          title="purchase (eventos GA4)"
           value={data?.events.purchase.value || 0}
           change={data?.events.purchase.change}
           icon={DollarSign}
           loading={loading}
         />
+      </div>
+
+      {/* Vendas reais – Pagar.me (só confirmadas; excl. boleto pendente e teste) */}
+      <div>
+        <h3 className="text-white font-semibold mb-2 text-sm">💰 Vendas reais (Pagar.me)</h3>
+        <p className="text-cb-text-muted text-xs mb-3">
+          Só pedidos <strong>pagos</strong> no período. Pendentes (ex.: boleto) e cancelados não entram nas confirmadas. Use a chave de produção para não contar testes.
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <MetricCard
+            title="Vendas confirmadas"
+            value={pagarmeData?.vendasConfirmadas ?? 0}
+            icon={CheckCircle2}
+            loading={loading}
+          />
+          <MetricCard
+            title="Pendentes (ex.: boleto)"
+            value={pagarmeData?.vendasPendentes ?? 0}
+            icon={Clock}
+            loading={loading}
+          />
+          <MetricCard
+            title="Receita (confirmadas)"
+            value={pagarmeData != null ? `R$ ${pagarmeData.totalReceitaConfirmada.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}` : "—"}
+            icon={DollarSign}
+            loading={loading}
+          />
+        </div>
       </div>
 
       {/* Gráfico */}
@@ -632,6 +694,38 @@ function MetaTab({
         loading={loading}
       />
 
+      {/* Painéis visuais – Meta: gasto e leads por campanha */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <BarChart
+          title="📊 Gasto por Campanha (Top 8)"
+          data={
+            m?.campaigns
+              ?.slice()
+              .sort((a, b) => b.spend - a.spend)
+              .slice(0, 8)
+              .map((c) => ({
+                name: c.name.length > 25 ? c.name.slice(0, 25) + "…" : c.name,
+                value: Math.round(c.spend * 100) / 100,
+              })) ?? []
+          }
+          loading={loading}
+        />
+        <BarChart
+          title="📈 Leads por Campanha (Top 8)"
+          data={
+            m?.campaigns
+              ?.slice()
+              .sort((a, b) => b.leads - a.leads)
+              .slice(0, 8)
+              .map((c) => ({
+                name: c.name.length > 25 ? c.name.slice(0, 25) + "…" : c.name,
+                value: c.leads,
+              })) ?? []
+          }
+          loading={loading}
+        />
+      </div>
+
       {/* Tabela – campanhas que estamos acompanhando no Meta */}
       <DataTable
         title="📋 Campanhas (Meta)"
@@ -710,8 +804,31 @@ function ComparativoTab({
 
   const ads = data?.ads ?? [];
 
+  // Resumo para o painel visual: contar saudáveis vs em atenção
+  const { countSaudavel, countAtencao, comparativoChartData } = (() => {
+    let saudavel = 0;
+    let atencao = 0;
+    for (const ad of ads) {
+      const cpl = ad.leads > 0 ? ad.spend / ad.leads : null;
+      const cpa = ad.purchases > 0 ? ad.spend / ad.purchases : null;
+      const leadToPurchase = ad.leads > 0 ? (ad.purchases / ad.leads) * 100 : null;
+      const ctrOk = ad.ctr >= base.ctrMin;
+      const cplOk = cpl != null ? cpl <= base.cplMax : true;
+      const cpaOk = cpa != null ? cpa <= base.cpaMax : true;
+      const rateOk = leadToPurchase != null ? leadToPurchase >= base.leadToPurchaseMin : true;
+      const isSaudavel = ctrOk && cplOk && cpaOk && rateOk;
+      if (isSaudavel) saudavel++;
+      else atencao++;
+    }
+    const chartData = [
+      { name: "Saudáveis", value: saudavel, color: "#10B981" },
+      { name: "Em atenção", value: atencao, color: "#F59E0B" },
+    ];
+    return { countSaudavel: saudavel, countAtencao: atencao, comparativoChartData: chartData };
+  })();
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-8" data-capture-comparativo>
       <div>
         <h2 className="text-xl font-bold text-white mb-1">Comparativo</h2>
         <p className="text-cb-text-muted text-sm">
@@ -738,7 +855,17 @@ function ComparativoTab({
           <p className="text-cb-text-muted">Nenhum anúncio encontrado nas campanhas Low Ticket no período. Ajuste o período ou confira as campanhas no Meta.</p>
         </div>
       ) : (
-        ads.map((ad) => {
+        <>
+          {/* Painel visual – resumo saudável vs atenção */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <MetricCard title="Saudáveis" value={String(countSaudavel)} suffix=" anúncios na base" icon={CheckCircle2} loading={false} />
+            <MetricCard title="Em atenção" value={String(countAtencao)} suffix=" anúncios para revisar" icon={AlertCircle} loading={false} />
+            <div className="lg:col-span-1">
+              <BarChart title="Distribuição (Saudável vs Atenção)" data={comparativoChartData} loading={false} />
+            </div>
+          </div>
+
+          {ads.map((ad) => {
           const cpl = ad.leads > 0 ? ad.spend / ad.leads : null;
           const cpa = ad.purchases > 0 ? ad.spend / ad.purchases : null;
           const leadToPurchase = ad.leads > 0 ? (ad.purchases / ad.leads) * 100 : null;
@@ -837,7 +964,8 @@ function ComparativoTab({
               )}
             </div>
           );
-        })
+        })}
+        </>
       )}
     </div>
   );
