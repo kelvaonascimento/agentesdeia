@@ -107,13 +107,26 @@ export const gtm = {
   },
 
   /**
-   * WhatsApp Click - Botão grupo VIP
+   * WhatsApp Click - Botão grupo VIP (obrigado)
    */
   whatsappClick: () => {
     trackEvent({
       event: "whatsapp_click",
       link_url: "https://chat.whatsapp.com/Dm7j5XHA83v3bwEqiH6vv8",
       cta_text: "ENTRAR NO GRUPO VIP DO WHATSAPP",
+    });
+  },
+
+  /**
+   * WhatsApp Click - Contato/suporte (qualquer página)
+   */
+  whatsappContactClick: (ctaLocation: string, ctaText: string) => {
+    trackEvent({
+      event: "whatsapp_click",
+      cta_location: ctaLocation,
+      cta_text: ctaText,
+      link_url: "https://api.whatsapp.com/send?phone=5511988628468",
+      page_url: typeof window !== "undefined" ? window.location.pathname : "",
     });
   },
 

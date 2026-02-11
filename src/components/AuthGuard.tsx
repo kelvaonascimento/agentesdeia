@@ -35,8 +35,11 @@ export default function AuthGuard({ children }: AuthGuardProps) {
 
   if (isChecking) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
+      <div
+        className="min-h-screen bg-background flex items-center justify-center"
+        suppressHydrationWarning
+      >
+        <div className="text-center" suppressHydrationWarning>
           <Loader2 className="w-10 h-10 text-cb-orange animate-spin mx-auto mb-4" />
           <p className="text-cb-text-muted">Verificando autenticação...</p>
         </div>

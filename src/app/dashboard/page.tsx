@@ -19,6 +19,8 @@ import {
   BarChart2,
   CheckCircle2,
   AlertCircle,
+  Copy,
+  Download,
 } from "lucide-react";
 import AuthGuard from "@/components/AuthGuard";
 import { ChatDrawer } from "@/components/dashboard/ChatDrawer";
@@ -34,8 +36,9 @@ import BarChart from "@/components/dashboard/BarChart";
 import DataTable from "@/components/dashboard/DataTable";
 import { useGoogleAnalytics } from "@/hooks/useGoogleAnalytics";
 import { useMetaAnalytics } from "@/hooks/useMetaAnalytics";
-import { usePagarmeSales } from "@/hooks/usePagarmeSales";
+import { usePagarmeSales, type VendaItem } from "@/hooks/usePagarmeSales";
 import { format, parseISO } from "date-fns";
+import type { Locale } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 // Base saudável Meta Ads (referência de tráfego pago sustentável – low ticket)
@@ -46,6 +49,12 @@ export const BASE_SAUDAVEL_META = {
   cpaMax: 60,               // CPA máximo saudável (R$) – paga custo e gera lucro em low ticket
   leadToPurchaseMin: 8,     // Taxa lead→compra mínima (%) – funil convertendo
 } as const;
+
+// Vendas adicionais (não vindas da API Pagar.me) – ex.: vendas que a API não retornou no período
+const VENDAS_ADICIONAIS_PAGARME: VendaItem[] = [
+  { id: "or_OqPBa7NslirW483X", nome: "FABIO MELO DE SOUZA", email: "—", data: "2026-02-04T11:32:47.000Z", valor: 167, origem: "—" },
+  { id: "or_Q7woXZ4fRHbx84ql", nome: "LAERTE DIAS DA SILVA JUNIOR", email: "—", data: "2026-02-05T10:32:59.000Z", valor: 167, origem: "—" },
+];
 
 type TabType = "google" | "meta" | "comparativo" | "leads";
 
@@ -212,6 +221,147 @@ export default function DashboardPage() {
 }
 
 // =====================================================
+// Quem comprou – tabela + copiar e-mails + exportar CSV (fonte de verdade Pagar.me)
+// =====================================================
+function QuemComprouSection({
+  vendas,
+  totalVendas,
+  loading,
+  format,
+  ptBR,
+}: {
+  vendas: VendaItem[];
+  totalVendas: number;
+  loading: boolean;
+  format: (date: Date, fmt: string, opts?: { locale: Locale }) => string;
+  ptBR: Locale;
+}) {
+  const [copiado, setCopiado] = useState(false);
+
+  const emails = vendas.map((v) => v.email).filter((e) => e && e !== "—");
+  const copyEmails = async () => {
+    if (emails.length === 0) return;
+    try {
+      await navigator.clipboard.writeText(emails.join("\n"));
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    } catch {
+      // fallback: prompt
+      const text = emails.join("\n");
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    }
+  };
+
+  const exportCSV = () => {
+    const BOM = "\uFEFF";
+    const header = "ID do pedido;Nome;Email;Data;Valor (R$);Origem";
+    const rows = vendas.map((v) =>
+      [
+        (v.id ?? "").replace(/;/g, ","),
+        (v.nome ?? "").replace(/;/g, ","),
+        (v.email ?? "").replace(/;/g, ","),
+        format(new Date(v.data), "dd/MM/yyyy HH:mm", { locale: ptBR }),
+        v.valor.toFixed(2).replace(".", ","),
+        (v.origem ?? "—").replace(/;/g, ","),
+      ].join(";")
+    );
+    const csv = BOM + header + "\n" + rows.join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `quem-comprou-workshop-${format(new Date(), "yyyy-MM-dd", { locale: ptBR })}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const tableData = vendas.map((v) => ({
+    ...v,
+    dataFormatada: format(new Date(v.data), "dd/MM/yyyy HH:mm", { locale: ptBR }),
+    valorFormatado: `R$ ${v.valor.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}`,
+  }));
+
+  if (loading) {
+    return (
+      <div className="bg-cb-surface border border-cb-border rounded-xl p-6 animate-pulse">
+        <div className="w-48 h-5 bg-cb-surface-light rounded mb-4" />
+        <div className="space-y-3">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className="h-10 bg-cb-surface-light rounded" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-cb-surface border border-cb-border rounded-xl p-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
+        <h3 className="text-white font-semibold">Quem comprou (últimas vendas)</h3>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={copyEmails}
+            disabled={emails.length === 0}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cb-surface-light border border-cb-border text-cb-text-secondary hover:bg-cb-surface-light/80 text-sm disabled:opacity-50"
+          >
+            <Copy className="w-4 h-4" />
+            {copiado ? "Copiado!" : "Copiar e-mails"}
+          </button>
+          <button
+            type="button"
+            onClick={exportCSV}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cb-orange text-white border-0 hover:opacity-90 text-sm"
+          >
+            <Download className="w-4 h-4" />
+            Exportar CSV
+          </button>
+        </div>
+      </div>
+      <p className="text-cb-text-muted text-xs mb-1">
+        <strong className="text-green-400">{totalVendas} vendas de R$ 167,00</strong> (Workshop) no período — mesma lista do filtro “quem já pagou” do Pagar.me.
+      </p>
+      <p className="text-cb-text-muted text-xs mb-4">
+        Copie os e-mails ou exporte o CSV para WhatsApp, e-mail ou backup.
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-cb-border">
+              <th className="py-3 px-4 text-xs font-semibold text-cb-text-muted uppercase tracking-wider text-left">ID do pedido</th>
+              <th className="py-3 px-4 text-xs font-semibold text-cb-text-muted uppercase tracking-wider text-left">Nome</th>
+              <th className="py-3 px-4 text-xs font-semibold text-cb-text-muted uppercase tracking-wider text-left">Email</th>
+              <th className="py-3 px-4 text-xs font-semibold text-cb-text-muted uppercase tracking-wider text-right">Data</th>
+              <th className="py-3 px-4 text-xs font-semibold text-cb-text-muted uppercase tracking-wider text-right">Valor</th>
+              <th className="py-3 px-4 text-xs font-semibold text-cb-text-muted uppercase tracking-wider text-left">Origem / anúncio</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, idx) => (
+              <tr key={row.id || idx} className="border-b border-cb-border/50 hover:bg-cb-surface-light/50 transition-colors">
+                <td className="py-3 px-4 text-sm text-cb-text-muted font-mono text-left">{row.id}</td>
+                <td className="py-3 px-4 text-sm text-cb-text-secondary text-left">{row.nome}</td>
+                <td className="py-3 px-4 text-sm text-cb-text-secondary text-left">{row.email}</td>
+                <td className="py-3 px-4 text-sm text-cb-text-secondary text-right">{row.dataFormatada}</td>
+                <td className="py-3 px-4 text-sm text-cb-text-secondary text-right">{row.valorFormatado}</td>
+                <td className="py-3 px-4 text-sm text-cb-text-secondary text-left">{row.origem}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// =====================================================
 // Tab: Google (DADOS REAIS DO GA4)
 // =====================================================
 function GoogleTab({
@@ -233,12 +383,26 @@ function GoogleTab({
       : parseInt(dateRange, 10);
   const effectiveDays = Number.isNaN(days) ? 7 : Math.min(90, Math.max(1, days));
   const { data, loading: gaLoading, error } = useGoogleAnalytics(effectiveDays);
-  const { data: pagarmeData, loading: pagarmeLoading } = usePagarmeSales({
+  const { data: pagarmeData, loading: pagarmeLoading, error: pagarmeError } = usePagarmeSales({
     days: effectiveDays,
     since: dateRange === "custom" ? customRange.since : undefined,
     until: dateRange === "custom" ? customRange.until : undefined,
   });
   const loading = parentLoading || gaLoading || pagarmeLoading;
+
+  // Mesclar vendas da API com vendas adicionais (as 2 que a API não traz); deduplica por id
+  const idsFromApi = new Set((pagarmeData?.ultimasVendas ?? []).map((v) => v.id));
+  const vendasAdicionaisSemDuplicata = VENDAS_ADICIONAIS_PAGARME.filter((v) => !idsFromApi.has(v.id));
+  const ultimasVendasExibido =
+    pagarmeData == null
+      ? []
+      : [...vendasAdicionaisSemDuplicata, ...(pagarmeData.ultimasVendas ?? [])].sort(
+          (a, b) => new Date(b.data).getTime() - new Date(a.data).getTime()
+        );
+  const vendasConfirmadasExibido =
+    pagarmeData == null ? 0 : pagarmeData.vendasConfirmadas + vendasAdicionaisSemDuplicata.length;
+  const totalReceitaExibido =
+    pagarmeData == null ? 0 : pagarmeData.totalReceitaConfirmada + vendasAdicionaisSemDuplicata.length * 167;
 
   // Formatar duração média (segundos para mm:ss)
   const formatDuration = (seconds: number): string => {
@@ -347,16 +511,27 @@ function GoogleTab({
         />
       </div>
 
-      {/* Vendas reais – Pagar.me (só confirmadas; excl. boleto pendente e teste) */}
+      {/* Vendas reais – Pagar.me (Workshop R$ 167; quem comprou; origem/anúncio) */}
       <div>
         <h3 className="text-white font-semibold mb-2 text-sm">💰 Vendas reais (Pagar.me)</h3>
         <p className="text-cb-text-muted text-xs mb-3">
-          Só pedidos <strong>pagos</strong> no período. Pendentes (ex.: boleto) e cancelados não entram nas confirmadas. Use a chave de produção para não contar testes.
+          Só pedidos <strong>pagos</strong> no período.
+          {pagarmeData?.filtroProdutoAtivo && (
+            <span className="text-green-400 ml-1">Filtro ativo: só produto Workshop (R$ 167).</span>
+          )}
+          {!pagarmeData?.filtroProdutoAtivo && pagarmeData && (
+            <span className="text-amber-400/90 ml-1">Mostrando todos os produtos. Para filtrar só Workshop: defina PAGARME_PRODUCT_AMOUNT_CENTS=16700 no .env.</span>
+          )}
         </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {pagarmeError && (
+          <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-200 text-sm">
+            <strong>Pagar.me não configurado.</strong> Adicione <code className="bg-black/30 px-1 rounded">PAGARME_SECRET_KEY</code> no .env.local ou na Vercel.
+          </div>
+        )}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <MetricCard
             title="Vendas confirmadas"
-            value={pagarmeData?.vendasConfirmadas ?? 0}
+            value={vendasConfirmadasExibido}
             icon={CheckCircle2}
             loading={loading}
           />
@@ -368,11 +543,20 @@ function GoogleTab({
           />
           <MetricCard
             title="Receita (confirmadas)"
-            value={pagarmeData != null ? `R$ ${pagarmeData.totalReceitaConfirmada.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}` : "—"}
+            value={pagarmeData != null ? `R$ ${totalReceitaExibido.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}` : "—"}
             icon={DollarSign}
             loading={loading}
           />
         </div>
+        {ultimasVendasExibido.length > 0 && (
+          <QuemComprouSection
+            vendas={ultimasVendasExibido}
+            totalVendas={vendasConfirmadasExibido}
+            loading={loading}
+            format={format}
+            ptBR={ptBR}
+          />
+        )}
       </div>
 
       {/* Gráfico */}

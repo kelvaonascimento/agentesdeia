@@ -20,29 +20,45 @@ function validateTokenInEdge(token: string, secret: string): boolean {
   }
 }
 
+/** Verifica se a rota é uma API que exige autenticação (bloqueio no Edge antes do handler). */
+function isProtectedApi(pathname: string): boolean {
+  if (pathname === "/api/leads" || pathname === "/api/chat") return true;
+  return pathname.startsWith("/api/analytics/");
+}
+
+function isAuthenticated(request: NextRequest): boolean {
+  const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
+  const secret = process.env.AUTH_SECRET ?? "";
+  return !!(token && secret && validateTokenInEdge(token, secret));
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Rotas que exigem autenticação (servidor): dashboard
+  // Páginas protegidas: redirecionar para /login
   const protectedPaths = ["/dashboard"];
-  const isProtected = protectedPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const isProtectedPage = protectedPaths.some((p) => pathname === p || pathname.startsWith(p + "/"));
 
-  if (isProtected) {
-    const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
-    const secret = process.env.AUTH_SECRET ?? "";
-
-    if (!token || !secret || !validateTokenInEdge(token, secret)) {
+  if (isProtectedPage) {
+    if (!isAuthenticated(request)) {
       const loginUrl = new URL("/login", request.url);
       loginUrl.searchParams.set("from", pathname);
       return NextResponse.redirect(loginUrl);
     }
+    return NextResponse.next();
+  }
+
+  // APIs protegidas: retornar 401 sem executar o handler
+  if (isProtectedApi(pathname)) {
+    if (!isAuthenticated(request)) {
+      return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
+    }
+    return NextResponse.next();
   }
 
   // Se já autenticado e tentando acessar /login, redirecionar para dashboard
   if (pathname === "/login") {
-    const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
-    const secret = process.env.AUTH_SECRET ?? "";
-    if (token && secret && validateTokenInEdge(token, secret)) {
+    if (isAuthenticated(request)) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
   }
@@ -51,5 +67,12 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard", "/dashboard/:path*", "/login"],
+  matcher: [
+    "/dashboard",
+    "/dashboard/:path*",
+    "/login",
+    "/api/analytics/:path*",
+    "/api/leads",
+    "/api/chat",
+  ],
 };

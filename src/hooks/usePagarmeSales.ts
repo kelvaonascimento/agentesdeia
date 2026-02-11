@@ -2,12 +2,23 @@
 
 import { useState, useEffect, useCallback } from "react";
 
+export interface VendaItem {
+  id: string;
+  nome: string;
+  email: string;
+  data: string;
+  valor: number;
+  origem: string;
+}
+
 export interface PagarmeSalesData {
   vendasConfirmadas: number;
   vendasPendentes: number;
   vendasCanceladasOuFalhas: number;
   totalReceitaConfirmada: number;
   periodo: { since: string; until: string };
+  filtroProdutoAtivo?: boolean;
+  ultimasVendas: VendaItem[];
   resumo: Array<{ label: string; value: number; status: string }>;
 }
 

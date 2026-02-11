@@ -14,11 +14,11 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.pagar.me https://generativelanguage.googleapis.com wss:",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://api.pagar.me https://generativelanguage.googleapis.com https://www.facebook.com https://connect.facebook.net wss:",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",
@@ -35,6 +35,12 @@ const nextConfig: NextConfig = {
         source: "/",
         destination: "https://culturabuilder.com",
         permanent: false, // false = 307 (temporário), permite mudar depois
+      },
+      // LP principal agora em /90-minutos; /principal redireciona
+      {
+        source: "/principal",
+        destination: "/90-minutos",
+        permanent: true,
       },
       // Redirects das rotas antigas para as novas
       {

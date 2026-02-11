@@ -100,6 +100,8 @@ export function getMetaMetrics() {
 // Top páginas
 export function getTopPages() {
   return [
+    { pagina: "/lps", visualizacoes: 0, conversoes: 0 },
+    { pagina: "/principal", visualizacoes: 0, conversoes: 0 },
     { pagina: "/workshop-agente-ia", visualizacoes: 3421, conversoes: 45 },
     { pagina: "/automatize", visualizacoes: 2156, conversoes: 32 },
     { pagina: "/construir-agente", visualizacoes: 1843, conversoes: 28 },

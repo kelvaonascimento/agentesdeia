@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         {/* Google Tag Manager */}
         {/* eslint-disable-next-line @next/next/next-script-for-ga -- GTM inline por ID específico */}
@@ -45,9 +45,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* End Google Tag Manager */}
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}
-        <noscript>
+        <noscript suppressHydrationWarning>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PNNJN7XM"
             height="0"
