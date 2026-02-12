@@ -144,8 +144,9 @@ export async function POST(request: NextRequest) {
     if (process.env.NODE_ENV === "development") {
       console.error("[api/chat] Gemini error:", err instanceof Error ? err : message);
     }
-    const isQuota = /quota|429|resource_exhausted|api key|invalid.*key/i.test(message);
-    const isAuth = /403|401|invalid|permission|api key not valid|API key not valid/i.test(message);
+    // Só considerar "limite de uso" para erros reais de cota/rate limit do provedor (Gemini)
+    const isQuota = /quota|429|resource_exhausted|rate limit/i.test(message);
+    const isAuth = /403|401|invalid|permission|api key not valid|API key not valid|api key|invalid.*key/i.test(message);
     const isBlocked = /blocked|safety|content/i.test(message);
     const userMessage = isQuota
       ? "Limite de uso atingido. Tente mais tarde."
